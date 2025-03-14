@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "326568398109",
+    "project_id": "devises25",
+    "storage_bucket": "devises25.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:326568398109:android:926238137e7d143baf65f4",
+        "android_client_info": {
+          "package_name": "com.example.devises"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHM9vM1-pSuNcqbxshYDRiUtBGAGuIjF4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

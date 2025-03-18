@@ -2,9 +2,9 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Devises" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-         <item name="colorPrimary">@color/green</item>
-         <item name="colorPrimaryVariant">@color/teal</item>
-         <item name="android:statusBarColor">@color/green</item>
+         <item name="colorPrimary">@color/orange</item>
+         <item name="colorPrimaryVariant">@color/orange</item>
+         <item name="android:statusBarColor">@color/orange</item>
     </style>
 
     <style name="Theme.Devises" parent="Base.Theme.Devises" />

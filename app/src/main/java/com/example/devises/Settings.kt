@@ -7,37 +7,26 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import com.example.devises.databinding.FragmentMainPageBinding
-import com.example.devises.databinding.FragmentWelcomeBinding
 import com.google.firebase.auth.FirebaseAuth
 
-
-class MainPage : Fragment() {
-
-    private lateinit var binding: FragmentMainPageBinding
+class Settings : Fragment() {
     private lateinit var logoutButton: AppCompatButton
     private lateinit var auth: FirebaseAuth
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentMainPageBinding.inflate(inflater, container, false)
-
-        binding.butProfile.setOnClickListener {
-            it.findNavController().navigate(R.id.action_mainPage_to_profile)
-        }
-        binding.butSettings.setOnClickListener {
-            it.findNavController().navigate(R.id.action_mainPage_to_settings)
-        }
-
-
-        return binding.root
+        return inflater.inflate(R.layout.fragment_settings, container, false)
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -51,9 +40,8 @@ class MainPage : Fragment() {
             Toast.makeText(requireContext(), "Logged out", Toast.LENGTH_SHORT).show()
 
             // Navigate to the LoginFragment
-            findNavController().navigate(R.id.action_mainPage_to_welcomeFragment)
+            findNavController().navigate(R.id.action_settings_to_welcomeFragment)
         }
-
-
-    }
 }
+}
+

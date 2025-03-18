@@ -5,10 +5,45 @@
     android:layout_height="match_parent"
     tools:context=".MainPage">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- Logout Button at the top left -->
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="left|top"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/logout_svgrepo_com"
+        android:padding="1dp"
+        android:textSize="20sp" />
+
+    <!-- LinearLayout for Profile and Settings buttons side by side in the bottom half -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_marginTop="200dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/but_settings"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="16dp"
+            android:text="@string/settings"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/but_profile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="16dp"
+            android:text="@string/profil"
+            android:textSize="20sp" />
+    </LinearLayout>
 
 </FrameLayout>

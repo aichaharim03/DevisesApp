@@ -2,9 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="green">#07554E</color>
-    <color name="teal">#208E84</color>
+    <color name="orange">#FF6E40</color>
+    <color name="ShearBlack">#800B0B0B</color>
     <color name="gray">#9AA1A1</color>
-    <color name="greenbk">#8001454C</color>
-    <color name="blue">#3F51B5</color>
+    <color name="greenbk">#80FFFFFF</color>
+    <color name="ShearOrange">#80FF6E40</color>
+
 </resources>

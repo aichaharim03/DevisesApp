@@ -39,8 +39,36 @@
             app:destination="@id/loginFragment" />
     </fragment>
     <fragment
+        android:id="@+id/profile"
+        android:name="com.example.devises.Profile"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profile_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
         android:id="@+id/mainPage"
         android:name="com.example.devises.MainPage"
         android:label="fragment_main_page"
-        tools:layout="@layout/fragment_main_page" />
+        tools:layout="@layout/fragment_main_page" >
+        <action
+            android:id="@+id/action_mainPage_to_profile"
+            app:destination="@id/profile" />
+        <action
+            android:id="@+id/action_mainPage_to_settings"
+            app:destination="@id/settings" />
+        <action
+            android:id="@+id/action_mainPage_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settings"
+        android:name="com.example.devises.Settings"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settings_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
 </navigation>

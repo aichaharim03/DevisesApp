@@ -1,10 +1,10 @@
-package com.example.devises
+package com.attijariwafabank.devisesapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.fragment.app.FragmentTransaction
+import com.attijariwafabank.devisesapp.R
 
 class MainActivity : AppCompatActivity() {
 

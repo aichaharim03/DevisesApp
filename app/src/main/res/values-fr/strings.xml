@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DevisesApp</string>
+    <string name="LoginPage">Se Connecter</string>
+    <string name="SignupPage">S\'authentifier</string>
+    <string name="WelcomePage">Bienvenu a Devises App</string>
+    <string name="backtoLogin">Vous avez deja un compte? Se Connecter!</string>
+    <string name="backtoSignUp">Vous n\'avez pas de compte? S\'authentifier!</string>
+    <string name="password">Mot de passe</string>
+    <string name="email">Email</string>
+    <string name="confirm_password">Confirmer le mot de passe</string>
+    <string name="settings">Parametres</string>
+    <string name="profil">Profile</string>
+    <string name="change_password">Changer le mot de passe</string>
+    <string name="confirm_new_password">Confirmer le nouveau mot de Password</string>
+    <string name="new_password">Nouveau mot de Password</string>
+    <string name="old_password">Ancien mot de Password</string>
+    <string name="languages">Langues</string>
+    <string name="goback">goback</string>
+    <string name="english">Anglais</string>
+    <string name="french">Francais</string>
+    <string name="messages_header">Messages</string>
+    <string name="signature_title">Signtaure</string>
+    <string name="reply_title">Reponses par defaut</string>
+    <string name="sync_header">Paramètres de synchronisation</string>
+    <string name="sync_title">Activer la synchronisation</string>
+    <string name="attachment_summary_off">Les pièces jointes ne seront pas téléchargées.</string>
+    <string name="attachment_summary_on">Les pièces jointes seront téléchargées automatiquement</string>
+    <string name="attachment_title">Télécharger les pièces jointes</string>
+</resources>

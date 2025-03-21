@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainPage">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.MainPageFragment">
 
-    <!-- Logout Button at the top left -->
     <Button
         android:id="@+id/logoutButton"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_gravity="left|top"
-        android:layout_marginLeft="16dp"
+        android:layout_gravity="start|top"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:text="@string/goback"
+        android:textColor="@color/black"
         android:background="@drawable/logout_svgrepo_com"
-        android:padding="1dp"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
-    <!-- LinearLayout for Profile and Settings buttons side by side in the bottom half -->
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="200dp"
-        android:layout_alignParentBottom="true"
         android:layout_marginBottom="50dp"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:gravity="center">
 
         <Button
             android:id="@+id/but_settings"
@@ -34,7 +35,11 @@
             android:layout_weight="1"
             android:padding="16dp"
             android:text="@string/settings"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/but_profile"
+            android:layout_marginEnd="8dp"/>
 
         <Button
             android:id="@+id/but_profile"
@@ -43,7 +48,11 @@
             android:layout_weight="1"
             android:padding="16dp"
             android:text="@string/profil"
-            android:textSize="20sp" />
-    </LinearLayout>
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/but_settings"
+            android:layout_marginStart="8dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

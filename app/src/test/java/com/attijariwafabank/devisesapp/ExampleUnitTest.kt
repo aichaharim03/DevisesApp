@@ -1,4 +1,4 @@
-package com.example.devises
+package com.attijariwafabank.devisesapp
 
 import org.junit.Test
 

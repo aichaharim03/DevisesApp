@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.devises"
+    namespace = "com.attijariwafabank.devisesapp"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.devises"
+        applicationId = "com.attijariwafabank.devisesapp"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -49,6 +49,9 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.firebase.auth)
     implementation ("androidx.core:core-ktx:1.12.0")
+    implementation (libs.androidx.constraintlayout)
+
+    implementation(libs.androidx.preference)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

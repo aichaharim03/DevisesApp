@@ -7,5 +7,6 @@
     <color name="gray">#9AA1A1</color>
     <color name="greenbk">#80FFFFFF</color>
     <color name="ShearOrange">#80FF6E40</color>
+    <color name="ShearBlack2">#40000000</color>
 
 </resources>

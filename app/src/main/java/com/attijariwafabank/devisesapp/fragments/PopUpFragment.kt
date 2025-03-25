@@ -1,30 +1,26 @@
 package com.attijariwafabank.devisesapp.fragments
 
-import android.content.res.Configuration
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.attijariwafabank.devisesapp.R
-import com.attijariwafabank.devisesapp.databinding.FragmentLanguagesBinding
-import com.attijariwafabank.devisesapp.databinding.FragmentLoginBinding
 import com.attijariwafabank.devisesapp.databinding.FragmentPopUpBinding
-import java.util.Locale
 
 
 class PopUpFragment : DialogFragment() {
 
-    private lateinit var binding: FragmentPopUpBinding
+    private var _binding: FragmentPopUpBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentPopUpBinding.inflate(inflater, container, false)
+    ): View {
+        _binding = FragmentPopUpBinding.inflate(inflater, container, false)
 
-        return binding.root
+        return _binding!!.root
 
 
     }
@@ -32,10 +28,10 @@ class PopUpFragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.butPopUpFr.setOnClickListener {
+        _binding?.butPopUpFr?.setOnClickListener {
             changeLanguage("fr")
         }
-        binding.butPopUpEng.setOnClickListener {
+        _binding?.butPopUpEng?.setOnClickListener {
             changeLanguage("eng")
         }
 
@@ -48,16 +44,19 @@ class PopUpFragment : DialogFragment() {
 
     private fun changeLanguage(language: String) {
         LanguagesFragment.selectedLanguage = language
-        val context = requireContext()
-        val locale = Locale(LanguagesFragment.selectedLanguage)
-        Locale.setDefault(locale)
 
-        val config = Configuration(context.resources.configuration)
-        config.setLocale(locale)
-        context.resources.updateConfiguration(config, context.resources.displayMetrics)
+        val sharedPreferences = requireActivity().getSharedPreferences(getString(R.string.settings), Context.MODE_PRIVATE)
+        with(sharedPreferences.edit()) {
+            putString("My_Lang", language)
+            apply()
+        }
 
-        // Restart current activity to apply new language
-        activity?.recreate()
+        requireActivity().recreate()
+    }
+    override fun onDestroyView() {
+        _binding = null
+        super.onDestroyView()
+
     }
 
 }

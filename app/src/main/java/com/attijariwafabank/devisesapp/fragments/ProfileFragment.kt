@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseUser
 
 class ProfileFragment : Fragment() {
 
-    private lateinit var binding: FragmentProfileBinding
+    private var _binding: FragmentProfileBinding? = null
     private lateinit var auth: FirebaseAuth
     private var currentUser: FirebaseUser? = null
 
@@ -23,9 +23,9 @@ class ProfileFragment : Fragment() {
 
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentProfileBinding.inflate(inflater, container, false)
-        return binding.root
+    ): View {
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
+        return _binding!!.root
     }
 
 
@@ -36,27 +36,27 @@ class ProfileFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
         currentUser = auth.currentUser
 
-        currentUser?.email?.let { email ->
-            binding.emailTextView.text = "Email: $email"
+        currentUser?.email?.let {
+            _binding?.emailTextView?.text  = getString(R.string.email)
         }
 
-        binding.changePasswordButton.setOnClickListener {
-            val oldPassword = binding.oldPasswordEditText.text.toString()
-            val newPassword = binding.newPasswordEditText.text.toString()
-            val confirmPassword = binding.confirmNewPasswordEditText.text.toString()
+        _binding?.changePasswordButton?.setOnClickListener {
+            val oldPassword = _binding!!.oldPasswordEditText.text.toString()
+            val newPassword = _binding!!.newPasswordEditText.text.toString()
+            val confirmPassword = _binding!!.confirmNewPasswordEditText.text.toString()
 
             if (oldPassword.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty()) {
-                Toast.makeText(requireContext(), "All fields are required", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.error_empty_field), Toast.LENGTH_SHORT).show()
             } else if (newPassword != confirmPassword) {
-                Toast.makeText(requireContext(), "New passwords do not match", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.error_passwords_notmatching), Toast.LENGTH_SHORT).show()
             } else {
                 changePassword(oldPassword, newPassword)
             }
         }
 
-        binding.logoutButton.setOnClickListener {
+        _binding?.logoutButton?.setOnClickListener {
             auth.signOut()
-            Toast.makeText(requireContext(), "Logged out", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.Logged_out), Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_profile_to_welcomeFragment)
         }
     }
@@ -81,5 +81,10 @@ class ProfileFragment : Fragment() {
                     Toast.makeText(requireContext(), "Old password is incorrect", Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+    override fun onDestroyView() {
+        _binding = null
+        super.onDestroyView()
+
     }
 }

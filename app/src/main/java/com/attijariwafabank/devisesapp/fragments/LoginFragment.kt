@@ -15,16 +15,16 @@ import com.google.firebase.auth.FirebaseAuth
 
 class LoginFragment : Fragment() {
 
-    private lateinit var binding: FragmentLoginBinding
+    private  var _binding: FragmentLoginBinding? = null
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentLoginBinding.inflate(inflater, container, false)
+    ): View {
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
         firebaseAuth = FirebaseAuth.getInstance()
-        return binding.root
+        return _binding!!.root
     }
 
 
@@ -35,12 +35,12 @@ class LoginFragment : Fragment() {
         val sharedPreferences = requireContext().getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
         val savedEmail = sharedPreferences.getString("userEmail", "")
         if (!savedEmail.isNullOrEmpty()) {
-            binding.LogInEmail.setText(savedEmail)
+            _binding?.LogInEmail?.setText(savedEmail)
         }
 
-        binding.butLogIn.setOnClickListener {
-            val email = binding.LogInEmail.text.toString()
-            val password = binding.LoginInPassword.text.toString()
+        _binding?.butLogIn?.setOnClickListener {
+            val email = _binding?.LogInEmail?.text.toString()
+            val password = _binding?.LoginInPassword?.text.toString()
 
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
@@ -54,12 +54,17 @@ class LoginFragment : Fragment() {
                     }
                 }
             } else {
-                Toast.makeText(requireContext(), "Fields cannot be empty", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(),getString(R.string.error_empty_field), Toast.LENGTH_SHORT).show()
             }
         }
 
-        binding.textViewBacktoSignUp.setOnClickListener {
+        _binding?.textViewBacktoSignUp?.setOnClickListener {
             it.findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
         }
+    }
+
+    override fun onDestroyView() {
+        _binding = null
+        super.onDestroyView()
     }
 }

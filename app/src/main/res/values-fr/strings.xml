@@ -27,4 +27,13 @@
     <string name="attachment_summary_off">Les pièces jointes ne seront pas téléchargées.</string>
     <string name="attachment_summary_on">Les pièces jointes seront téléchargées automatiquement</string>
     <string name="attachment_title">Télécharger les pièces jointes</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fr">Français</string>
+    <string name="en">English</string>
+    <string name="Logged_out">deconnecté</string>
+
+    <string name="error_empty_field">Champs ne peut pas etre vide</string>
+    <string name="error_passwords_notmatching">Les mots de passe ne sont pas identiques</string>
+
+
 </resources>

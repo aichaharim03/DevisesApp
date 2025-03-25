@@ -26,9 +26,11 @@
     <string name="attachment_summary_off">Attachments will not be downloaded.</string>
     <string name="attachment_summary_on">Attachments will be downloaded automatically</string>
     <string name="attachment_title">Download Attachments</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="fr">Français</string>
     <string name="en">English</string>
+    <string name="Logged_out">Logged out</string>
+    <string name="error_empty_field">Fields cannot be empty</string>
+    <string name="error_passwords_notmatching">Passwords do not match</string>
 
 </resources>

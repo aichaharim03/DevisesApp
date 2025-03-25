@@ -13,16 +13,16 @@ import com.google.firebase.auth.FirebaseAuth
 
 class SettingsFragment : Fragment() {
 
-    private lateinit var binding: FragmentSettingsBinding
+    private  var _binding: FragmentSettingsBinding? = null
     private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
-        binding = FragmentSettingsBinding.inflate(inflater, container, false)
-        return binding.root
+        _binding = FragmentSettingsBinding.inflate(inflater, container, false)
+        return _binding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -30,14 +30,20 @@ class SettingsFragment : Fragment() {
 
         auth = FirebaseAuth.getInstance()
 
-        binding.logoutButton.setOnClickListener {
+        _binding?.logoutButton?.setOnClickListener {
             auth.signOut()
             Toast.makeText(requireContext(), "Logged out", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_settings_to_welcomeFragment)
         }
-        binding.LanguagesButton.setOnClickListener {
+        _binding?.LanguagesButton?.setOnClickListener {
             findNavController().navigate(R.id.action_settings_to_languages)
         }
 
     }
+    override fun onDestroyView() {
+        _binding = null
+        super.onDestroyView()
+
+    }
+
 }

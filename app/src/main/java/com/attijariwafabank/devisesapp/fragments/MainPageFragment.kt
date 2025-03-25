@@ -1,48 +1,67 @@
 package com.attijariwafabank.devisesapp.fragments
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.core.view.MenuProvider
 import com.attijariwafabank.devisesapp.R
 import com.attijariwafabank.devisesapp.databinding.FragmentMainPageBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class MainPageFragment : Fragment() {
 
-    private lateinit var binding: FragmentMainPageBinding
+    private var _binding: FragmentMainPageBinding? = null
+    private val binding get() = _binding!!
     private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
-
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentMainPageBinding.inflate(inflater, container, false)
-
+    ): View {
+        _binding = FragmentMainPageBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val toolbar = binding.toolBar
+        (requireActivity() as AppCompatActivity).setSupportActionBar(toolbar)
+
         auth = FirebaseAuth.getInstance()
 
-        binding.butProfile.setOnClickListener {
-            findNavController().navigate(R.id.action_mainPage_to_profile)
-        }
+        requireActivity().addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.menu_tool_bar, menu)
+            }
 
-        binding.butSettings.setOnClickListener {
-            findNavController().navigate(R.id.action_mainPage_to_settings)
-        }
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                return when (menuItem.itemId) {
+                    R.id.tool_bar_settings -> {
+                        findNavController().navigate(R.id.action_mainPage_to_settings)  // Navigate to settings
+                        true
+                    }
+                    R.id.tool_bar_profil -> {
+                        findNavController().navigate(R.id.action_mainPage_to_profile)  // Navigate to profile
+                        true
+                    }
+                    R.id.tool_bar_logout -> {
+                        auth.signOut()
+                        Toast.makeText(requireContext(), "Logged out", Toast.LENGTH_SHORT).show()
+                        findNavController().navigate(R.id.action_mainPage_to_welcomeFragment)  // Navigate to welcome
+                        true
+                    }
+                    else -> false
+                }
+            }
+        }, viewLifecycleOwner)
+    }
 
-        binding.logoutButton.setOnClickListener {
-            auth.signOut()
-            Toast.makeText(requireContext(), "Logged out", Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_mainPage_to_welcomeFragment)
-        }
+    override fun onDestroyView() {
+        _binding = null
+        super.onDestroyView()
     }
 }

@@ -5,24 +5,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.PopupMenu
 import androidx.navigation.findNavController
 import com.attijariwafabank.devisesapp.R
 import com.attijariwafabank.devisesapp.databinding.FragmentWelcomeBinding
-import java.util.Locale
 
 class WelcomeFragment : Fragment() {
 
-    private lateinit var binding: FragmentWelcomeBinding
+    private var _binding: FragmentWelcomeBinding? =  null
 
     override fun onCreateView(
 
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
-        binding = FragmentWelcomeBinding.inflate(inflater, container, false)
-        return binding.root
+        _binding = FragmentWelcomeBinding.inflate(inflater, container, false)
+        return _binding!!.root
     }
 
 
@@ -30,16 +28,21 @@ class WelcomeFragment : Fragment() {
 
         super.onViewCreated(view, savedInstanceState)
 
-        binding.butWelcomeLogin.setOnClickListener {
+        _binding?.butWelcomeLogin?.setOnClickListener {
             it.findNavController().navigate(R.id.action_welcomeFragment_to_loginFragment)
         }
-        binding.butWelcomeSignup.setOnClickListener {
+        _binding?.butWelcomeSignup?.setOnClickListener {
             it.findNavController().navigate(R.id.action_welcomeFragment_to_signupFragment)
         }
-        binding.languageButton.setOnClickListener {
+        _binding?.languageButton?.setOnClickListener {
             val showPopUp = PopUpFragment()
             showPopUp.show(childFragmentManager,"PopUpFragment")
         }
+    }
+    override fun onDestroyView() {
+        _binding = null
+        super.onDestroyView()
+
     }
 
 }

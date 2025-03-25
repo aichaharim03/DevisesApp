@@ -14,17 +14,17 @@ import com.google.firebase.auth.FirebaseAuth
 
 class SignupFragment : Fragment() {
 
-    private lateinit var binding: FragmentSignupBinding
+    private var _binding: FragmentSignupBinding? = null
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreateView(
 
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
-        binding = FragmentSignupBinding.inflate(inflater, container, false)
-        return binding.root
+        _binding = FragmentSignupBinding.inflate(inflater, container, false)
+        return _binding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,20 +33,20 @@ class SignupFragment : Fragment() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        binding.butSignup.setOnClickListener {
+        _binding?.butSignup?.setOnClickListener {
             handleSignup()
         }
 
-        binding.textBacktoLogin.setOnClickListener {
-            it.findNavController()?.navigate(R.id.action_signupFragment_to_loginFragment2)
+        _binding?.textBacktoLogin?.setOnClickListener {
+            it.findNavController().navigate(R.id.action_signupFragment_to_loginFragment2)
         }
     }
 
     private fun handleSignup() {
 
-        val email = binding.signupEmail.text.toString()
-        val password = binding.signupPassword.text.toString()
-        val confirmPassword = binding.signupConfirmPassword.text.toString()
+        val email = _binding?.signupEmail?.text.toString()
+        val password = _binding?.signupPassword?.text.toString()
+        val confirmPassword = _binding?.signupConfirmPassword?.text.toString()
 
         if (email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()) {
             if (password == confirmPassword) {
@@ -58,11 +58,17 @@ class SignupFragment : Fragment() {
                     }
                 }
             } else {
-                Toast.makeText(requireContext(), "Passwords do not match", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.error_passwords_notmatching), Toast.LENGTH_SHORT).show()
             }
         } else {
-            Toast.makeText(requireContext(), "Fields cannot be empty", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.error_empty_field), Toast.LENGTH_SHORT).show()
         }
+    }
+
+    override fun onDestroyView() {
+        _binding = null
+        super.onDestroyView()
+
     }
 
 }

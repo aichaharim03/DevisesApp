@@ -1,4 +1,4 @@
-package com.attijariwafabank.devisesapp
+package com.attijariwafabank.devisesapp.activities
 
 import android.content.Context
 import android.content.res.Configuration
@@ -6,16 +6,19 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import com.attijariwafabank.devisesapp.R
+import com.attijariwafabank.devisesapp.databinding.ActivityDashboardBinding
 import java.util.Locale
 
-class MainActivity : AppCompatActivity() {
+class DashboardActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
+    private lateinit var binding: ActivityDashboardBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
+        binding = ActivityDashboardBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 
     override fun onSupportNavigateUp(): Boolean {

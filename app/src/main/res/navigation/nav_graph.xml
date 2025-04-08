@@ -3,49 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/welcomeFragment">
+    app:startDestination="@id/mainPage">
 
-    <fragment
-        android:id="@+id/welcomeFragment"
-        android:name="com.attijariwafabank.devisesapp.fragments.WelcomeFragment"
-        android:label="fragment_welcome"
-        tools:layout="@layout/fragment_welcome" >
-        <action
-            android:id="@+id/action_welcomeFragment_to_signupFragment"
-            app:destination="@id/signupFragment" />
-        <action
-            android:id="@+id/action_welcomeFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.attijariwafabank.devisesapp.fragments.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
-        <action
-            android:id="@+id/action_loginFragment_to_signupFragment"
-            app:destination="@id/signupFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_mainPage"
-            app:destination="@id/mainPage" />
-    </fragment>
-    <fragment
-        android:id="@+id/signupFragment"
-        android:name="com.attijariwafabank.devisesapp.fragments.SignupFragment"
-        android:label="fragment_signup"
-        tools:layout="@layout/fragment_signup" >
-        <action
-            android:id="@+id/action_signupFragment_to_loginFragment2"
-            app:destination="@id/loginFragment" />
-    </fragment>
     <fragment
         android:id="@+id/profile"
         android:name="com.attijariwafabank.devisesapp.fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
-        <action
-            android:id="@+id/action_profile_to_welcomeFragment"
-            app:destination="@id/welcomeFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/mainPage"
@@ -58,18 +23,14 @@
         <action
             android:id="@+id/action_mainPage_to_settings"
             app:destination="@id/settings" />
-        <action
-            android:id="@+id/action_mainPage_to_welcomeFragment"
-            app:destination="@id/welcomeFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/settings"
         android:name="com.attijariwafabank.devisesapp.fragments.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" >
-        <action
-            android:id="@+id/action_settings_to_welcomeFragment"
-            app:destination="@id/welcomeFragment" />
+
         <action
             android:id="@+id/action_settings_to_languages"
             app:destination="@id/languages" />

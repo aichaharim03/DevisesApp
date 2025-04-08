@@ -33,7 +33,7 @@ class SettingsFragment : Fragment() {
         _binding?.logoutButton?.setOnClickListener {
             auth.signOut()
             Toast.makeText(requireContext(), "Logged out", Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_settings_to_welcomeFragment)
+
         }
         _binding?.LanguagesButton?.setOnClickListener {
             findNavController().navigate(R.id.action_settings_to_languages)

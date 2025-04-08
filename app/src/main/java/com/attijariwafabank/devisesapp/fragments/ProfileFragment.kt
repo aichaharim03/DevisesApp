@@ -6,16 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.attijariwafabank.devisesapp.R
-import com.attijariwafabank.devisesapp.databinding.FragmentProfileBinding
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.attijariwafabank.devisesapp.databinding.FragmentProfileBinding
+
 
 class ProfileFragment : Fragment() {
 
-    private var _binding: FragmentProfileBinding? = null
+    private var _binding : FragmentProfileBinding? = null
     private lateinit var auth: FirebaseAuth
     private var currentUser: FirebaseUser? = null
 
@@ -57,7 +57,6 @@ class ProfileFragment : Fragment() {
         _binding?.logoutButton?.setOnClickListener {
             auth.signOut()
             Toast.makeText(requireContext(), getString(R.string.Logged_out), Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_profile_to_welcomeFragment)
         }
     }
 

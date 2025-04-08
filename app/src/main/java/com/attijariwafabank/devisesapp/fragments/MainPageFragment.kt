@@ -51,7 +51,7 @@ class MainPageFragment : Fragment() {
                     R.id.tool_bar_logout -> {
                         auth.signOut()
                         Toast.makeText(requireContext(), "Logged out", Toast.LENGTH_SHORT).show()
-                        findNavController().navigate(R.id.action_mainPage_to_welcomeFragment)  // Navigate to welcome
+
                         true
                     }
                     else -> false

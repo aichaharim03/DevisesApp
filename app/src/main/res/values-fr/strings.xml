@@ -34,6 +34,7 @@
 
     <string name="error_empty_field">Champs ne peut pas etre vide</string>
     <string name="error_passwords_notmatching">Les mots de passe ne sont pas identiques</string>
+    <string name="signup_success">Account Created</string>
 
 
 </resources>

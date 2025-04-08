@@ -32,5 +32,6 @@
     <string name="Logged_out">Logged out</string>
     <string name="error_empty_field">Fields cannot be empty</string>
     <string name="error_passwords_notmatching">Passwords do not match</string>
+    <string name="signup_success">Account Created</string>
 
 </resources>

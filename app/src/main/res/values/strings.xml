@@ -33,5 +33,9 @@
     <string name="error_empty_field">Fields cannot be empty</string>
     <string name="error_passwords_notmatching">Passwords do not match</string>
     <string name="signup_success">Account Created</string>
+    <string name="main_page">Main Page</string>
+    <string name="devises_app">Devises App</string>
+    <string name="open_nav">ouvrire navigateur</string>
+    <string name="close_nav">close nav</string>
 
 </resources>

@@ -25,40 +25,6 @@ class MainPageFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        val toolbar = binding.toolBar
-        (requireActivity() as AppCompatActivity).setSupportActionBar(toolbar)
-
-        auth = FirebaseAuth.getInstance()
-
-        requireActivity().addMenuProvider(object : MenuProvider {
-            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-                menuInflater.inflate(R.menu.menu_tool_bar, menu)
-            }
-
-            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                return when (menuItem.itemId) {
-                    R.id.tool_bar_settings -> {
-                        findNavController().navigate(R.id.action_mainPage_to_settings)  // Navigate to settings
-                        true
-                    }
-                    R.id.tool_bar_profil -> {
-                        findNavController().navigate(R.id.action_mainPage_to_profile)  // Navigate to profile
-                        true
-                    }
-                    R.id.tool_bar_logout -> {
-                        auth.signOut()
-                        Toast.makeText(requireContext(), "Logged out", Toast.LENGTH_SHORT).show()
-
-                        true
-                    }
-                    else -> false
-                }
-            }
-        }, viewLifecycleOwner)
-    }
 
     override fun onDestroyView() {
         _binding = null

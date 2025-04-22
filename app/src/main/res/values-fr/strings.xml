@@ -37,6 +37,7 @@
     <string name="signup_success">Account Created</string>
     <string name="main_page">Main Page</string>
     <string name="open_nav">ouvrire navigateur</string>
+    <string name="from">from</string>
 
 
 </resources>

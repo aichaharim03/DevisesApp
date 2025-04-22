@@ -29,19 +29,78 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="1dp"
+            android:layout_marginTop="?attr/actionBarSize"
             android:layout_marginEnd="1dp"
             android:layout_marginBottom="1dp"
-            android:layout_marginTop="?attr/actionBarSize"
             app:defaultNavHost="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/toolbar"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
             app:navGraph="@navigation/nav_graph" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/amountEditText"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="30dp"
+            android:padding="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:hint="@string/from"/>
+        <Spinner
+            android:id="@+id/fromCurrencySpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="116dp"
+            app:layout_constraintHorizontal_bias="0.319"
+            app:layout_constraintStart_toEndOf="@+id/amountEditText"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Button
+            android:id="@+id/convertButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="224dp"
+            android:text="@string/convert"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="156dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/resultTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="116dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:hint="@string/to"
+            android:padding="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_gravity="center_horizontal"
+            app:layout_constraintStart_toEndOf="@id/fromCurrencySpinner"/>
+
+        <Spinner
+            android:id="@+id/toCurrencySpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="116dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.319"
+            app:layout_constraintStart_toEndOf="@+id/resultTextView"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.google.android.material.navigation.NavigationView
+   <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/navigationView"

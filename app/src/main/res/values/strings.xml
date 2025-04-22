@@ -37,5 +37,8 @@
     <string name="devises_app">Devises App</string>
     <string name="open_nav">ouvrire navigateur</string>
     <string name="close_nav">close nav</string>
+    <string name="from">from</string>
+    <string name="to">to</string>
+    <string name="convert">convert</string>
 
 </resources>

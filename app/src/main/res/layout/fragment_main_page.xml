@@ -5,6 +5,16 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="75dp"
+        android:id="@+id/spinner"
+        android:spinnerMode="dropdown"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/currenciesRecyclerView"
         android:layout_width="0dp"
@@ -12,10 +22,11 @@
         android:clipToPadding="false"
         android:padding="16dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/spinner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:listitem="@layout/item_currency"/>
+        tools:listitem="@layout/item_currency"
+        android:layout_marginTop="75dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,4 +21,17 @@ class CurrencyRepository {
             }
         }
     }
+
+    suspend fun getCurrencies(accessKey: String): Currency? {
+        return withContext(Dispatchers.IO) {
+            try {
+                val response = RetrofitInstance.api.getCurrencies(accessKey)
+                if (response.isSuccessful) response.body() else null
+            } catch (e: Exception) {
+                e.printStackTrace()
+                null
+            }
+        }
+    }
+
 }

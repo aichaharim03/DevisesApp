@@ -1,33 +1,56 @@
 package com.attijariwafabank.devisesapp.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import androidx.core.view.MenuProvider
-import com.attijariwafabank.devisesapp.R
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.attijariwafabank.devisesapp.CurrencyViewModel
+import com.attijariwafabank.devisesapp.adapter.CurrenciesAdapter
 import com.attijariwafabank.devisesapp.databinding.FragmentMainPageBinding
-import com.google.firebase.auth.FirebaseAuth
 
 class MainPageFragment : Fragment() {
 
-    private var _binding: FragmentMainPageBinding? = null
-    private val binding get() = _binding!!
-    private lateinit var auth: FirebaseAuth
+    private var binding: FragmentMainPageBinding? = null
+    private lateinit var viewModel: CurrencyViewModel
+    private lateinit var adapter: CurrenciesAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentMainPageBinding.inflate(inflater, container, false)
-        return binding.root
+        binding = FragmentMainPageBinding.inflate(inflater, container, false)
+        return binding!!.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        adapter = CurrenciesAdapter()
+        binding?.currenciesRecyclerView?.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = this@MainPageFragment.adapter
+        }
+
+        viewModel = ViewModelProvider(requireActivity())[CurrencyViewModel::class.java]
+
+        // ✅ Correct LiveData observation
+        viewModel.currencies.observe(viewLifecycleOwner) { currencies ->
+            Log.d("Currencies", "Fetched: $currencies")
+            adapter.setData(currencies)
+        }
+
+        viewModel.errorLiveData.observe(viewLifecycleOwner) {
+            Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
+        }
+
+        viewModel.fetchCurrencies(accessKey = "ca153fc53a18d844476abcc90b57143c")
+    }
 
     override fun onDestroyView() {
-        _binding = null
+        binding = null
         super.onDestroyView()
     }
 }

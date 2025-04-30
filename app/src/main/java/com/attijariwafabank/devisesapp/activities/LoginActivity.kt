@@ -3,6 +3,7 @@ package com.attijariwafabank.devisesapp.activities
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.StrictMode
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.attijariwafabank.devisesapp.R
@@ -21,6 +22,7 @@ class LoginActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         setContentView(binding.root)
         setupUI()
+
 
     }
 

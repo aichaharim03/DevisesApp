@@ -33,7 +33,9 @@ class CurrencyViewModel : ViewModel() {
             try {
                 val response = repository.getCurrencies(accessKey)
                 if (response != null && response.success == true && response.quotes != null) {
-                    val currencies = response.quotes.keySet().toList()
+                    val currencies = response.quotes.entrySet()
+                        .map { entry -> "${entry.key}: ${entry.value}" }
+                        .toList()
                     _currencies.postValue(currencies)
                 } else {
                     _errorLiveData.postValue("Error: Unable to fetch currencies")

@@ -46,7 +46,7 @@ class MainPageFragment : Fragment() {
             Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
         }
 
-        viewModel.fetchCurrencies(accessKey = "ca153fc53a18d844476abcc90b57143c")
+        viewModel.fetchCurrencies(accessKey = "ca153fc53a18d844476abcc90b57143c", source = "MAD")
     }
 
     override fun onDestroyView() {

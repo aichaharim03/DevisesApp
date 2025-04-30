@@ -44,7 +44,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     override fun onStart() {
         super.onStart()
         navController = Navigation.findNavController(binding.navHostFragmentContainerView)
-        viewModel.fetchCurrencies("ca153fc53a18d844476abcc90b57143c")
+        viewModel.fetchCurrencies("ca153fc53a18d844476abcc90b57143c", "MAD")
         viewModel.errorLiveData.observe(this) {
             Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
         }

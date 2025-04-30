@@ -22,10 +22,10 @@ class CurrencyRepository {
         }
     }
 
-    suspend fun getCurrencies(accessKey: String): Currency? {
+    suspend fun getCurrencies(accessKey: String , source : String): Currency? {
         return withContext(Dispatchers.IO) {
             try {
-                val response = RetrofitInstance.api.getCurrencies(accessKey)
+                val response = RetrofitInstance.api.getCurrencies(accessKey,source)
                 if (response.isSuccessful) response.body() else null
             } catch (e: Exception) {
                 e.printStackTrace()

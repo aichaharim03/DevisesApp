@@ -13,5 +13,7 @@ interface CurrencyApiService {
         @Query("date") date: String? = null
     ): Response<CurrencyResponse>
     @GET("live")
-    suspend fun getCurrencies( @Query("access_key") accessKey: String): Response<Currency>
+    suspend fun getCurrencies( @Query("access_key") accessKey: String
+        , @Query("source") source: String
+    ): Response<Currency>
 }

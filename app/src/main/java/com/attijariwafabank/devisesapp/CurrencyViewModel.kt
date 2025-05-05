@@ -28,16 +28,16 @@ class CurrencyViewModel : ViewModel() {
             }
         }
     }
-    fun fetchCurrencies(accessKey: String , source: String) {
+    fun fetchCurrencies(accessKey: String , source: String , currencies: String? = null) {
         viewModelScope.launch {
             try {
-                val response = repository.getCurrencies(accessKey , source)
+                val response = repository.getCurrencies(accessKey , source , currencies)
                 if (response != null && response.success == true && response.quotes != null) {
-                    val sourcePrefix = response.source ?: "" // Retrieve the source dynamically
-                    val currencies = response.quotes.entrySet()
+                    val sourcePrefix = response.source ?: ""
+                    val currencyList = response.quotes.entrySet()
                         .map { entry -> "${entry.key.removePrefix(sourcePrefix)}: ${entry.value}" }
                         .toList()
-                    _currencies.postValue(currencies)
+                    _currencies.postValue(currencyList)
                 } else {
                     _errorLiveData.postValue("Error: Unable to fetch currencies")
                 }

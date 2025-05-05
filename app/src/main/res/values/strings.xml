@@ -40,5 +40,8 @@
     <string name="from">from</string>
     <string name="to">to</string>
     <string name="convert">convert</string>
+    <string name="navigation_drawer_open">nav open</string>
+    <string name="navigation_drawer_close">nav close</string>
+
 
 </resources>

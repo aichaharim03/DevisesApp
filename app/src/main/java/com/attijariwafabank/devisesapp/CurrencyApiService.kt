@@ -14,6 +14,6 @@ interface CurrencyApiService {
     ): Response<CurrencyResponse>
     @GET("live")
     suspend fun getCurrencies( @Query("access_key") accessKey: String
-        , @Query("source") source: String
+        , @Query("source") source: String , @Query("currencies") currencies: String?
     ): Response<Currency>
 }

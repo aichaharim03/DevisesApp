@@ -6,7 +6,30 @@
     <color name="ShearBlack">#800B0B0B</color>
     <color name="gray">#9AA1A1</color>
     <color name="greenbk">#80FFFFFF</color>
-    <color name="ShearOrange">#80FF6E40</color>
+    <color name="ShearOrange">#8BD3481C</color>
     <color name="ShearBlack2">#40000000</color>
+    <color name="Darker_gray">#AAAAAA</color>
+    <color name="Dark_blue">#273F4F</color>
+
+    <color name="primary_color">#1976D2</color>
+    <color name="primary_dark_color">#0D47A1</color>
+    <color name="accent_color">#4FF6B329</color>
+
+    <!-- Background colors -->
+    <color name="background_color">#F5F5F5</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="input_background">#FFFFFF</color>
+    <color name="input_stroke">#E0E0E0</color>
+
+    <!-- Text colors -->
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="text_hint">#BDBDBD</color>
+
+    <!-- Currency item colors -->
+    <color name="currency_up">#4CAF50</color>
+    <color name="currency_down">#F44336</color>
+
+
 
 </resources>

@@ -31,13 +31,19 @@
     <string name="fr">Français</string>
     <string name="en">English</string>
     <string name="Logged_out">deconnecté</string>
-
+    <string name="devises_app">Devises App</string>
     <string name="error_empty_field">Champs ne peut pas etre vide</string>
     <string name="error_passwords_notmatching">Les mots de passe ne sont pas identiques</string>
     <string name="signup_success">Account Created</string>
     <string name="main_page">Main Page</string>
     <string name="open_nav">ouvrire navigateur</string>
+    <string name="close_nav">fermer nav</string>
     <string name="from">from</string>
+    <string name="to">to</string>
+    <string name="convert">convertir</string>
+    <string name="navigation_drawer_open">ouvrir nav</string>
+    <string name="navigation_drawer_close">fermer nav</string>
+
 
 
 </resources>

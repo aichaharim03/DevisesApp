@@ -2,7 +2,19 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIns="navigation_view">
+    tools:showIns="navigation_view"
+    >
+
+    <item
+        android:title="">
+        <menu>
+            <item
+                android:id="@+id/userEmail"
+                android:title="@string/email"/>
+
+        </menu>
+    </item>
+
      <group
          android:checkableBehavior="single">
          <item

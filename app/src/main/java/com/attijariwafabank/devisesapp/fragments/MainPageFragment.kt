@@ -1,6 +1,5 @@
 package com.attijariwafabank.devisesapp.fragments
 
-import android.R
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -9,6 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.attijariwafabank.devisesapp.CurrencyViewModel
 import com.attijariwafabank.devisesapp.adapter.CurrenciesAdapter
@@ -28,6 +28,9 @@ class MainPageFragment : Fragment() {
         binding = FragmentMainPageBinding.inflate(inflater, container, false)
         return binding!!.root
     }
+
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -57,16 +60,24 @@ class MainPageFragment : Fragment() {
         binding?.spinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 val selectedSource = sourceCurrencies[position]
-                viewModel.fetchCurrencies("ca153fc53a18d844476abcc90b57143c", selectedSource)
+                viewModel.fetchCurrencies("ca153fc53a18d844476abcc90b57143c", selectedSource ,currencies = "USD,EUR,GBP,CAD,MAD,AUD,JPY,CHF,CNY,SEK,NZD,INR,MLR")
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                // Optional: You can set a default behavior
+                Toast.makeText(requireContext(), "You have to select a currency source", Toast.LENGTH_SHORT).show()
             }
+
+
         }
 
-        // Initial load
-        viewModel.fetchCurrencies("ca153fc53a18d844476abcc90b57143c", "USD")
+        viewModel.fetchCurrencies("ca153fc53a18d844476abcc90b57143c", "MAD")
+
+        adapter.setOnItemClickListener(object : CurrenciesAdapter.OnItemClickListener {
+            override fun onItemClick(currency: String) {
+                val action = MainPageFragmentDirections.actionMainPageToCurrencyGraphFragment()
+                findNavController().navigate(action)
+            }
+        })
     }
 
     override fun onDestroyView() {

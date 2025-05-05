@@ -1,6 +1,7 @@
 package com.attijariwafabank.devisesapp.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.attijariwafabank.devisesapp.databinding.ItemCurrencyBinding
@@ -8,20 +9,24 @@ import com.attijariwafabank.devisesapp.databinding.ItemCurrencyBinding
 class CurrenciesAdapter : RecyclerView.Adapter<CurrenciesAdapter.CurrencyViewHolder>() {
 
     private val currenciesList = mutableListOf<String>()
+    private var listener: OnItemClickListener? = null
 
-    fun setData(newCurrencies: List<String>) {
-        currenciesList.clear()
-        currenciesList.addAll(newCurrencies)
-        notifyDataSetChanged()
+    interface OnItemClickListener {
+        fun onItemClick(currency: String)
     }
 
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        this.listener = listener
+    }
 
+    inner class CurrencyViewHolder(private val binding: ItemCurrencyBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-
-
-    inner class CurrencyViewHolder(private val binding: ItemCurrencyBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(currency: String) {
             binding.currencyNameTextView.text = currency
+            binding.root.setOnClickListener {
+                listener?.onItemClick(currency)
+            }
         }
     }
 
@@ -35,4 +40,10 @@ class CurrenciesAdapter : RecyclerView.Adapter<CurrenciesAdapter.CurrencyViewHol
     }
 
     override fun getItemCount() = currenciesList.size
+
+    fun setData(newCurrencies: List<String>) {
+        currenciesList.clear()
+        currenciesList.addAll(newCurrencies)
+        notifyDataSetChanged()
+    }
 }

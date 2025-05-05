@@ -23,6 +23,9 @@
         <action
             android:id="@+id/action_mainPage_to_settings"
             app:destination="@id/settings" />
+        <action
+            android:id="@+id/action_mainPage_to_currencyGraphFragment"
+            app:destination="@id/currencyGraphFragment" />
 
     </fragment>
     <fragment
@@ -40,4 +43,9 @@
         android:name="com.attijariwafabank.devisesapp.fragments.LanguagesFragment"
         android:label="fragment_languages"
         tools:layout="@layout/fragment_languages" />
+    <fragment
+        android:id="@+id/currencyGraphFragment"
+        android:name="com.attijariwafabank.devisesapp.fragments.CurrencyGraphFragment"
+        android:label="fragment_currency_graph"
+        tools:layout="@layout/fragment_currency_graph" />
 </navigation>

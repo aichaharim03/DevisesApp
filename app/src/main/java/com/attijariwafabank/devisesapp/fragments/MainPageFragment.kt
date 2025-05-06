@@ -84,6 +84,7 @@ class MainPageFragment : Fragment() {
             override fun onItemClick(currency: String) {
                 val action = MainPageFragmentDirections.actionMainPageToCurrencyGraphFragment(
                     sourceCurrency = selectedSource,
+                    //TODO ici change le currency que tu envoie haka u get "EUR" comme resultat psk tu envoie le string kamel
                     targetCurrency = currency
                 )
                 findNavController().navigate(action)

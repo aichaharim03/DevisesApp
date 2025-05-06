@@ -1,7 +1,6 @@
-package com.attijariwafabank.devisesapp
+package com.attijariwafabank.devisesapp.data
 
 import com.google.gson.JsonObject
-import okhttp3.ResponseBody
 
 data class Currency(
     val quotes: JsonObject?,

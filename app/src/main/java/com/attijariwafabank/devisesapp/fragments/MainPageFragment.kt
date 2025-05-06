@@ -20,6 +20,7 @@ class MainPageFragment : Fragment() {
     private lateinit var viewModel: CurrencyViewModel
     private lateinit var adapter: CurrenciesAdapter
     private lateinit var spinnerAdapter: ArrayAdapter<String>
+    private lateinit var selectedSource: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,11 +30,10 @@ class MainPageFragment : Fragment() {
         return binding!!.root
     }
 
-
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel = ViewModelProvider(requireActivity())[CurrencyViewModel::class.java]
 
         adapter = CurrenciesAdapter()
         binding?.currenciesRecyclerView?.apply {
@@ -41,8 +41,7 @@ class MainPageFragment : Fragment() {
             adapter = this@MainPageFragment.adapter
         }
 
-        viewModel = ViewModelProvider(requireActivity())[CurrencyViewModel::class.java]
-
+        // Observe currencies and error
         viewModel.currencies.observe(viewLifecycleOwner) { currencies ->
             Log.d("Currencies", "Fetched: $currencies")
             adapter.setData(currencies)
@@ -57,24 +56,36 @@ class MainPageFragment : Fragment() {
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding?.spinner?.adapter = spinnerAdapter
 
+        binding?.spinner?.setSelection(0)
+        selectedSource = sourceCurrencies[0]
+        viewModel.fetchCurrencies(
+            "c30d334a99b84799e1521abbc4b15e4a",
+            selectedSource,
+            currencies = "USD,EUR,GBP,CAD,MAD,AUD,JPY,CHF,CNY,SEK,NZD,INR,MLR"
+        )
+
         binding?.spinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-                val selectedSource = sourceCurrencies[position]
-                viewModel.fetchCurrencies("ca153fc53a18d844476abcc90b57143c", selectedSource ,currencies = "USD,EUR,GBP,CAD,MAD,AUD,JPY,CHF,CNY,SEK,NZD,INR,MLR")
+                selectedSource = sourceCurrencies[position]
+                viewModel.fetchCurrencies(
+                    "c30d334a99b84799e1521abbc4b15e4a",
+                    selectedSource,
+                    currencies = "USD,EUR,GBP,CAD,MAD,AUD,JPY,CHF,CNY,SEK,NZD,INR,MLR"
+                )
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 Toast.makeText(requireContext(), "You have to select a currency source", Toast.LENGTH_SHORT).show()
             }
-
-
         }
 
-        viewModel.fetchCurrencies("ca153fc53a18d844476abcc90b57143c", "MAD")
-
+        // Handle currency click
         adapter.setOnItemClickListener(object : CurrenciesAdapter.OnItemClickListener {
             override fun onItemClick(currency: String) {
-                val action = MainPageFragmentDirections.actionMainPageToCurrencyGraphFragment()
+                val action = MainPageFragmentDirections.actionMainPageToCurrencyGraphFragment(
+                    sourceCurrency = selectedSource,
+                    targetCurrency = currency
+                )
                 findNavController().navigate(action)
             }
         })

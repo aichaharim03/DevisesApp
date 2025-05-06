@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
@@ -42,10 +43,24 @@
         android:id="@+id/languages"
         android:name="com.attijariwafabank.devisesapp.fragments.LanguagesFragment"
         android:label="fragment_languages"
-        tools:layout="@layout/fragment_languages" />
+        tools:layout="@layout/fragment_languages"
+        />
+
     <fragment
         android:id="@+id/currencyGraphFragment"
-        android:name="com.attijariwafabank.devisesapp.fragments.CurrencyGraphFragment"
+        android:name="com.attijariwafabank.devisesapp.fragments.LineChartFragment"
         android:label="fragment_currency_graph"
-        tools:layout="@layout/fragment_currency_graph" />
+        tools:layout="@layout/fragment_line_chart">
+        <argument
+            android:name="sourceCurrency"
+            app:argType="string" />
+        <argument
+            android:name="targetCurrency"
+            app:argType="string" />
+
+    </fragment>
+
+
+
+
 </navigation>

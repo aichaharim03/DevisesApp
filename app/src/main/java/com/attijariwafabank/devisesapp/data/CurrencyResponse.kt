@@ -1,7 +1,4 @@
-package com.attijariwafabank.devisesapp
-
-import android.icu.text.IDNA
-import retrofit2.http.Query
+package com.attijariwafabank.devisesapp.data
 
 data class CurrencyResponse(
     val success: Boolean,

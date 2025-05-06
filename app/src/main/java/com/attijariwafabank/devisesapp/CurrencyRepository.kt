@@ -1,5 +1,8 @@
 package com.attijariwafabank.devisesapp
 
+import com.attijariwafabank.devisesapp.data.Currency
+import com.attijariwafabank.devisesapp.data.CurrencyResponse
+import com.attijariwafabank.devisesapp.data.TimeFrameResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -33,5 +36,24 @@ class CurrencyRepository {
             }
         }
     }
+
+    suspend fun getTimeFrame(accessKey: String, source: String, currencies: String?, startDate: String, endDate: String
+    ): TimeFrameResponse? {
+        return withContext(Dispatchers.IO) {
+            try {
+                val response = RetrofitInstance.api.getTimeFrame(accessKey, source, currencies, startDate, endDate)
+                if (response.isSuccessful) {
+                    response.body()
+                } else {
+                    null
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                null
+            }
+        }
+    }
+
+
 
 }

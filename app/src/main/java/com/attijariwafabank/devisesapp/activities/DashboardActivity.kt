@@ -49,7 +49,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         viewModel.fetchCurrencies(
-            "ca153fc53a18d844476abcc90b57143c",
+            "c30d334a99b84799e1521abbc4b15e4a",
             "MAD",
             "USD,EUR,GBP,CAD,MAD,AUD,JPY,CHF,CNY,SEK,NZD,INR,MLR"
         )

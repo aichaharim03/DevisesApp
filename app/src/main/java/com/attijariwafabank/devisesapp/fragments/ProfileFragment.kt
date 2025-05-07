@@ -53,7 +53,6 @@ class ProfileFragment : Fragment() {
                 changePassword(oldPassword, newPassword)
             }
         }
-
     }
 
     private fun changePassword(oldPassword: String, newPassword: String) {

@@ -15,11 +15,11 @@
     <string name="new_password">New Password</string>
     <string name="old_password">Old Password</string>
     <string name="languages">Languages</string>
-    <string name="goback">goback</string>
+    <string name="goback">go back</string>
     <string name="english">English</string>
     <string name="french">French</string>
     <string name="messages_header">messages</string>
-    <string name="signature_title">Signtaure</string>
+    <string name="signature_title">Signature</string>
     <string name="reply_title">Default reply title</string>
     <string name="sync_header">Sync settings</string>
     <string name="sync_title">Enable Sync</string>

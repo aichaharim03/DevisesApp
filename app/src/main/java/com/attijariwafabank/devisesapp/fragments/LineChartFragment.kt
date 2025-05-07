@@ -19,6 +19,7 @@ import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import java.text.SimpleDateFormat
 import java.util.*
+import android.util.Log
 
 class LineChartFragment : Fragment() {
 
@@ -46,7 +47,7 @@ class LineChartFragment : Fragment() {
         // Set title to show what exchange rate we're viewing
         binding?.chartTitle?.text = "$sourceCurrency to $targetCurrency Exchange Rate"
 
-        // Show loading indicator
+
         binding?.progressBar?.visibility = View.VISIBLE
         binding?.lineChart?.visibility = View.GONE
         binding?.noDataText?.visibility = View.GONE
@@ -73,9 +74,16 @@ class LineChartFragment : Fragment() {
         viewModel.historicalRates.observe(viewLifecycleOwner) { rateMap ->
             binding?.progressBar?.visibility = View.GONE
 
+            Log.d("LineChartFragment", "Rate map size: ${rateMap.size}")
+            rateMap.forEach { (date, rate) ->
+                Log.d("LineChartFragment", "Date: $date -> Rate: $rate")
+            }
+
+
             if (rateMap.isEmpty()) {
                 binding?.noDataText?.visibility = View.VISIBLE
                 binding?.lineChart?.visibility = View.GONE
+                binding?.noDataText?.text = "No data available for the selected date range."
                 return@observe
             }
 

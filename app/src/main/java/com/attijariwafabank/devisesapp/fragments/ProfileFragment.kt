@@ -54,10 +54,7 @@ class ProfileFragment : Fragment() {
             }
         }
 
-        _binding?.logoutButton?.setOnClickListener {
-            auth.signOut()
-            Toast.makeText(requireContext(), getString(R.string.Logged_out), Toast.LENGTH_SHORT).show()
-        }
+
     }
 
     private fun changePassword(oldPassword: String, newPassword: String) {

@@ -27,6 +27,7 @@ class LineChartFragment : Fragment() {
     private var binding: FragmentLineChartBinding? = null
     private lateinit var sourceCurrency: String
     private lateinit var targetCurrency: String
+    private val args: LineChartFragmentArgs by navArgs()
 
 
     override fun onCreateView(
@@ -40,7 +41,6 @@ class LineChartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val args: LineChartFragmentArgs by navArgs()
         sourceCurrency = args.sourceCurrency
         targetCurrency = args.targetCurrency
 
@@ -63,10 +63,16 @@ class LineChartFragment : Fragment() {
         val startDate = dateFormat.format(startCalendar.time)
         val endDate = dateFormat.format(endCalendar.time)
 
+        //TODO hadi solution temp elle enleve les hadok les nombre li apres le "EUR"
+        //-------------------------------------------------------
+        val cleanSource = sourceCurrency.split(":")[0].trim().uppercase()
+        val cleanTarget = targetCurrency.split(":")[0].trim().uppercase()
+        //-------------------------------------------------------
+
         viewModel.requestTimeFrame(
             accessKey = "c30d334a99b84799e1521abbc4b15e4a",
-            source = sourceCurrency,
-            targetCurrency = targetCurrency,
+            source = cleanSource,
+            targetCurrency = cleanTarget,
             startDate = startDate,
             endDate = endDate
         )

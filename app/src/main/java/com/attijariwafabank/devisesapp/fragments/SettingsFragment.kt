@@ -28,7 +28,6 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         _binding?.LanguagesButton?.setOnClickListener {
             findNavController().navigate(R.id.action_settings_to_languages)
         }

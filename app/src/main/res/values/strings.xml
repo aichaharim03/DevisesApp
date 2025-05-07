@@ -43,6 +43,13 @@
     <string name="navigation_drawer_open">nav open</string>
     <string name="navigation_drawer_close">nav close</string>
     <string name="log_out">Log out</string>
+    <string name="select_currency">select currency</string>
+    <string name="exchange_rate_chart">Exchange Rate Chart</string>
+    <string name="no_historical_exchange_rate_data_available">No historical exchange rate data available</string>
+    <string name="to_exchange_rate">%1$s to %2$s Exchange Rate</string>
+    <string name="no_data_available_for_the_selected_date_range">No data available for the selected date range.</string>
+    <string name="to_rate">%1$s to %2$s Rate</string>
+    <string name="historical_exchange_rate_to">Historical Exchange Rate (%1$s to %2$s)</string>
 
 
 </resources>

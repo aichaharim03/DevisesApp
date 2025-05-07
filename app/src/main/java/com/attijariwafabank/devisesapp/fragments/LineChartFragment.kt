@@ -20,6 +20,7 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import java.text.SimpleDateFormat
 import java.util.*
 import android.util.Log
+import com.attijariwafabank.devisesapp.R
 
 class LineChartFragment : Fragment() {
 
@@ -44,8 +45,7 @@ class LineChartFragment : Fragment() {
         sourceCurrency = args.sourceCurrency
         targetCurrency = args.targetCurrency
 
-        // Set title to show what exchange rate we're viewing
-        binding?.chartTitle?.text = "$sourceCurrency to $targetCurrency Exchange Rate"
+        binding?.chartTitle?.text = getString(R.string.to_exchange_rate, sourceCurrency, targetCurrency)
 
 
         binding?.progressBar?.visibility = View.VISIBLE
@@ -54,7 +54,6 @@ class LineChartFragment : Fragment() {
 
         viewModel = ViewModelProvider(requireActivity())[CurrencyViewModel::class.java]
 
-        // Get dates for the last month
         val endCalendar = Calendar.getInstance()
         val startCalendar = Calendar.getInstance()
         startCalendar.add(Calendar.MONTH, -1)
@@ -63,16 +62,11 @@ class LineChartFragment : Fragment() {
         val startDate = dateFormat.format(startCalendar.time)
         val endDate = dateFormat.format(endCalendar.time)
 
-        //TODO hadi solution temp elle enleve les hadok les nombre li apres le "EUR"
-        //-------------------------------------------------------
-        val cleanSource = sourceCurrency.split(":")[0].trim().uppercase()
-        val cleanTarget = targetCurrency.split(":")[0].trim().uppercase()
-        //-------------------------------------------------------
 
         viewModel.requestTimeFrame(
-            accessKey = "c30d334a99b84799e1521abbc4b15e4a",
-            source = cleanSource,
-            targetCurrency = cleanTarget,
+            accessKey = "08cd7aabc5bb1df116bede4e425a7465",
+            source = sourceCurrency,
+            targetCurrency = targetCurrency,
             startDate = startDate,
             endDate = endDate
         )
@@ -89,7 +83,7 @@ class LineChartFragment : Fragment() {
             if (rateMap.isEmpty()) {
                 binding?.noDataText?.visibility = View.VISIBLE
                 binding?.lineChart?.visibility = View.GONE
-                binding?.noDataText?.text = "No data available for the selected date range."
+                binding?.noDataText?.text = getString(R.string.no_data_available_for_the_selected_date_range)
                 return@observe
             }
 
@@ -103,7 +97,7 @@ class LineChartFragment : Fragment() {
                 entries.add(Entry(index.toFloat(), rate.toFloat()))
             }
 
-            val dataSet = LineDataSet(entries, "$sourceCurrency to $targetCurrency Rate")
+            val dataSet = LineDataSet(entries, getString(R.string.to_rate, sourceCurrency, targetCurrency))
             dataSet.color = Color.BLUE
             dataSet.valueTextColor = Color.BLACK
             dataSet.setCircleColor(Color.RED)
@@ -122,7 +116,8 @@ class LineChartFragment : Fragment() {
                 }
                 axisRight.isEnabled = false
                 description = Description().apply {
-                    text = "Historical Exchange Rate ($startDate to $endDate)"
+                    text =
+                        context.getString(R.string.historical_exchange_rate_to, startDate, endDate)
                 }
                 animateX(1000)
                 invalidate()
@@ -139,13 +134,13 @@ class LineChartFragment : Fragment() {
     }
 
     private fun formatDateLabel(dateStr: String): String {
-        try {
+        return try {
             val inputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
             val outputFormat = SimpleDateFormat("MMM dd", Locale.US)
             val date = inputFormat.parse(dateStr)
-            return date?.let { outputFormat.format(it) } ?: dateStr
+            date?.let { outputFormat.format(it) } ?: dateStr
         } catch (e: Exception) {
-            return dateStr
+            dateStr
         }
     }
 

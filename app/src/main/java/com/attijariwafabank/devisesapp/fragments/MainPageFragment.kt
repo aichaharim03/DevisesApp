@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.attijariwafabank.devisesapp.CurrencyViewModel
 import com.attijariwafabank.devisesapp.adapter.CurrenciesAdapter
 import com.attijariwafabank.devisesapp.databinding.FragmentMainPageBinding
+import com.attijariwafabank.devisesapp.enums.CurrencyEnum
 
 class MainPageFragment : Fragment() {
 
@@ -41,7 +42,6 @@ class MainPageFragment : Fragment() {
             adapter = this@MainPageFragment.adapter
         }
 
-        // Observe currencies and error
         viewModel.currencies.observe(viewLifecycleOwner) { currencies ->
             Log.d("Currencies", "Fetched: $currencies")
             adapter.setData(currencies)
@@ -58,17 +58,13 @@ class MainPageFragment : Fragment() {
 
         binding?.spinner?.setSelection(0)
         selectedSource = sourceCurrencies[0]
-        viewModel.fetchCurrencies(
-            "c30d334a99b84799e1521abbc4b15e4a",
-            selectedSource,
-            currencies = "USD,EUR,GBP,CAD,MAD,AUD,JPY,CHF,CNY,SEK,NZD,INR,MLR"
-        )
+        viewModel.fetchCurrencies("08cd7aabc5bb1df116bede4e425a7465", selectedSource, currencies = "USD,EUR,GBP,CAD,MAD,AUD,JPY,CHF,CNY,SEK,NZD,INR,MLR")
 
         binding?.spinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 selectedSource = sourceCurrencies[position]
                 viewModel.fetchCurrencies(
-                    "c30d334a99b84799e1521abbc4b15e4a",
+                    "08cd7aabc5bb1df116bede4e425a7465",
                     selectedSource,
                     currencies = "USD,EUR,GBP,CAD,MAD,AUD,JPY,CHF,CNY,SEK,NZD,INR,MLR"
                 )
@@ -79,13 +75,15 @@ class MainPageFragment : Fragment() {
             }
         }
 
-        // Handle currency click
         adapter.setOnItemClickListener(object : CurrenciesAdapter.OnItemClickListener {
             override fun onItemClick(currency: String) {
+
+                val currencyEnum = CurrencyEnum.fromString(currency)
+                val currencyCode = currencyEnum?.code ?: return
+
                 val action = MainPageFragmentDirections.actionMainPageToCurrencyGraphFragment(
                     sourceCurrency = selectedSource,
-                    //TODO ici change le currency que tu envoie haka u get "EUR" comme resultat psk tu envoie le string kamel
-                    targetCurrency = currency
+                    targetCurrency = currencyCode
                 )
                 findNavController().navigate(action)
             }

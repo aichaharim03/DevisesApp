@@ -17,7 +17,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:gravity="center"
-        android:text="Exchange Rate Chart"
+        android:text="@string/exchange_rate_chart"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -53,7 +53,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:gravity="center"
-        android:text="No historical exchange rate data available"
+        android:text="@string/no_historical_exchange_rate_data_available"
         android:textSize="16sp"
         android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent"

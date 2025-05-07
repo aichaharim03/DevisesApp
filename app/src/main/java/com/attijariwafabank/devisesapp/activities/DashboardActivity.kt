@@ -1,6 +1,7 @@
 package com.attijariwafabank.devisesapp.activities
 
 import android.content.Context
+import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.MenuItem
@@ -18,6 +19,7 @@ import java.util.Locale
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import com.attijariwafabank.devisesapp.databinding.NavHeaderBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -25,6 +27,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     private lateinit var binding: ActivityDashboardBinding
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navigationView: NavigationView
+    private lateinit var auth: FirebaseAuth
 
     private val viewModel: CurrencyViewModel by viewModels()
 
@@ -33,6 +36,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        auth = FirebaseAuth.getInstance()
 
         drawerLayout = binding.drawerLayout
         navigationView = binding.navigationView
@@ -85,10 +89,22 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             R.id.nav_main_page -> navController.navigate(R.id.mainPage)
             R.id.nav_profile -> navController.navigate(R.id.profile)
             R.id.nav_settings -> navController.navigate(R.id.settings)
+
+            R.id.nav_logout -> {
+                auth.signOut()
+                Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show()
+
+                val intent = Intent(this, LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+            }
         }
         drawerLayout.closeDrawer(navigationView)
         return true
     }
+
+
+
 
     override fun attachBaseContext(newBase: Context) {
         val sharedPreferences = newBase.getSharedPreferences("Settings", Context.MODE_PRIVATE)

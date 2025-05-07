@@ -61,14 +61,6 @@
         android:layout_marginTop="16dp"
         android:onClick="onChangePasswordClicked" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/logoutButton"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:background="@drawable/logout_svgrepo_com"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/changePasswordButton"
-        android:layout_marginTop="20dp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

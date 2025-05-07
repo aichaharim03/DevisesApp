@@ -28,13 +28,6 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        auth = FirebaseAuth.getInstance()
-
-        _binding?.logoutButton?.setOnClickListener {
-            auth.signOut()
-            Toast.makeText(requireContext(), "Logged out", Toast.LENGTH_SHORT).show()
-
-        }
         _binding?.LanguagesButton?.setOnClickListener {
             findNavController().navigate(R.id.action_settings_to_languages)
         }

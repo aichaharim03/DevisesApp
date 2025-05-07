@@ -42,6 +42,7 @@
     <string name="convert">convert</string>
     <string name="navigation_drawer_open">nav open</string>
     <string name="navigation_drawer_close">nav close</string>
+    <string name="log_out">Log out</string>
 
 
 </resources>

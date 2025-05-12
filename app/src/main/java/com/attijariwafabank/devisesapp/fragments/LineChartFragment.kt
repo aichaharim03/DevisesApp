@@ -20,6 +20,7 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import java.text.SimpleDateFormat
 import java.util.*
 import android.util.Log
+import androidx.navigation.fragment.findNavController
 import com.attijariwafabank.devisesapp.R
 
 class LineChartFragment : Fragment() {
@@ -130,6 +131,9 @@ class LineChartFragment : Fragment() {
             binding?.noDataText?.text = errorMessage
             binding?.lineChart?.visibility = View.GONE
             Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_LONG).show()
+        }
+        binding?.backButton?.setOnClickListener {
+            findNavController().navigate(R.id.action_currencyGraphFragment_to_mainPage)
         }
     }
 

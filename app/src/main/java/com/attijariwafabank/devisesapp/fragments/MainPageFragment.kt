@@ -64,8 +64,8 @@ class MainPageFragment : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 selectedSource = sourceCurrencies[position]
                 viewModel.fetchCurrencies(
-                    "08cd7aabc5bb1df116bede4e425a7465",
-                    selectedSource,
+                    accessKey = "08cd7aabc5bb1df116bede4e425a7465",
+                    source = selectedSource,
                     currencies = "USD,EUR,GBP,CAD,MAD,AUD,JPY,CHF,CNY,SEK,NZD,INR,MLR"
                 )
             }

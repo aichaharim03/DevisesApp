@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/tool_bar_profil"
-        android:title="@string/profil"/>
+        android:title="@string/profile"/>
     <item
         android:id="@+id/tool_bar_settings"
         android:title="@string/settings"/>

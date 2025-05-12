@@ -12,6 +12,9 @@
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
 
+        <action
+            android:id="@+id/action_profile_to_settings"
+            app:destination="@id/settings" />
     </fragment>
     <fragment
         android:id="@+id/mainPage"
@@ -38,13 +41,26 @@
         <action
             android:id="@+id/action_settings_to_languages"
             app:destination="@id/languages" />
+        <action
+            android:id="@+id/action_settings_to_themeFragment"
+            app:destination="@id/themeFragment" />
+        <action
+            android:id="@+id/action_settings_to_profile"
+            app:destination="@id/profile" />
+        <action
+            android:id="@+id/action_settings_to_mainPage"
+            app:destination="@id/mainPage" />
     </fragment>
     <fragment
         android:id="@+id/languages"
         android:name="com.attijariwafabank.devisesapp.fragments.LanguagesFragment"
         android:label="fragment_languages"
         tools:layout="@layout/fragment_languages"
-        />
+        >
+        <action
+            android:id="@+id/action_languages_to_settings"
+            app:destination="@id/settings" />
+    </fragment>
 
     <fragment
         android:id="@+id/currencyGraphFragment"
@@ -57,10 +73,20 @@
         <argument
             android:name="targetCurrency"
             app:argType="string" />
+        <action
+            android:id="@+id/action_currencyGraphFragment_to_mainPage"
+            app:destination="@id/mainPage" />
 
     </fragment>
-
-
+    <fragment
+        android:id="@+id/themeFragment"
+        android:name="com.attijariwafabank.devisesapp.fragments.ThemeFragment"
+        android:label="fragment_theme"
+        tools:layout="@layout/fragment_theme" >
+        <action
+            android:id="@+id/action_themeFragment_to_settings"
+            app:destination="@id/settings" />
+    </fragment>
 
 
 </navigation>

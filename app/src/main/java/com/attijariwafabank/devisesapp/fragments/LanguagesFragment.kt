@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.attijariwafabank.devisesapp.R
 import com.attijariwafabank.devisesapp.databinding.FragmentLanguagesBinding
 
 class LanguagesFragment : Fragment() {
@@ -28,12 +30,15 @@ class LanguagesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.butEng.setOnClickListener {
+        binding.englishButton.setOnClickListener {
             changeLanguage("en")
         }
 
-        binding.butFr.setOnClickListener {
+        binding.frenchButton.setOnClickListener {
             changeLanguage("fr")
+        }
+        binding.backButton.setOnClickListener {
+            findNavController().navigate(R.id.action_languages_to_settings)
         }
     }
 

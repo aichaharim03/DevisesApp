@@ -6,7 +6,7 @@
     <color name="ShearBlack">#800B0B0B</color>
     <color name="gray">#9AA1A1</color>
     <color name="greenbk">#80FFFFFF</color>
-    <color name="ShearOrange">#8BD3481C</color>
+    <color name="ShearOrange">#54E69C85</color>
     <color name="ShearBlack2">#40000000</color>
     <color name="Darker_gray">#AAAAAA</color>
     <color name="Dark_blue">#273F4F</color>
@@ -29,6 +29,14 @@
     <!-- Currency item colors -->
     <color name="currency_up">#4CAF50</color>
     <color name="currency_down">#F44336</color>
+
+    <!-- Dark Colors-->
+    <color name="my_dark_primary">#273F4F</color>
+    <color name="my_dark_primary_variant">#3C5F77</color>
+    <color name="my_dark_secondary">#833D27</color>
+    <color name="my_dark_on_primary">#FFFFFF</color>
+    <color name="my_dark_on_secondary">#000000</color>
+    <color name="my_dark_background">#121212</color>
 
 
 

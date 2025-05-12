@@ -6,10 +6,10 @@
     <string name="backtoLogin">Already have an account? Log in!</string>
     <string name="backtoSignUp">Don\'t have an account ? Sign Up!</string>
     <string name="password">Password</string>
-    <string name="email">Email</string>
+    <string name="email">Email :</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="settings">Settings</string>
-    <string name="profil">Profil</string>
+    <string name="profile">Profil</string>
     <string name="change_password">Change Password</string>
     <string name="confirm_new_password">Confirm New Password</string>
     <string name="new_password">New Password</string>
@@ -50,6 +50,16 @@
     <string name="no_data_available_for_the_selected_date_range">No data available for the selected date range.</string>
     <string name="to_rate">%1$s to %2$s Rate</string>
     <string name="historical_exchange_rate_to">Historical Exchange Rate (%1$s to %2$s)</string>
+    <string name="change_the_password">Change the password</string>
+    <string name="account_settings">Account settings</string>
+    <string name="preferences">Preferences</string>
+    <string name="theme">Theme</string>
+    <string name="help">Help</string>
+    <string name="support">Support</string>
+    <string name="choose_a_language_for_currency_app">choose a language for Currency App</string>
+    <string name="back">Back</string>
+    <string name="select_the_language_of_your_currency_application">Select the language of your Currency application</string>
+    <string name="arrow">arrow</string>
 
 
 </resources>

@@ -36,8 +36,8 @@ class PopUpFragment : DialogFragment() {
         }
 
         dialog?.window?.setLayout(
-            ViewGroup.LayoutParams.WRAP_CONTENT,  // Width
-            ViewGroup.LayoutParams.WRAP_CONTENT   // Height
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
         )
         dialog?.window?.setBackgroundDrawableResource(R.color.ShearBlack2)
     }

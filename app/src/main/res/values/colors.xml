@@ -40,4 +40,34 @@
 
 
 
+
+        <!-- Dark Theme Colors -->
+        <color name="dark_primary">#51829B</color>
+        <color name="dark_primary_variant">#406A80</color>
+        <color name="dark_secondary">#E5383B</color>
+        <color name="dark_secondary_variant">#C52B2E</color>
+        <color name="dark_background">#121212</color>
+        <color name="dark_surface">#1E1E1E</color>
+        <color name="dark_error">#CF6679</color>
+        <color name="dark_on_primary">#FFFFFF</color>
+        <color name="dark_on_secondary">#FFFFFF</color>
+        <color name="dark_on_background">#EFEFEF</color>
+        <color name="dark_on_surface">#EFEFEF</color>
+        <color name="dark_on_error">#121212</color>
+        <color name="dark_card">#2D2D2D</color>
+        <color name="dark_card_ripple">#3D3D3D</color>
+        <color name="dark_divider">#3D3D3D</color>
+
+        <!-- Additional UI Colors -->
+        <color name="success">#43A047</color>
+        <color name="warning">#FFA000</color>
+        <color name="info">#2196F3</color>
+        <color name="disabled">#9E9E9E</color>
+        <color name="text_primary_light">#212121</color>
+        <color name="text_secondary_light">#757575</color>
+        <color name="text_primary_dark">#EFEFEF</color>
+        <color name="text_secondary_dark">#B0B0B0</color>
+        <color name="transparent">#00000000</color>
+
+
 </resources>

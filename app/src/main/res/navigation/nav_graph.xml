@@ -30,6 +30,9 @@
         <action
             android:id="@+id/action_mainPage_to_currencyGraphFragment"
             app:destination="@id/currencyGraphFragment" />
+        <action
+            android:id="@+id/action_mainPage_to_agencyFragment"
+            app:destination="@id/agencyFragment2" />
 
     </fragment>
     <fragment
@@ -87,6 +90,11 @@
             android:id="@+id/action_themeFragment_to_settings"
             app:destination="@id/settings" />
     </fragment>
+    <fragment
+        android:id="@+id/agencyFragment2"
+        android:name="com.attijariwafabank.devisesapp.fragments.AgencyFragment"
+        android:label="fragment_agence"
+        tools:layout="@layout/fragment_agence" />
 
 
 </navigation>

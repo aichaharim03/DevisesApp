@@ -1,7 +1,6 @@
-package com.attijariwafabank.devisesapp.adapter
+  package com.attijariwafabank.devisesapp.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.attijariwafabank.devisesapp.databinding.ItemCurrencyBinding

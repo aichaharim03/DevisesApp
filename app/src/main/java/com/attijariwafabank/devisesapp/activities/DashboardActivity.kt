@@ -89,6 +89,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             R.id.nav_main_page -> navController.navigate(R.id.mainPage)
             R.id.nav_profile -> navController.navigate(R.id.profile)
             R.id.nav_settings -> navController.navigate(R.id.settings)
+            R.id.nav_agency_map -> navController.navigate(R.id.agencyFragment2)
 
             R.id.nav_logout -> {
                 auth.signOut()

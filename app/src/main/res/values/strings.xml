@@ -60,6 +60,13 @@
     <string name="back">Back</string>
     <string name="select_the_language_of_your_currency_application">Select the language of your Currency application</string>
     <string name="arrow">arrow</string>
+    <string name="select_the_theme_of_your_currency_application">select the theme of your currency application</string>
+    <string name="color_lens">color lens</string>
+    <string name="enable_dark_theme">enable dark theme</string>
+    <string name="agency_map">Agency Map</string>
+    <string name="agence_name">Agence Name</string>
+    <string name="nom_agence">Nom agence</string>
+    <string name="adresse">Adresse</string>
 
 
 </resources>

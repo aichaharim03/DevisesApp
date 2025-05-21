@@ -58,13 +58,13 @@ class MainPageFragment : Fragment() {
 
         binding?.spinner?.setSelection(0)
         selectedSource = sourceCurrencies[0]
-        viewModel.fetchCurrencies("08cd7aabc5bb1df116bede4e425a7465", selectedSource, currencies = "USD,EUR,GBP,CAD,MAD,AUD,JPY,CHF,CNY,SEK,NZD,INR,MLR")
+        viewModel.fetchCurrencies("3bdb79681826eff584ac6f3ccd1b4a82", selectedSource, currencies = "USD,EUR,GBP,CAD,MAD,AUD,JPY,CHF,CNY,SEK,NZD,INR,MLR")
 
         binding?.spinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 selectedSource = sourceCurrencies[position]
                 viewModel.fetchCurrencies(
-                    accessKey = "08cd7aabc5bb1df116bede4e425a7465",
+                    accessKey = "3bdb79681826eff584ac6f3ccd1b4a82",
                     source = selectedSource,
                     currencies = "USD,EUR,GBP,CAD,MAD,AUD,JPY,CHF,CNY,SEK,NZD,INR,MLR"
                 )

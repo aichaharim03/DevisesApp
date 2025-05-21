@@ -65,7 +65,7 @@ class LineChartFragment : Fragment() {
 
 
         viewModel.requestTimeFrame(
-            accessKey = "08cd7aabc5bb1df116bede4e425a7465",
+            accessKey = "3bdb79681826eff584ac6f3ccd1b4a82",
             source = sourceCurrency,
             targetCurrency = targetCurrency,
             startDate = startDate,

@@ -1,37 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Base application theme for Dark Mode -->
-    <style name="Theme.AttijariApp.Dark" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color -->
-        <item name="colorPrimary">@color/dark_primary</item>
-        <item name="colorPrimaryVariant">@color/dark_primary_variant</item>
-        <item name="colorOnPrimary">@color/dark_on_primary</item>
 
-        <!-- Secondary brand color -->
-        <item name="colorSecondary">@color/dark_secondary</item>
-        <item name="colorSecondaryVariant">@color/dark_secondary_variant</item>
-        <item name="colorOnSecondary">@color/dark_on_secondary</item>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Devises" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <item name="colorPrimary">@color/my_dark_primary</item>
+        <item name="colorPrimaryVariant">@color/my_dark_primary_variant</item>
+        <item name="colorSecondary">@color/my_dark_secondary</item>
+        <item name="android:statusBarColor">@color/my_dark_primary</item>
 
-        <!-- Status bar and Navigation bar -->
-        <item name="android:statusBarColor">@color/dark_background</item>
-        <item name="android:navigationBarColor">@color/dark_background</item>
-        <item name="android:windowLightStatusBar">false</item>
 
-        <!-- Surface, background and error colors -->
-        <item name="android:colorBackground">@color/dark_background</item>
-        <item name="colorSurface">@color/dark_surface</item>
-        <item name="colorError">@color/dark_error</item>
-        <item name="colorOnBackground">@color/dark_on_background</item>
-        <item name="colorOnSurface">@color/dark_on_surface</item>
-        <item name="colorOnError">@color/dark_on_error</item>
+        <item name="android:textColorPrimary">@color/white</item>
 
-        <!-- Card and ripple styles -->
-        <item name="cardBackgroundColor">@color/dark_card</item>
-        <item name="colorControlHighlight">@color/dark_card_ripple</item>
-
-        <!-- Text appearances -->
-        <item name="android:textColorPrimary">@color/text_primary_dark</item>
-        <item name="android:textColorSecondary">@color/text_secondary_dark</item>
 
 
     </style>

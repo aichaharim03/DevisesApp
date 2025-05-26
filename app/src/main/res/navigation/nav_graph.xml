@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_mainPage_to_agencyFragment"
             app:destination="@id/agencyFragment2" />
+        <action
+            android:id="@+id/action_mainPage_to_conversionFragment"
+            app:destination="@id/conversionFragment" />
 
     </fragment>
     <fragment
@@ -95,6 +98,15 @@
         android:name="com.attijariwafabank.devisesapp.fragments.AgencyFragment"
         android:label="fragment_agence"
         tools:layout="@layout/fragment_agence" />
+    <fragment
+        android:id="@+id/conversionFragment"
+        android:name="com.attijariwafabank.devisesapp.fragments.ConversionFragment"
+        android:label="fragment_conversion"
+        tools:layout="@layout/fragment_conversion" >
+        <action
+            android:id="@+id/action_conversionFragment_to_mainPage"
+            app:destination="@id/mainPage" />
+    </fragment>
 
 
 </navigation>

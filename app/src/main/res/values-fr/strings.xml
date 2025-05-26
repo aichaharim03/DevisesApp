@@ -61,6 +61,16 @@
     <string name="back">Retour</string>
     <string name="select_the_language_of_your_currency_application">Sélectionnez la langue de votre application de devises</string>
     <string name="arrow">arrow</string>
+    <string name="select_the_theme_of_your_currency_application">Sélectionnez le thème de votre application de devises</string>
+    <string name="enable_dark_theme">activer mode nuit</string>
+    <string name="agency_map">Map d\'agence</string>
+    <string name="agence_name">Nom d\'agence</string>
+    <string name="nom_agence">Nom agence</string>
+    <string name="adresse">Adresse</string>
+    <string name="distance">Distance</string>
+    <string name="conversion">Conversion</string>
+    <string name="swap_currencies">Changer les devise</string>
+    <string name="conversion_result">Montant converti : %1$.2f</string>
 
 
 </resources>

@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:text="@string/settings"
             android:textSize="20sp"
-            android:textColor="@color/white"
+            android:textColor="@color/text_primary"
             android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
 
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/account_settings"
-                android:textColor="@color/black"
+                android:textColor="@color/text_primary"
                 android:textSize="16sp"
 
                 app:layout_constraintStart_toStartOf="parent"
@@ -105,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:text="@string/preferences"
-                android:textColor="@color/black"
+                android:textColor="@color/text_primary"
                 android:textSize="16sp"
                 app:layout_constraintTop_toBottomOf="@id/accountSettingsCard"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -163,7 +163,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:text="@string/support"
-                android:textColor="@color/black"
+                android:textColor="@color/text_primary"
                 android:textSize="16sp"
                 app:layout_constraintTop_toBottomOf="@id/preferenceSettingsCard"
                 app:layout_constraintStart_toStartOf="parent" />

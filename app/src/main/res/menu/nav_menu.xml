@@ -24,6 +24,9 @@
              android:id="@+id/nav_agency_map"
              android:title="@string/agency_map"/>
          <item
+             android:id="@+id/nav_conversion"
+             android:title="@string/conversion" />
+         <item
              android:id="@+id/nav_profile"
              android:title="@string/profile" />
 

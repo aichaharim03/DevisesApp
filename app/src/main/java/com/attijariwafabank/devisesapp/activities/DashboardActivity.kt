@@ -5,20 +5,18 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.attijariwafabank.devisesapp.CurrencyViewModel
+import com.attijariwafabank.devisesapp.viewModels.CurrencyViewModel
 import com.attijariwafabank.devisesapp.R
 import com.attijariwafabank.devisesapp.databinding.ActivityDashboardBinding
 import com.google.android.material.navigation.NavigationView
 import java.util.Locale
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
-import com.attijariwafabank.devisesapp.databinding.NavHeaderBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -53,7 +51,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         viewModel.fetchCurrencies(
-            "3bdb79681826eff584ac6f3ccd1b4a82",
+            "a351491abe4e7fab9e83c472eb04bdac",
             "MAD",
             "USD,EUR,GBP,CAD,MAD,AUD,JPY,CHF,CNY,SEK,NZD,INR,MLR"
         )
@@ -90,6 +88,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             R.id.nav_profile -> navController.navigate(R.id.profile)
             R.id.nav_settings -> navController.navigate(R.id.settings)
             R.id.nav_agency_map -> navController.navigate(R.id.agencyFragment2)
+            R.id.nav_conversion -> navController.navigate(R.id.conversionFragment)
 
             R.id.nav_logout -> {
                 auth.signOut()

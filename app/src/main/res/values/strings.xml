@@ -67,6 +67,11 @@
     <string name="agence_name">Agence Name</string>
     <string name="nom_agence">Nom agence</string>
     <string name="adresse">Adresse</string>
+    <string name="distance">Distance</string>
+    <string name="conversion">Conversion</string>
+    <string name="swap_currencies">Swap currencies</string>
+    <string name="conversion_result">Converted amount : %1$.2f</string>
+
 
 
 </resources>

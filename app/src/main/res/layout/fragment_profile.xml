@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:text="@string/profile"
             android:textSize="20sp"
-            android:textColor="@color/white"
+            android:textColor="@color/text_primary"
             android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
 
@@ -46,7 +46,7 @@
         android:text="@string/change_the_password"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
+        android:textColor="@color/text_primary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ProfileToolbar"
         android:layout_marginTop="16dp" />
@@ -77,7 +77,7 @@
                 android:text="@string/email"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/text_primary"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -87,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/email"
                 android:textSize="16sp"
-                android:textColor="@color/black"
+                android:textColor="@color/text_primary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/emailLabelTextView"

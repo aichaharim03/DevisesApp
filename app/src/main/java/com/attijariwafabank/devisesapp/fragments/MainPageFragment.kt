@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.attijariwafabank.devisesapp.CurrencyViewModel
+import com.attijariwafabank.devisesapp.viewModels.CurrencyViewModel
 import com.attijariwafabank.devisesapp.adapter.CurrenciesAdapter
 import com.attijariwafabank.devisesapp.databinding.FragmentMainPageBinding
 import com.attijariwafabank.devisesapp.enums.CurrencyEnum
@@ -58,13 +58,13 @@ class MainPageFragment : Fragment() {
 
         binding?.spinner?.setSelection(0)
         selectedSource = sourceCurrencies[0]
-        viewModel.fetchCurrencies("3bdb79681826eff584ac6f3ccd1b4a82", selectedSource, currencies = "USD,EUR,GBP,CAD,MAD,AUD,JPY,CHF,CNY,SEK,NZD,INR,MLR")
+        viewModel.fetchCurrencies("a351491abe4e7fab9e83c472eb04bdac", selectedSource, currencies = "USD,EUR,GBP,CAD,MAD,AUD,JPY,CHF,CNY,SEK,NZD,INR,MLR")
 
         binding?.spinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 selectedSource = sourceCurrencies[position]
                 viewModel.fetchCurrencies(
-                    accessKey = "3bdb79681826eff584ac6f3ccd1b4a82",
+                    accessKey = "a351491abe4e7fab9e83c472eb04bdac",
                     source = selectedSource,
                     currencies = "USD,EUR,GBP,CAD,MAD,AUD,JPY,CHF,CNY,SEK,NZD,INR,MLR"
                 )

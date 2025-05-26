@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
-import com.attijariwafabank.devisesapp.CurrencyViewModel
+import com.attijariwafabank.devisesapp.viewModels.CurrencyViewModel
 import com.attijariwafabank.devisesapp.databinding.FragmentLineChartBinding
 import com.github.mikephil.charting.components.Description
 import com.github.mikephil.charting.components.XAxis
@@ -65,7 +65,7 @@ class LineChartFragment : Fragment() {
 
 
         viewModel.requestTimeFrame(
-            accessKey = "3bdb79681826eff584ac6f3ccd1b4a82",
+            accessKey = "a351491abe4e7fab9e83c472eb04bdac",
             source = sourceCurrency,
             targetCurrency = targetCurrency,
             startDate = startDate,

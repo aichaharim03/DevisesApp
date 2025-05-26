@@ -4,7 +4,12 @@
          <item name="colorPrimary">@color/orange</item>
          <item name="colorPrimaryVariant">@color/white</item>
          <item name="android:statusBarColor">@color/orange</item>
+
+
+        <item name="android:textColorPrimary">@color/text_primary</item>
+
     </style>
 
     <style name="Theme.Devises" parent="Base.Theme.Devises" />
+
 </resources>

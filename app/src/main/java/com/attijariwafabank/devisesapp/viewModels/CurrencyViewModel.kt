@@ -1,11 +1,11 @@
-package com.attijariwafabank.devisesapp
+package com.attijariwafabank.devisesapp.viewModels
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.attijariwafabank.devisesapp.data.TimeFrameResponse
+import com.attijariwafabank.devisesapp.CurrencyRepository
 import kotlinx.coroutines.launch
 
 class CurrencyViewModel : ViewModel() {

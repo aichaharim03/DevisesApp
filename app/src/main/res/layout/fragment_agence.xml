@@ -18,6 +18,7 @@
         android:clickable="true"
         android:focusable="true" />
 
+
     <TextView
         android:id="@+id/agence_name"
         android:layout_width="wrap_content"

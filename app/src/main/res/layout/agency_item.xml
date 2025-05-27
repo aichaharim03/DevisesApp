@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="8dp"
@@ -15,24 +14,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp">
+
+        <!-- Agency Name -->
         <TextView
             android:id="@+id/nomText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/nom_agence"
             android:textStyle="bold"
             android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintEnd_toStartOf="@id/agencydistance"
+            app:layout_constraintHorizontal_bias="0" />
 
-        <TextView
-            android:id="@+id/adresseText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/adresse"
-            android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@+id/nomText"
-            app:layout_constraintStart_toStartOf="parent"/>
+        <!-- Distance -->
         <TextView
             android:id="@+id/agencydistance"
             android:layout_width="wrap_content"
@@ -40,8 +36,35 @@
             android:text="@string/distance"
             android:textSize="14sp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintEnd_toEndOf="parent" />
 
+        <!-- Closest Label -->
+        <TextView
+            android:id="@+id/textViewClosest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/closest"
+            android:textColor="@android:color/holo_green_dark"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@id/nomText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_goneMarginTop="0dp" />
+
+        <!-- Address -->
+        <TextView
+            android:id="@+id/adresseText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/adresse"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@id/textViewClosest"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_goneMarginTop="4dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

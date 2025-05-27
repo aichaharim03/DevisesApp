@@ -10,14 +10,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.attijariwafabank.devisesapp.R
 import com.attijariwafabank.devisesapp.data.Agency
 
-class AgencyAdapter(private var agencies: List<Agency>, private val context: Context) :
-    RecyclerView.Adapter<AgencyAdapter.AgencyViewHolder>() {
+class AgencyAdapter(
+    private var agencies: List<Agency>,
+    private val context: Context
+) : RecyclerView.Adapter<AgencyAdapter.AgencyViewHolder>() {
 
     inner class AgencyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val nomText: TextView = itemView.findViewById(R.id.nomText)
+        val name: TextView = itemView.findViewById(R.id.nomText)
+        val distance: TextView = itemView.findViewById(R.id.agencydistance)
+        val closestLabel: TextView = itemView.findViewById(R.id.textViewClosest) // add this
         val adresseText: TextView = itemView.findViewById(R.id.adresseText)
-        val distanceTextView: TextView = itemView.findViewById(R.id.agencydistance)
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AgencyViewHolder {
@@ -26,12 +28,18 @@ class AgencyAdapter(private var agencies: List<Agency>, private val context: Con
     }
 
     override fun onBindViewHolder(holder: AgencyViewHolder, position: Int) {
-
         val agency = agencies[position]
-        holder.nomText.text = agency.nom
+        holder.name.text = agency.nom
+        holder.distance.text = agency.distance
         holder.adresseText.text = agency.adresse
-        holder.distanceTextView.text = agency.distance
 
+
+        // Show "Closest" label only for the first item
+        if (position == 0) {
+            holder.closestLabel.visibility = View.VISIBLE
+        } else {
+            holder.closestLabel.visibility = View.GONE
+        }
 
         holder.itemView.setOnClickListener {
             val horaires = listOf(
@@ -47,13 +55,13 @@ class AgencyAdapter(private var agencies: List<Agency>, private val context: Con
         }
     }
 
-    override fun getItemCount() = agencies.size
+    override fun getItemCount(): Int = agencies.size
 
     fun updateAgencies(newAgencies: List<Agency>) {
         agencies = newAgencies
         notifyDataSetChanged()
-
     }
 }
+
 
 

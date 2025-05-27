@@ -71,7 +71,7 @@
     <string name="conversion">Conversion</string>
     <string name="swap_currencies">Swap currencies</string>
     <string name="conversion_result">Converted amount : %1$.2f</string>
-
+    <string name="closest">Closest</string>
 
 
 </resources>

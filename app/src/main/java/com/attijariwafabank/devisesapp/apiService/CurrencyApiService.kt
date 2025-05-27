@@ -1,4 +1,4 @@
-package com.attijariwafabank.devisesapp
+package com.attijariwafabank.devisesapp.apiService
 import com.attijariwafabank.devisesapp.data.Currency
 import com.attijariwafabank.devisesapp.data.CurrencyResponse
 import com.attijariwafabank.devisesapp.data.TimeFrameResponse

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -70,7 +71,6 @@ class LineChartFragment : Fragment() {
         )
 
         viewModel.historicalRates.observe(viewLifecycleOwner) { rateMap ->
-            binding?.dataPointsCount?.text = rateMap.size.toString()
             if (rateMap.isEmpty()) {
                 showNoData()
                 binding?.noDataText?.text = getString(R.string.no_data_available_for_the_selected_date_range)

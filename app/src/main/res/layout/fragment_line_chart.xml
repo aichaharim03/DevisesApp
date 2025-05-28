@@ -120,7 +120,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Historical Exchange Rate"
+                            android:text="@string/historical_exchange_rate"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             android:textColor="@color/text_primary" />
@@ -130,7 +130,7 @@
                             android:layout_height="24dp"
                             android:src="@drawable/baseline_trending_up_24"
                             app:tint="@color/orange"
-                            android:contentDescription="Chart icon" />
+                            android:contentDescription="@string/chart_icon" />
 
                     </LinearLayout>
 
@@ -169,7 +169,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="16dp"
-                                android:text="Loading exchange rates..."
+                                android:text="@string/loading_exchange_rates"
                                 android:textSize="14sp"
                                 android:textColor="@color/text_secondary" />
 
@@ -203,7 +203,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="16dp"
-                                android:text="Retry"
+                                android:text="@string/retry"
                                 android:textColor="@android:color/white"
                                 app:backgroundTint="@color/orange"
                                 app:cornerRadius="8dp"
@@ -224,8 +224,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:weightSum="2"
-                android:layout_marginBottom="16dp">
+                android:gravity="center"
+                >
 
                 <!-- Period Info Card -->
                 <com.google.android.material.card.MaterialCardView
@@ -237,7 +237,8 @@
                     app:cardElevation="4dp"
                     app:cardUseCompatPadding="true"
                     app:strokeWidth="1dp"
-                    app:strokeColor="@color/divider">
+                    app:strokeColor="@color/divider"
+                    android:gravity="center">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -252,70 +253,28 @@
                             android:src="@drawable/baseline_calendar_today_24"
                             app:tint="@color/orange"
                             android:layout_marginBottom="8dp"
-                            android:contentDescription="Calendar icon" />
+                            android:contentDescription="@string/calendar_icon" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Period"
+                            android:text="@string/period"
                             android:textSize="12sp"
-                            android:textColor="@color/text_secondary"
- />
-
+                            android:textColor="@color/text_secondary" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Last 30 Days"
-                            android:textSize="14sp"
+                            android:text="@string/last_30_days"
+                            android:textSize="16sp"
                             android:textStyle="bold"
-                            android:textColor="@color/text_primary"
- />
+                            android:textColor="@color/text_primary" />
+
+
 
                     </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- Data Points Info Card -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="8dp"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="4dp"
-                    app:cardUseCompatPadding="true"
-                    app:strokeWidth="1dp"
-                    app:strokeColor="@color/divider">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp"
-                        android:gravity="center">
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Data Points"
-                            android:textSize="12sp"
-                            android:textColor="@color/text_secondary"
- />
-
-                        <TextView
-                            android:id="@+id/dataPointsCount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="--"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/text_primary"
- />
-
-                    </LinearLayout>
-
-                </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
 

@@ -73,6 +73,27 @@
     <string name="conversion_result">Montant converti : %1$.2f</string>
     <string name="closest">Plus proche</string>
     <string name="position_introuvable">Position introuvable</string>
+    <string name="permission_refuee">Permission refusée</string>
+    <string name="please_enter_an_amount">Please enter an amount</string>
+    <string name="invalid_amount">Invalid amount</string>
+    <string name="please_select_currencies">Please select currencies</string>
+    <string name="password_updated_successfully">Mot de passe modifié avec succès</string>
+    <string name="failed_to_update_password">Échec de la mise à jour du mot de passe</string>
+    <string name="old_password_is_incorrect">Ancien mot de passe incorrect</string>
+    <string name="logged_out">Déconnecté!</string>
+    <string name="you_have_to_select_a_currency_source">Vous devez sélectionner une devise source</string>
+    <string name="exchange_rate">Taux de change</string>
+    <string name="converted_amount">Montant converti : %1$.2f</string>
+    <string name="_0_00">0.00</string>
+    <string name="convert_currency">>Convertir la devise</string>
+    <string name="calendar_icon">Calendar icon</string>
+    <string name="period">Période</string>
+    <string name="last_30_days">Les 30 derniers jours</string>
+    <string name="retry">Ressayer</string>
+    <string name="loading_exchange_rates">Chargement des taux de change\.\.\.</string>
+    <string name="historical_exchange_rate">L\'historique des taux de change</string>
+    <string name="chart_icon">Chart icon</string>
+
 
 
 </resources>

@@ -72,6 +72,20 @@
     <string name="swap_currencies">Swap currencies</string>
     <string name="conversion_result">Converted amount : %1$.2f</string>
     <string name="closest">Closest</string>
+    <string name="permission_refuee">Permission refusée</string>
+    <string name="position_introuvable">Position introuvable</string>
+    <string name="please_enter_an_amount">Please enter an amount</string>
+    <string name="invalid_amount">Invalid amount</string>
+    <string name="please_select_currencies">Please select currencies</string>
+    <string name="password_updated_successfully">Password updated successfully</string>
+    <string name="failed_to_update_password">Failed to update password</string>
+    <string name="old_password_is_incorrect">Old password is incorrect</string>
+    <string name="logged_out">Logged out!</string>
+    <string name="you_have_to_select_a_currency_source">You have to select a currency source</string>
+    <string name="exchange_rate">Exchange Rate</string>
+    <string name="converted_amount">Converted Amount</string>
+    <string name="_0_00">0.00</string>
+    <string name="convert_currency">Convert Currency</string>
 
 
 </resources>

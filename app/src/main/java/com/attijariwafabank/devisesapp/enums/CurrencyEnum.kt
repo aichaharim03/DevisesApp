@@ -1,6 +1,5 @@
 package com.attijariwafabank.devisesapp.enums
 
-import com.attijariwafabank.devisesapp.data.Currency
 
 enum class CurrencyEnum(val code: String) {
     USD("USD"),
@@ -16,6 +15,9 @@ enum class CurrencyEnum(val code: String) {
     INR("INR"),
     MLR("MLR"),
     MAD("MAD");
+
+    override fun toString(): String = code
+
     companion object {
         fun fromString(text: String): CurrencyEnum? {
             val code = text.split(":")[0].trim()

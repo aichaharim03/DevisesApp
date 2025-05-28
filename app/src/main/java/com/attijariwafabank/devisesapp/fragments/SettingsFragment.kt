@@ -43,7 +43,7 @@ class SettingsFragment : Fragment() {
         }
         _binding?.LogoutButton?.setOnClickListener {
             auth.signOut()
-            Toast.makeText(requireContext(), "Logged out!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.logged_out), Toast.LENGTH_SHORT).show()
             val intent = Intent(requireContext(), LoginActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)

@@ -41,6 +41,15 @@
     <color name="my_dark_on_secondary">#000000</color>
     <color name="my_dark_background">#121212</color>
 
+    <color name="chart_line">#2196F3</color>
+    <color name="chart_fill">#E3F2FD</color>
+    <color name="chart_grid">#E0E0E0</color>
+    <color name="chart_axis">#757575</color>
+
+    <color name="background_light">#F8F9FA</color>
+    <color name="orange_light">#FFE0B3</color>
+    <color name="divider">#E9ECEF</color>
+
 
 
 

@@ -40,7 +40,8 @@ class AgencyFragment : Fragment(), OnMapReadyCallback {
         ActivityResultContracts.RequestPermission()
     ) { isGranted ->
         if (isGranted) enableUserLocation()
-        else Toast.makeText(requireContext(), "Permission refusée", Toast.LENGTH_SHORT).show()
+        else Toast.makeText(requireContext(),
+            getString(R.string.permission_refuee), Toast.LENGTH_SHORT).show()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -110,7 +111,8 @@ class AgencyFragment : Fragment(), OnMapReadyCallback {
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(userLatLng!!, 15f))
 
                 } else {
-                    Toast.makeText(requireContext(), "Position introuvable", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(),
+                        getString(R.string.position_introuvable), Toast.LENGTH_SHORT).show()
                 }
             }
         }

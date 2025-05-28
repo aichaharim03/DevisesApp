@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.attijariwafabank.devisesapp.R
 import com.attijariwafabank.devisesapp.viewModels.CurrencyViewModel
 import com.attijariwafabank.devisesapp.adapter.CurrenciesAdapter
 import com.attijariwafabank.devisesapp.databinding.FragmentMainPageBinding
@@ -51,33 +52,46 @@ class MainPageFragment : Fragment() {
             Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
         }
 
-        val sourceCurrencies = listOf("USD", "MAD", "EUR", "GBP", "CAD")
-        spinnerAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, sourceCurrencies)
+        // Use enums for source currencies
+        val sourceCurrencies = CurrencyEnum.entries
+        val currencyNames = sourceCurrencies.map { it.code }
+
+        spinnerAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, currencyNames)
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding?.spinner?.adapter = spinnerAdapter
 
         binding?.spinner?.setSelection(0)
-        selectedSource = sourceCurrencies[0]
-        viewModel.fetchCurrencies("a351491abe4e7fab9e83c472eb04bdac", selectedSource, currencies = "USD,EUR,GBP,CAD,MAD,AUD,JPY,CHF,CNY,SEK,NZD,INR,MLR")
+        selectedSource = sourceCurrencies[0].code
+
+        val allTargetCurrencies = CurrencyEnum.entries.joinToString(",") { it.code }
+
+        viewModel.fetchCurrencies(
+            accessKey = "a351491abe4e7fab9e83c472eb04bdac",
+            source = selectedSource,
+            currencies = allTargetCurrencies
+        )
 
         binding?.spinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-                selectedSource = sourceCurrencies[position]
+                selectedSource = sourceCurrencies[position].code
                 viewModel.fetchCurrencies(
                     accessKey = "a351491abe4e7fab9e83c472eb04bdac",
                     source = selectedSource,
-                    currencies = "USD,EUR,GBP,CAD,MAD,AUD,JPY,CHF,CNY,SEK,NZD,INR,MLR"
+                    currencies = allTargetCurrencies
                 )
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                Toast.makeText(requireContext(), "You have to select a currency source", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.you_have_to_select_a_currency_source),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 
         adapter.setOnItemClickListener(object : CurrenciesAdapter.OnItemClickListener {
             override fun onItemClick(currency: String) {
-
                 val currencyEnum = CurrencyEnum.fromString(currency)
                 val currencyCode = currencyEnum?.code ?: return
 

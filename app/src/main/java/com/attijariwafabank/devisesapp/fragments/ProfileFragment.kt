@@ -71,13 +71,16 @@ class ProfileFragment : Fragment() {
                     user.updatePassword(newPassword)
                         .addOnCompleteListener { updateTask ->
                             if (updateTask.isSuccessful) {
-                                Toast.makeText(requireContext(), "Password updated successfully", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(requireContext(),
+                                    getString(R.string.password_updated_successfully), Toast.LENGTH_SHORT).show()
                             } else {
-                                Toast.makeText(requireContext(), "Failed to update password", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(requireContext(),
+                                    getString(R.string.failed_to_update_password), Toast.LENGTH_SHORT).show()
                             }
                         }
                 } else {
-                    Toast.makeText(requireContext(), "Old password is incorrect", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(),
+                        getString(R.string.old_password_is_incorrect), Toast.LENGTH_SHORT).show()
                 }
             }
     }

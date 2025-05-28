@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.attijariwafabank.devisesapp.R
 import com.attijariwafabank.devisesapp.databinding.FragmentConversionBinding
+import com.attijariwafabank.devisesapp.enums.CurrencyEnum
 import com.attijariwafabank.devisesapp.viewModels.CurrencyViewModel
 
 class ConversionFragment : Fragment() {
@@ -19,13 +20,7 @@ class ConversionFragment : Fragment() {
     private var _binding: FragmentConversionBinding? = null
     private val binding get() = _binding!!
 
-    private val accessKey = "3bdb79681826eff584ac6f3ccd1b4a82"
-
-    // Liste des devises autorisées
-    private val supportedCurrencies = listOf(
-        "USD", "EUR", "GBP", "CAD", "MAD", "AUD",
-        "JPY", "CHF", "CNY", "SEK", "NZD", "INR", "MLR"
-    )
+    private val accessKey = "a351491abe4e7fab9e83c472eb04bdac"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,8 +37,7 @@ class ConversionFragment : Fragment() {
         setupObservers()
         setupListeners()
 
-        // Tu peux garder cet appel si tu veux des taux à jour
-        viewModel.fetchCurrencies(accessKey, "MAD")
+        viewModel.fetchCurrencies(accessKey, CurrencyEnum.MAD.code)
 
         binding.backButton.setOnClickListener {
             findNavController().navigate(R.id.action_conversionFragment_to_mainPage)
@@ -51,17 +45,17 @@ class ConversionFragment : Fragment() {
     }
 
     private fun setupSpinners() {
+        val currencies = CurrencyEnum.entries
         val adapter = ArrayAdapter(
             requireContext(),
             android.R.layout.simple_spinner_item,
-            supportedCurrencies
+            currencies
         )
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinnerFromCurrency.adapter = adapter
         binding.spinnerToCurrency.adapter = adapter
 
-        // Sélectionne MAD par défaut dans le spinner From
-        val defaultIndex = supportedCurrencies.indexOf("MAD")
+        val defaultIndex = currencies.indexOf(CurrencyEnum.MAD)
         if (defaultIndex != -1) {
             binding.spinnerFromCurrency.setSelection(defaultIndex)
         }
@@ -85,27 +79,30 @@ class ConversionFragment : Fragment() {
             val amountStr = binding.etAmount.text.toString()
 
             if (amountStr.isEmpty()) {
-                Toast.makeText(requireContext(), "Please enter an amount", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(),
+                    getString(R.string.please_enter_an_amount), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             val amount = amountStr.toDoubleOrNull()
             if (amount == null) {
-                Toast.makeText(requireContext(), "Invalid amount", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(),
+                    getString(R.string.invalid_amount), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            val fromCurrency = binding.spinnerFromCurrency.selectedItem?.toString()
-            val toCurrency = binding.spinnerToCurrency.selectedItem?.toString()
+            val fromCurrency = binding.spinnerFromCurrency.selectedItem as? CurrencyEnum
+            val toCurrency = binding.spinnerToCurrency.selectedItem as? CurrencyEnum
 
-            if (fromCurrency.isNullOrEmpty() || toCurrency.isNullOrEmpty()) {
-                Toast.makeText(requireContext(), "Please select currencies", Toast.LENGTH_SHORT).show()
+            if (fromCurrency == null || toCurrency == null) {
+                Toast.makeText(requireContext(),
+                    getString(R.string.please_select_currencies), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             binding.progressBar.visibility = View.VISIBLE
             binding.cardResult.visibility = View.GONE
-            viewModel.convertCurrency(accessKey, fromCurrency, toCurrency, amount)
+            viewModel.convertCurrency(accessKey, fromCurrency.code, toCurrency.code, amount)
         }
     }
 

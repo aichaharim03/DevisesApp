@@ -72,6 +72,7 @@
     <string name="swap_currencies">Changer les devise</string>
     <string name="conversion_result">Montant converti : %1$.2f</string>
     <string name="closest">Plus proche</string>
+    <string name="position_introuvable">Position introuvable</string>
 
 
 </resources>

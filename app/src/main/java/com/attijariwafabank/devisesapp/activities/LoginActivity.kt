@@ -66,7 +66,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
 
-        binding.textViewBacktoSignUp.setOnClickListener {
+        binding.signUpButton.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
         }
 

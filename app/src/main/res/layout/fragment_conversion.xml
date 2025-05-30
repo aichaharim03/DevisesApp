@@ -36,7 +36,6 @@
             android:layout_height="wrap_content"
             android:text="@string/conversion"
             android:textSize="20sp"
-            android:textColor="@color/text_primary"
             android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
 
@@ -66,7 +65,6 @@
                 android:text="Amount"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="@color/text_primary"
                 android:layout_marginBottom="12dp" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -77,9 +75,7 @@
                 app:boxCornerRadiusTopStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
                 app:boxCornerRadiusBottomStart="12dp"
-                app:boxCornerRadiusBottomEnd="12dp"
-                app:boxStrokeColor="@color/primary_color"
-                app:hintTextColor="@color/primary_color">
+                app:boxCornerRadiusBottomEnd="12dp"/>
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etAmount"
@@ -87,9 +83,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
                     android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/text_primary" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:textStyle="bold" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -120,7 +114,6 @@
                 android:text="@string/from"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="@color/text_primary"
                 android:layout_marginBottom="8dp" />
 
             <Spinner
@@ -142,7 +135,6 @@
                 android:text="@string/to"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="@color/text_primary"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp" />
 
@@ -168,7 +160,6 @@
         android:text="@string/convert_currency"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:backgroundTint="@color/primary_color"
         app:cornerRadius="28dp"
         app:icon="@drawable/baseline_currency_exchange_24"
         app:iconGravity="textStart"
@@ -183,7 +174,6 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:visibility="gone"
-        android:indeterminateTint="@color/primary_color"
         app:layout_constraintTop_toTopOf="@id/btnConvert"
         app:layout_constraintBottom_toBottomOf="@id/btnConvert"
         app:layout_constraintStart_toStartOf="@id/btnConvert"
@@ -198,7 +188,6 @@
         app:cardCornerRadius="16dp"
         app:cardElevation="12dp"
         app:strokeWidth="2dp"
-        app:strokeColor="@color/green"
         app:cardBackgroundColor="@color/card_background"
         app:layout_constraintTop_toBottomOf="@id/btnConvert"
         app:layout_constraintStart_toStartOf="parent"
@@ -219,7 +208,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/converted_amount"
                 android:textSize="14sp"
-                android:textColor="@color/text_primary"
                 android:layout_marginBottom="8dp" />
 
             <TextView
@@ -229,7 +217,6 @@
                 android:text="@string/_0_00"
                 android:textSize="32sp"
                 android:textStyle="bold"
-                android:textColor="@color/green"
                 android:layout_marginBottom="12dp"
                 tools:text="85.32"
                 android:gravity="center"/>

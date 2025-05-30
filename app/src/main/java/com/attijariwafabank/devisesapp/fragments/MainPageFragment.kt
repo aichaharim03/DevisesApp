@@ -52,7 +52,6 @@ class MainPageFragment : Fragment() {
             Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
         }
 
-        // Use enums for source currencies
         val sourceCurrencies = CurrencyEnum.entries
         val currencyNames = sourceCurrencies.map { it.code }
 

@@ -34,31 +34,6 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        auth = FirebaseAuth.getInstance()
-
-        drawerLayout = binding.drawerLayout
-        navigationView = binding.navigationView
-
-
-        setSupportActionBar(binding.toolbar)
-        val toggle = ActionBarDrawerToggle(
-            this,
-            drawerLayout,
-            binding.toolbar,
-            R.string.navigation_drawer_open,
-            R.string.navigation_drawer_close
-        )
-        drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
-        viewModel.fetchCurrencies(
-            "a351491abe4e7fab9e83c472eb04bdac",
-            "MAD",
-            "USD,EUR,GBP,CAD,MAD,AUD,JPY,CHF,CNY,SEK,NZD,INR,MLR"
-        )
-
-        binding.navigationView.setNavigationItemSelectedListener(this)
-
-
     }
 
     override fun onStart() {
@@ -75,6 +50,26 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
         val emailMenuItem = binding.navigationView.menu.findItem(R.id.userEmail)
         emailMenuItem.title = savedEmail ?: "No Email Found"
+
+        auth = FirebaseAuth.getInstance()
+
+        drawerLayout = binding.drawerLayout
+        navigationView = binding.navigationView
+
+
+        setSupportActionBar(binding.toolbar)
+        val toggle = ActionBarDrawerToggle(
+            this,
+            drawerLayout,
+            binding.toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
+        )
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
+
+        binding.navigationView.setNavigationItemSelectedListener(this)
     }
 
 
@@ -85,7 +80,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_main_page -> navController.navigate(R.id.mainPage)
-            R.id.nav_profile -> navController.navigate(R.id.profile)
+            R.id.nav_profile -> navController.navigate(R.id.password)
             R.id.nav_settings -> navController.navigate(R.id.settings)
             R.id.nav_agency_map -> navController.navigate(R.id.agencyFragment2)
             R.id.nav_conversion -> navController.navigate(R.id.conversionFragment)

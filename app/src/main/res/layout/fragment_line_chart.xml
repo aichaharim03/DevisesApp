@@ -8,12 +8,10 @@
     android:background="@color/background_light"
     tools:context=".fragments.LineChartFragment">
 
-    <!-- Modern App Bar with gradient background -->
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/gradient_primary"
         android:elevation="8dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,7 +65,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- Main Content Container with Card Design -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -83,7 +80,6 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Chart Container Card -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/chartCard"
                 android:layout_width="match_parent"
@@ -113,7 +109,6 @@
                         <View
                             android:layout_width="4dp"
                             android:layout_height="24dp"
-                            android:background="@color/orange"
                             android:layout_marginEnd="12dp" />
 
                         <TextView
@@ -123,18 +118,16 @@
                             android:text="@string/historical_exchange_rate"
                             android:textSize="16sp"
                             android:textStyle="bold"
-                            android:textColor="@color/text_primary" />
+ />
 
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/baseline_trending_up_24"
-                            app:tint="@color/orange"
                             android:contentDescription="@string/chart_icon" />
 
                     </LinearLayout>
 
-                    <!-- Chart Container -->
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
@@ -148,7 +141,6 @@
                             android:layout_margin="8dp"
                             android:visibility="gone" />
 
-                        <!-- Loading State -->
                         <LinearLayout
                             android:id="@+id/loadingContainer"
                             android:layout_width="match_parent"
@@ -161,21 +153,17 @@
                                 android:id="@+id/progressBar"
                                 android:layout_width="48dp"
                                 android:layout_height="48dp"
-                                android:indeterminate="true"
-                                app:indicatorColor="@color/orange"
-                                app:trackColor="@color/orange_light" />
+                                android:indeterminate="true" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="16dp"
                                 android:text="@string/loading_exchange_rates"
-                                android:textSize="14sp"
-                                android:textColor="@color/text_secondary" />
+                                android:textSize="14sp" />
 
                         </LinearLayout>
 
-                        <!-- No Data State -->
                         <LinearLayout
                             android:id="@+id/noDataContainer"
                             android:layout_width="match_parent"
@@ -195,7 +183,6 @@
                                 android:gravity="center"
                                 android:text="@string/no_historical_exchange_rate_data_available"
                                 android:textSize="16sp"
-                                android:textColor="@color/text_secondary"
                                 android:lineSpacingExtra="4dp" />
 
                             <com.google.android.material.button.MaterialButton
@@ -205,7 +192,6 @@
                                 android:layout_marginTop="16dp"
                                 android:text="@string/retry"
                                 android:textColor="@android:color/white"
-                                app:backgroundTint="@color/orange"
                                 app:cornerRadius="8dp"
                                 app:icon="@drawable/baseline_refresh_24"
                                 app:iconTint="@android:color/white"
@@ -219,7 +205,6 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Info Cards Row -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -227,7 +212,6 @@
                 android:gravity="center"
                 >
 
-                <!-- Period Info Card -->
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -237,7 +221,6 @@
                     app:cardElevation="4dp"
                     app:cardUseCompatPadding="true"
                     app:strokeWidth="1dp"
-                    app:strokeColor="@color/divider"
                     android:gravity="center">
 
                     <LinearLayout
@@ -251,7 +234,6 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/baseline_calendar_today_24"
-                            app:tint="@color/orange"
                             android:layout_marginBottom="8dp"
                             android:contentDescription="@string/calendar_icon" />
 
@@ -259,15 +241,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/period"
-                            android:textSize="12sp"
-                            android:textColor="@color/text_secondary" />
+                            android:textSize="12sp" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/last_30_days"
                             android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/text_primary" />
+                            android:textStyle="bold" />
 
 
 

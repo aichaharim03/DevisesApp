@@ -93,8 +93,11 @@
     <string name="loading_exchange_rates">Loading exchange rates...</string>
     <string name="historical_exchange_rate">Historical Exchange Rate</string>
     <string name="chart_icon">Chart icon</string>
-
-
+    <string name="app_logo">app_logo</string>
+    <string name="becoming_a_customer">Becoming a customer</string>
+    <string name="forgot_the_password">Forgot the password ?</string>
+    <string name="user_name">User name</string>
+    <string name="no_email_available">No email available</string>
 
 
 </resources>

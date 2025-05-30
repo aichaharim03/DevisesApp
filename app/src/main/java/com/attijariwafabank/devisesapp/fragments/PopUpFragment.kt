@@ -39,7 +39,7 @@ class PopUpFragment : DialogFragment() {
             ViewGroup.LayoutParams.WRAP_CONTENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
-        dialog?.window?.setBackgroundDrawableResource(R.color.ShearBlack2)
+        dialog?.window?.setBackgroundDrawableResource(R.color.shear_white)
     }
 
     private fun changeLanguage(language: String) {

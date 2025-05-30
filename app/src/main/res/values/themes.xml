@@ -1,15 +1,25 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.Devises" parent="Theme.Material3.DayNight.NoActionBar">
-         <item name="colorPrimary">@color/orange</item>
-         <item name="colorPrimaryVariant">@color/white</item>
-         <item name="android:statusBarColor">@color/orange</item>
+        <!-- Light Theme Colors -->
+        <item name="colorPrimary">@color/primary_light</item>
+        <item name="colorOnPrimary">@color/on_primary_light</item>
+        <item name="colorSecondary">@color/secondary_light</item>
+        <item name="colorOnSecondary">@color/on_secondary_light</item>
+        <item name="android:colorBackground">@color/background_light</item>
+        <item name="colorOnBackground">@color/on_background_light</item>
+        <item name="colorSurface">@color/surface_light</item>
+        <item name="colorOnSurface">@color/on_background_light</item>
 
+        <!-- Additional Material 3 colors for better theming -->
+        <item name="colorSurfaceVariant">@color/surface_light</item>
+        <item name="colorOnSurfaceVariant">@color/on_background_light</item>
+        <item name="colorOutline">#E0E0E0</item>
 
-        <item name="android:textColorPrimary">@color/text_primary</item>
-
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/background_light</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="Theme.Devises" parent="Base.Theme.Devises" />
-
 </resources>

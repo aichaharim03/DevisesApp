@@ -1,17 +1,27 @@
 
+
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Devises" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <item name="colorPrimary">@color/my_dark_primary</item>
-        <item name="colorPrimaryVariant">@color/my_dark_primary_variant</item>
-        <item name="colorSecondary">@color/my_dark_secondary</item>
-        <item name="android:statusBarColor">@color/my_dark_primary</item>
+<!-- Dark Theme -->
+<style name="Base.Theme.Devises" parent="Theme.Material3.DayNight.NoActionBar">
+    <!-- Dark Theme Colors -->
+    <item name="colorPrimary">@color/primary_dark</item>
+    <item name="colorOnPrimary">@color/on_primary_dark</item>
+    <item name="colorSecondary">@color/secondary_dark</item>
+    <item name="colorOnSecondary">@color/on_secondary_dark</item>
+    <item name="android:colorBackground">@color/background_dark</item>
+    <item name="colorOnBackground">@color/on_background_dark</item>
+    <item name="colorSurface">@color/surface_dark</item>
+    <item name="colorOnSurface">@color/on_background_dark</item>
 
+    <!-- Additional Material 3 colors for better dark theming -->
+    <item name="colorSurfaceVariant">@color/surface_dark</item>
+    <item name="colorOnSurfaceVariant">@color/on_background_dark</item>
+    <item name="colorOutline">#404040</item>
 
-        <item name="android:textColorPrimary">@color/white</item>
+    <!-- Status bar -->
+    <item name="android:statusBarColor">@color/background_dark</item>
+    <item name="android:windowLightStatusBar">false</item>
+</style>
 
-
-
-    </style>
+<style name="Theme.Devises" parent="Base.Theme.Devises" />
 </resources>

@@ -7,10 +7,10 @@
     app:startDestination="@id/mainPage">
 
     <fragment
-        android:id="@+id/profile"
-        android:name="com.attijariwafabank.devisesapp.fragments.ProfileFragment"
+        android:id="@+id/password"
+        android:name="com.attijariwafabank.devisesapp.fragments.PasswordFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" >
+        tools:layout="@layout/fragment_password" >
 
         <action
             android:id="@+id/action_profile_to_settings"
@@ -23,7 +23,7 @@
         tools:layout="@layout/fragment_main_page" >
         <action
             android:id="@+id/action_mainPage_to_profile"
-            app:destination="@id/profile" />
+            app:destination="@id/password" />
         <action
             android:id="@+id/action_mainPage_to_settings"
             app:destination="@id/settings" />
@@ -52,7 +52,7 @@
             app:destination="@id/themeFragment" />
         <action
             android:id="@+id/action_settings_to_profile"
-            app:destination="@id/profile" />
+            app:destination="@id/password" />
         <action
             android:id="@+id/action_settings_to_mainPage"
             app:destination="@id/mainPage" />

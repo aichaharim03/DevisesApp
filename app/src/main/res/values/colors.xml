@@ -1,85 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- res/values/colors.xml -->
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="orange">#FF6E40</color>
-    <color name="ShearBlack">#800B0B0B</color>
-    <color name="gray">#9AA1A1</color>
-    <color name="greenbk">#80FFFFFF</color>
-    <color name="ShearOrange">#54E69C85</color>
-    <color name="ShearBlack2">#40000000</color>
-    <color name="Darker_gray">#AAAAAA</color>
-    <color name="Dark_blue">#273F4F</color>
+    <!-- Dark Theme Colors -->
+    <color name="background_dark">#232E39</color>
+    <color name="on_background_dark">#F6F7F9</color>
+    <color name="surface_dark">#1E2328</color>
+    <color name="primary_dark">#E7543F</color>
+    <color name="on_primary_dark">#FFFFFF</color>
+    <color name="secondary_dark">#2A2F36</color>
+    <color name="on_secondary_dark">#F6F7F9</color>
 
-    <color name="primary_color">#1976D2</color>
-    <color name="primary_dark_color">#0D47A1</color>
-    <color name="accent_color">#4FF6B329</color>
-    <color name="teal_700">#18FFFF</color>
-    <color name="green">#09C569</color>
-    <color name="red">#FF0000</color>
-
-    <!-- Background colors -->
-    <color name="background_color">#F5F5F5</color>
-    <color name="card_background">#FFFFFF</color>
-    <color name="input_background">#FFFFFF</color>
-    <color name="input_stroke">#E0E0E0</color>
-
-    <!-- Text colors -->
-    <color name="text_primary">#212121</color>
-    <color name="text_secondary">#757575</color>
-    <color name="text_hint">#BDBDBD</color>
-
-    <!-- Currency item colors -->
-    <color name="currency_up">#4CAF50</color>
-    <color name="currency_down">#F44336</color>
-
-    <!-- Dark Colors-->
-    <color name="my_dark_primary">#273F4F</color>
-    <color name="my_dark_primary_variant">#3C5F77</color>
-    <color name="my_dark_secondary">#833D27</color>
-    <color name="my_dark_on_primary">#FFFFFF</color>
-    <color name="my_dark_on_secondary">#000000</color>
-    <color name="my_dark_background">#121212</color>
-
-    <color name="chart_line">#2196F3</color>
-    <color name="chart_fill">#E3F2FD</color>
-    <color name="chart_grid">#E0E0E0</color>
-    <color name="chart_axis">#757575</color>
-
+    <!-- Light Theme Colors -->
     <color name="background_light">#F8F9FA</color>
-    <color name="orange_light">#FFE0B3</color>
-    <color name="divider">#E9ECEF</color>
+    <color name="on_background_light">#1C1E21</color>
+    <color name="surface_light">#FFFFFF</color>
+    <color name="primary_light">#E7543F</color>
+    <color name="on_primary_light">#FFFFFF</color>
+    <color name="secondary_light">#6C757D</color>
+    <color name="on_secondary_light">#FFFFFF</color>
 
-
-
-
-        <!-- Dark Theme Colors -->
-        <color name="dark_primary">#51829B</color>
-        <color name="dark_primary_variant">#406A80</color>
-        <color name="dark_secondary">#E5383B</color>
-        <color name="dark_secondary_variant">#C52B2E</color>
-        <color name="dark_background">#121212</color>
-        <color name="dark_surface">#1E1E1E</color>
-        <color name="dark_error">#CF6679</color>
-        <color name="dark_on_primary">#FFFFFF</color>
-        <color name="dark_on_secondary">#FFFFFF</color>
-        <color name="dark_on_background">#EFEFEF</color>
-        <color name="dark_on_surface">#EFEFEF</color>
-        <color name="dark_on_error">#121212</color>
-        <color name="dark_card">#2D2D2D</color>
-        <color name="dark_card_ripple">#3D3D3D</color>
-        <color name="dark_divider">#3D3D3D</color>
-
-        <!-- Additional UI Colors -->
-        <color name="success">#43A047</color>
-        <color name="warning">#FFA000</color>
-        <color name="info">#2196F3</color>
-        <color name="disabled">#9E9E9E</color>
-        <color name="text_primary_light">#212121</color>
-        <color name="text_secondary_light">#757575</color>
-        <color name="text_primary_dark">#EFEFEF</color>
-        <color name="text_secondary_dark">#B0B0B0</color>
-        <color name="transparent">#00000000</color>
-
-
+    <!-- Legacy colors for compatibility -->
+    <color name="card_background">#801E293B</color>
+    <color name="shear_white">#80F6F7F9</color>
+    <color name="teal_700">#18FFFF</color>
 </resources>

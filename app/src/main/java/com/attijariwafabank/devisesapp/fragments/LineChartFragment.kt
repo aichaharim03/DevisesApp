@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -99,13 +98,13 @@ class LineChartFragment : Fragment() {
         }
 
         val dataSet = LineDataSet(entries, getString(R.string.to_rate, sourceCurrency, targetCurrency)).apply {
-            color = ContextCompat.getColor(requireContext(), R.color.orange)
+            color = ContextCompat.getColor(requireContext(), androidx.appcompat.R.color.material_blue_grey_800)
             lineWidth = 3f
             setCircleColor(ContextCompat.getColor(requireContext(), androidx.appcompat.R.color.material_blue_grey_800))
             circleRadius = 5f
             circleHoleRadius = 3f
             setDrawFilled(true)
-            fillColor = ContextCompat.getColor(requireContext(), R.color.orange)
+            fillColor = ContextCompat.getColor(requireContext(), androidx.appcompat.R.color.material_blue_grey_800)
             fillAlpha = 30
             setDrawValues(true)
             valueTextSize = 10f

@@ -5,7 +5,6 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.PopUpFragment"
-    android:background="@color/ShearOrange"
     android:layout_marginTop="500dp">
 
     <Button

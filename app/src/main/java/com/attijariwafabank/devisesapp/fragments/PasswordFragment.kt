@@ -11,12 +11,12 @@ import com.attijariwafabank.devisesapp.R
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.attijariwafabank.devisesapp.databinding.FragmentProfileBinding
+import com.attijariwafabank.devisesapp.databinding.FragmentPasswordBinding
 
 
-class ProfileFragment : Fragment() {
+class PasswordFragment : Fragment() {
 
-    private var _binding : FragmentProfileBinding? = null
+    private var _binding: FragmentPasswordBinding? = null
     private lateinit var auth: FirebaseAuth
     private var currentUser: FirebaseUser? = null
 
@@ -25,7 +25,7 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentProfileBinding.inflate(inflater, container, false)
+        _binding = FragmentPasswordBinding.inflate(inflater, container, false)
         return _binding!!.root
     }
 
@@ -37,9 +37,9 @@ class ProfileFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
         currentUser = auth.currentUser
 
-        currentUser?.email?.let {
-            _binding?.emailTextView?.text  = getString(R.string.email)
-        }
+
+        _binding?.emailTextView?.text = currentUser?.email ?:
+            getString(R.string.no_email_available)
 
         _binding?.changePasswordButton?.setOnClickListener {
             val oldPassword = _binding!!.oldPasswordEditText.text.toString()

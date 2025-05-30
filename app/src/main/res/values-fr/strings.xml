@@ -93,6 +93,12 @@
     <string name="loading_exchange_rates">Chargement des taux de change\.\.\.</string>
     <string name="historical_exchange_rate">L\'historique des taux de change</string>
     <string name="chart_icon">Chart icon</string>
+    <string name="app_logo">app_logo</string>
+    <string name="becoming_a_customer">Devenir client</string>
+    <string name="forgot_the_password">Mot de passe oublié</string>
+    <string name="user_name">Nom d\'utilisateur</string>
+    <string name="no_email_available">Aucun email disponible</string>
+
 
 
 

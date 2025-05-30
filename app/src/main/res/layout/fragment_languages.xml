@@ -34,7 +34,6 @@
             android:layout_height="wrap_content"
             android:text="@string/languages"
             android:textSize="20sp"
-            android:textColor="@color/text_primary"
             android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
 
@@ -57,7 +56,6 @@
         android:layout_height="wrap_content"
         android:text="@string/select_the_language_of_your_currency_application"
         android:textSize="16sp"
-        android:textColor="@color/text_primary"
         android:gravity="center"
         android:layout_marginTop="16dp"
         android:layout_marginHorizontal="32dp"
@@ -102,16 +100,13 @@
                     android:layout_weight="1"
                     android:text="@string/french"
                     android:id="@+id/french_button"
-                    android:backgroundTint="@color/white"
-                    android:textSize="16sp"
-                    android:textColor="@color/text_primary" />
+                    android:textSize="16sp" />
 
                 <ImageView
                     android:id="@+id/arrow_french"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/baseline_arrow_right_24"
-                    app:tint="@color/black"
                     android:contentDescription="@string/arrow" />
             </LinearLayout>
 
@@ -140,9 +135,7 @@
                     android:layout_weight="1"
                     android:id="@+id/english_button"
                     android:text="@string/english"
-                    android:textSize="16sp"
-                    android:backgroundTint="@color/white"
-                    android:textColor="@color/text_primary" />
+                    android:textSize="16sp" />
 
                 <ImageView
                     android:id="@+id/arrow_english"
@@ -150,7 +143,6 @@
                     android:layout_height="24dp"
 
                     android:src="@drawable/baseline_arrow_right_24"
-                    app:tint="@color/black"
                     android:contentDescription="@string/arrow" />
             </LinearLayout>
 

@@ -80,7 +80,6 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_main_page -> navController.navigate(R.id.mainPage)
-            R.id.nav_profile -> navController.navigate(R.id.password)
             R.id.nav_settings -> navController.navigate(R.id.settings)
             R.id.nav_agency_map -> navController.navigate(R.id.agencyFragment2)
             R.id.nav_conversion -> navController.navigate(R.id.conversionFragment)

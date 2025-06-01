@@ -52,7 +52,7 @@
             app:destination="@id/themeFragment" />
         <action
             android:id="@+id/action_settings_to_profile"
-            app:destination="@id/password" />
+            app:destination="@id/profileFragment" />
         <action
             android:id="@+id/action_settings_to_mainPage"
             app:destination="@id/mainPage" />
@@ -107,6 +107,22 @@
             android:id="@+id/action_conversionFragment_to_mainPage"
             app:destination="@id/mainPage" />
     </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.yourpackage.fragments.ProfileFragment"
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_password"
+            app:destination="@id/password" />
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.attijariwafabank.devisesapp.fragments.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
 
 
 </navigation>

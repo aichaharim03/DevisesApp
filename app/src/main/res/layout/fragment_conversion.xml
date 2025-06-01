@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".fragments.ConversionFragment">
 
-    <!-- Toolbar -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/ConversionToolbar"
         android:layout_width="match_parent"
@@ -39,7 +38,6 @@
             android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
 
-    <!-- Amount Card -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardAmount"
         android:layout_width="0dp"
@@ -87,7 +85,6 @@
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
-    <!-- Currency Selection Card -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardCurrencies"
         android:layout_width="0dp"
@@ -107,7 +104,6 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <!-- From Currency -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -128,7 +124,6 @@
                 android:dropDownVerticalOffset="48dp"
                 android:overlapAnchor="false"/>
 
-            <!-- To Currency -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -151,7 +146,6 @@
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
-    <!-- Convert Button -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnConvert"
         android:layout_width="0dp"
@@ -168,7 +162,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Loading Indicator -->
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="32dp"
@@ -179,7 +172,6 @@
         app:layout_constraintStart_toStartOf="@id/btnConvert"
         app:layout_constraintEnd_toEndOf="@id/btnConvert" />
 
-    <!-- Result Card -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardResult"
         android:layout_width="0dp"
@@ -193,8 +185,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        >
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"

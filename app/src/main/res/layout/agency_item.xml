@@ -15,7 +15,6 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <!-- Agency Name -->
         <TextView
             android:id="@+id/nomText"
             android:layout_width="0dp"
@@ -28,7 +27,6 @@
             app:layout_constraintEnd_toStartOf="@id/agencydistance"
             app:layout_constraintHorizontal_bias="0" />
 
-        <!-- Distance -->
         <TextView
             android:id="@+id/agencydistance"
             android:layout_width="wrap_content"
@@ -38,7 +36,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Closest Label -->
         <TextView
             android:id="@+id/textViewClosest"
             android:layout_width="wrap_content"
@@ -52,7 +49,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_goneMarginTop="0dp" />
 
-        <!-- Address -->
         <TextView
             android:id="@+id/adresseText"
             android:layout_width="0dp"

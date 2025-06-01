@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "326568398109",
-    "project_id": "devises25",
-    "storage_bucket": "devises25.firebasestorage.app"
+    "project_number": "703611031151",
+    "project_id": "devisesapp",
+    "storage_bucket": "devisesapp.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:326568398109:android:926238137e7d143baf65f4",
+        "mobilesdk_app_id": "1:703611031151:android:7a6102e023463d9dce079a",
         "android_client_info": {
           "package_name": "com.attijariwafabank.devisesapp"
         }
@@ -15,7 +15,26 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDHM9vM1-pSuNcqbxshYDRiUtBGAGuIjF4"
+          "current_key": "AIzaSyBYEeOc6-MIc5dgMBPEdcoyHzhkD6sQWic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:703611031151:android:c60bba0fe3ce9c12ce079a",
+        "android_client_info": {
+          "package_name": "package.com.attijariwafabank.devisesapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYEeOc6-MIc5dgMBPEdcoyHzhkD6sQWic"
         }
       ],
       "services": {

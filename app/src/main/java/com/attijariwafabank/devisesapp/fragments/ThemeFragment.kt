@@ -26,9 +26,7 @@ class ThemeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding?.backButton?.setOnClickListener {
-            findNavController().navigate(R.id.action_themeFragment_to_settings)
-        }
+
         binding?.switchTheme?.setOnClickListener {
             if (binding?.switchTheme?.isChecked == true) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)

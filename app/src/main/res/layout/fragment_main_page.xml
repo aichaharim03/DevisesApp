@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    >
 
     <androidx.cardview.widget.CardView
         android:id="@+id/spinnerCard"
@@ -19,7 +20,9 @@
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:outlineSpotShadowColor="#448AFF"
+        android:outlineAmbientShadowColor="#448AFF">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -60,6 +63,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:listitem="@layout/item_currency"
+        android:paddingBottom="24dp"
 />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

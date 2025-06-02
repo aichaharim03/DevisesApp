@@ -330,7 +330,8 @@
                 android:text="@string/send_otp"
                 android:textColor="?attr/colorOnSurfaceVariant"
                 android:layout_marginTop="8dp"
-                android:visibility="gone" />
+                android:visibility="gone"
+                style="?android:attr/buttonBarButtonStyle"/>
 
             <EditText
                 android:id="@+id/etOtp"
@@ -350,7 +351,8 @@
                 android:text="@string/verify_otp"
                 android:textColor="@color/background_dark"
                 android:layout_marginTop="8dp"
-                android:visibility="gone" />
+                android:visibility="gone"
+                style="?android:attr/buttonBarButtonStyle"/>
 
             <LinearLayout
                 android:id="@+id/layoutPhoneActions"
@@ -365,7 +367,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/cancel"
-                    android:textColor="?attr/colorOnSurfaceVariant" />
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    style="?android:attr/buttonBarButtonStyle"/>
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

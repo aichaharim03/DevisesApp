@@ -1,103 +1,85 @@
 package com.attijariwafabank.devisesapp.activities
 
 import android.content.Context
-import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
-import android.view.MenuItem
+import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import com.attijariwafabank.devisesapp.viewModels.CurrencyViewModel
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupActionBarWithNavController
 import com.attijariwafabank.devisesapp.R
 import com.attijariwafabank.devisesapp.databinding.ActivityDashboardBinding
-import com.google.android.material.navigation.NavigationView
-import java.util.Locale
-import androidx.activity.viewModels
-import androidx.appcompat.app.ActionBarDrawerToggle
+import com.attijariwafabank.devisesapp.viewModels.CurrencyViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
+import java.util.*
 
-class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class DashboardActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
     private lateinit var binding: ActivityDashboardBinding
-    private lateinit var drawerLayout: DrawerLayout
-    private lateinit var navigationView: NavigationView
     private lateinit var auth: FirebaseAuth
+    private lateinit var toolbarTitle: TextView
 
     private val viewModel: CurrencyViewModel by viewModels()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
     }
 
     override fun onStart() {
         super.onStart()
 
-        navController = Navigation.findNavController(binding.navHostFragmentContainerView)
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
-        val savedEmail = sharedPreferences.getString("userEmail", "")
+        toolbarTitle = binding.toolbar.findViewById(R.id.toolbar)
+        toolbarTitle.text = ""
+
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment_containerView) as NavHostFragment
+        navController = navHostFragment.navController
+
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.mainPage,
+                R.id.agencyFragment2,
+                R.id.bottom_menu
+            )
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            toolbarTitle.text = destination.label ?: ""
+        }
+
+        val bottomNavView: BottomNavigationView = binding.navigationView
+        NavigationUI.setupWithNavController(bottomNavView, navController)
+
+        auth = FirebaseAuth.getInstance()
 
         viewModel.errorLiveData.observe(this) {
             Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
         }
 
-        val emailMenuItem = binding.navigationView.menu.findItem(R.id.userEmail)
-        emailMenuItem.title = savedEmail ?: "No Email Found"
-
-        auth = FirebaseAuth.getInstance()
-
-        drawerLayout = binding.drawerLayout
-        navigationView = binding.navigationView
-
-
-        setSupportActionBar(binding.toolbar)
-        val toggle = ActionBarDrawerToggle(
-            this,
-            drawerLayout,
-            binding.toolbar,
-            R.string.navigation_drawer_open,
-            R.string.navigation_drawer_close
-        )
-        drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
-
-
-        binding.navigationView.setNavigationItemSelectedListener(this)
-    }
-
-
-    override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp() || super.onSupportNavigateUp()
-    }
-
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.nav_main_page -> navController.navigate(R.id.mainPage)
-            R.id.nav_settings -> navController.navigate(R.id.settings)
-            R.id.nav_agency_map -> navController.navigate(R.id.agencyFragment2)
-            R.id.nav_conversion -> navController.navigate(R.id.conversionFragment)
-
-            R.id.nav_logout -> {
-                auth.signOut()
-                Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show()
-                
-                val intent = Intent(this, LoginActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(intent)
+        bottomNavView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.bottom_home -> navController.navigate(R.id.mainPage)
+                R.id.bottom_agency -> navController.navigate(R.id.agencyFragment2)
+                R.id.bottom_menu -> navController.navigate(R.id.Menu)
             }
+            true
         }
-        drawerLayout.closeDrawer(navigationView)
-        return true
     }
-
-
 
 
     override fun attachBaseContext(newBase: Context) {
@@ -114,11 +96,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         super.attachBaseContext(context)
     }
 
-    override fun onBackPressed() {
-        if (drawerLayout.isDrawerOpen(navigationView)) {
-            drawerLayout.closeDrawer(navigationView)
-        } else {
-            onBackPressedDispatcher.onBackPressed()
-        }
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }

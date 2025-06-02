@@ -141,6 +141,9 @@
     <string name="enter_otp">Enter OTP</string>
     <string name="send_otp">Send OTP</string>
     <string name="current_password_required_for_email_change">Current password (required for email change)</string>
+    <string name="home">home</string>
+    <string name="icon">icon</string>
+    <string name="menu">Menu</string>
 
 
 </resources>

@@ -37,9 +37,7 @@ class LanguagesFragment : Fragment() {
         binding.frenchButton.setOnClickListener {
             changeLanguage("fr")
         }
-        binding.backButton.setOnClickListener {
-            findNavController().navigate(R.id.action_languages_to_settings)
-        }
+
     }
 
     private fun changeLanguage(language: String) {

@@ -54,9 +54,9 @@ class PasswordFragment : Fragment() {
                 changePassword(oldPassword, newPassword)
             }
         }
-        _binding?.backButton?.setOnClickListener {
-            findNavController().navigate(R.id.action_profile_to_settings)
-        }
+
+
+
 
     }
 

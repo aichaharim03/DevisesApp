@@ -2,42 +2,23 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIns="navigation_view"
-    >
+    tools:showIns="navigation_view">
 
     <item
-        android:title="">
-        <menu>
-            <item
-                android:id="@+id/userEmail"
-                android:title="@string/email"/>
+        android:id="@+id/bottom_menu"
+        android:title="@string/home"
+        android:icon="@drawable/baseline_menu_24"/>
 
-        </menu>
-    </item>
+    <item
+        android:id="@+id/bottom_home"
+        android:title="@string/home"
+        android:icon="@drawable/baseline_home_24"/>
 
-     <group
-         android:checkableBehavior="single">
-         <item
-             android:id="@+id/nav_main_page"
-             android:title="@string/main_page" />
-         <item
-             android:id="@+id/nav_agency_map"
-             android:title="@string/agency_map"/>
-         <item
-             android:id="@+id/nav_conversion"
-             android:title="@string/conversion" />
+    <item
+        android:id="@+id/bottom_agency"
+        android:title="@string/home"
+        android:icon="@drawable/baseline_maps_home_work_24"/>
 
-            <item
-             android:id="@+id/nav_settings"
-             android:title="@string/settings" />
-     </group>
-        <item
-            android:title="">
-            <menu>
-                <item
-                    android:id="@+id/nav_logout"
-                    android:title="@string/log_out"/>
 
-            </menu>
-        </item>
+
 </menu>

@@ -9,12 +9,20 @@
     android:layout_marginEnd="8dp"
     android:layout_marginBottom="4dp"
     app:cardCornerRadius="8dp"
-    app:cardElevation="2dp">
+    app:cardElevation="2dp"
+    android:outlineSpotShadowColor="#448AFF"
+    android:outlineAmbientShadowColor="#448AFF"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:outlineSpotShadowColor="#448AFF"
+        android:outlineAmbientShadowColor="#448AFF"
+
+
+        >
 
     <TextView
         android:id="@+id/currencyNameTextView"

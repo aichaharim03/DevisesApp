@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.attijariwafabank.devisesapp.R
 import com.attijariwafabank.devisesapp.databinding.FragmentConversionBinding
 import com.attijariwafabank.devisesapp.enums.CurrencyEnum
@@ -39,9 +38,7 @@ class ConversionFragment : Fragment() {
 
         viewModel.fetchCurrencies(accessKey, CurrencyEnum.MAD.code)
 
-        binding.backButton.setOnClickListener {
-            findNavController().navigate(R.id.action_conversionFragment_to_mainPage)
-        }
+
     }
 
     private fun setupSpinners() {

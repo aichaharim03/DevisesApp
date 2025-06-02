@@ -19,8 +19,12 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:titleTextColor="@android:color/white"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:titleTextColor="@android:color/black"
+            app:layout_constraintTop_toTopOf="parent"
+            android:outlineSpotShadowColor="#448AFF"
+            android:outlineAmbientShadowColor="#448AFF">
+
+        </androidx.appcompat.widget.Toolbar>
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/nav_host_fragment_containerView"
@@ -35,19 +39,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             />
 
-
-
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/navigationView"
+            app:headerLayout="@layout/nav_header"
+            app:menu="@menu/nav_menu"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-   <com.google.android.material.navigation.NavigationView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:id="@+id/navigationView"
-        android:layout_gravity="start"
-        app:headerLayout="@layout/nav_header"
-        app:menu="@menu/nav_menu"/>
-
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

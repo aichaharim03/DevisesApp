@@ -9,7 +9,7 @@
     <fragment
         android:id="@+id/password"
         android:name="com.attijariwafabank.devisesapp.fragments.PasswordFragment"
-        android:label="fragment_profile"
+        android:label="Change password"
         tools:layout="@layout/fragment_password" >
 
         <action
@@ -19,7 +19,7 @@
     <fragment
         android:id="@+id/mainPage"
         android:name="com.attijariwafabank.devisesapp.fragments.MainPageFragment"
-        android:label="fragment_main_page"
+        android:label="Main page"
         tools:layout="@layout/fragment_main_page" >
         <action
             android:id="@+id/action_mainPage_to_profile"
@@ -41,7 +41,7 @@
     <fragment
         android:id="@+id/settings"
         android:name="com.attijariwafabank.devisesapp.fragments.SettingsFragment"
-        android:label="fragment_settings"
+        android:label="Settings"
         tools:layout="@layout/fragment_settings" >
 
         <action
@@ -60,7 +60,7 @@
     <fragment
         android:id="@+id/languages"
         android:name="com.attijariwafabank.devisesapp.fragments.LanguagesFragment"
-        android:label="fragment_languages"
+        android:label="Languages"
         tools:layout="@layout/fragment_languages"
         >
         <action
@@ -71,7 +71,7 @@
     <fragment
         android:id="@+id/currencyGraphFragment"
         android:name="com.attijariwafabank.devisesapp.fragments.LineChartFragment"
-        android:label="fragment_currency_graph"
+        android:label="Currency graph"
         tools:layout="@layout/fragment_line_chart">
         <argument
             android:name="sourceCurrency"
@@ -87,7 +87,7 @@
     <fragment
         android:id="@+id/themeFragment"
         android:name="com.attijariwafabank.devisesapp.fragments.ThemeFragment"
-        android:label="fragment_theme"
+        android:label="Themes"
         tools:layout="@layout/fragment_theme" >
         <action
             android:id="@+id/action_themeFragment_to_settings"
@@ -96,12 +96,12 @@
     <fragment
         android:id="@+id/agencyFragment2"
         android:name="com.attijariwafabank.devisesapp.fragments.AgencyFragment"
-        android:label="fragment_agence"
+        android:label="Agencies"
         tools:layout="@layout/fragment_agence" />
     <fragment
         android:id="@+id/conversionFragment"
         android:name="com.attijariwafabank.devisesapp.fragments.ConversionFragment"
-        android:label="fragment_conversion"
+        android:label="Conversion"
         tools:layout="@layout/fragment_conversion" >
         <action
             android:id="@+id/action_conversionFragment_to_mainPage"
@@ -110,7 +110,7 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.yourpackage.fragments.ProfileFragment"
-        android:label="ProfileFragment" >
+        android:label="Profile" >
         <action
             android:id="@+id/action_profileFragment_to_password"
             app:destination="@id/password" />
@@ -121,8 +121,25 @@
     <fragment
         android:id="@+id/editProfileFragment"
         android:name="com.attijariwafabank.devisesapp.fragments.EditProfileFragment"
-        android:label="fragment_edit_profile"
+        android:label="Edit profile"
         tools:layout="@layout/fragment_edit_profile" />
+    <fragment
+        android:id="@+id/Menu"
+        android:name="com.attijariwafabank.devisesapp.fragments.MenuFragment"
+        android:label="MenuFragment" >
+        <action
+            android:id="@+id/action_menuFragment_to_mainPage"
+            app:destination="@id/mainPage" />
+        <action
+            android:id="@+id/action_menuFragment_to_conversionFragment"
+            app:destination="@id/conversionFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_settings"
+            app:destination="@id/settings" />
+        <action
+            android:id="@+id/action_menuFragment_to_agencyFragment2"
+            app:destination="@id/agencyFragment2" />
+    </fragment>
 
 
 </navigation>

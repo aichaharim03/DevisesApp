@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "com.attijariwafabank.devisesapp"
-        minSdk = 24
+        minSdk = 28
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -64,5 +64,6 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
     implementation ("com.google.android.gms:play-services-maps:18.2.0")
+
 
 }

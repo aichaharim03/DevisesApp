@@ -47,7 +47,7 @@
     <string name="select_currency">Choisir la devise</string>
     <string name="exchange_rate_chart">Graphique des taux de change</string>
     <string name="no_historical_exchange_rate_data_available">Aucune donnée historique sur les taux de change disponible</string>
-    <string name="to_exchange_rate">%1$s au %2$s Taux de change</string>
+    <string name="to_exchange_rate">Taux de change de %1$s au %2$s </string>
     <string name="no_data_available_for_the_selected_date_range">Aucune donnée disponible pour la plage de dates sélectionnée.</string>
     <string name="to_rate">%1$s au %2$s Taux</string>
     <string name="historical_exchange_rate_to">Taux de change historique (%1$s au %2$s)</string>

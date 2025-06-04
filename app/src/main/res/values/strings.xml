@@ -46,7 +46,7 @@
     <string name="select_currency">select currency</string>
     <string name="exchange_rate_chart">Exchange Rate Chart</string>
     <string name="no_historical_exchange_rate_data_available">No historical exchange rate data available</string>
-    <string name="to_exchange_rate">%1$s to %2$s Exchange Rate</string>
+    <string name="to_exchange_rate"> Exchange Rate %1$s to %2$s </string>
     <string name="no_data_available_for_the_selected_date_range">No data available for the selected date range.</string>
     <string name="to_rate">%1$s to %2$s Rate</string>
     <string name="historical_exchange_rate_to">Historical Exchange Rate (%1$s to %2$s)</string>
@@ -144,6 +144,30 @@
     <string name="home">home</string>
     <string name="icon">icon</string>
     <string name="menu">Menu</string>
+    <string name="agencies">Agencies</string>
+    <string name="hoome">Home</string>
+    <string name="meenu">Menu</string>
+    <string name="nom_de_l_agence">Nom de l\'agence</string>
+    <string name="ville">Ville</string>
+    <string name="t_l_phone_1">Téléphone 1</string>
+    <string name="t_l_phone_2">Téléphone 2</string>
+    <string name="fax">Fax</string>
+    <string name="horaires">Horaires</string>
+    <string name="itin_raire">Itinéraire</string>
+    <string name="emaiIl">Email</string>
+    <string name="share_ic">share_ic</string>
+    <string name="share">Share</string>
+    <string name="call">Call</string>
+    <string name="phone_ic">phone_ic</string>
+    <string name="route">Route</string>
+    <string name="route_ic">route_ic</string>
+    <string name="time_ic">time_ic</string>
+    <string name="location_ic">location_ic</string>
+    <string name="light_mode_dark_mode">Light Mode / Dark Mode</string>
+    <string name="light_mode">light_mode</string>
+    <string name="dark_mode">dark_mode</string>
+    <string name="automatic">Automatic</string>
+    <string name="currency_name">Currency Name</string>
 
 
 </resources>

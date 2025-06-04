@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="?android:attr/colorBackground"
     >
 
     <androidx.cardview.widget.CardView
@@ -18,6 +19,7 @@
         android:elevation="4dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="4dp"
+        app:cardBackgroundColor="?attr/colorSurface"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -64,6 +66,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:listitem="@layout/item_currency"
         android:paddingBottom="24dp"
+
 />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

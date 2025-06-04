@@ -6,8 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.navigation.fragment.findNavController
-import com.attijariwafabank.devisesapp.R
 import com.attijariwafabank.devisesapp.databinding.FragmentThemeBinding
 
 
@@ -27,14 +25,26 @@ class ThemeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding?.switchTheme?.setOnClickListener {
-            if (binding?.switchTheme?.isChecked == true) {
+        binding?.radioDarkMode?.setOnClickListener {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            binding?.radioLightMode?.isChecked = false
+            binding?.switchAutomatic?.isChecked = false
 
-            } else {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+        binding?.radioLightMode?.setOnClickListener {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            binding?.radioDarkMode?.isChecked = false
+            binding?.switchAutomatic?.isChecked = false
+        }
 
-
+        binding?.switchAutomatic?.setOnClickListener {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+            if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+                binding?.radioDarkMode?.isChecked = true
+                binding?.radioLightMode?.isChecked = false
+            }else{
+                binding?.radioDarkMode?.isChecked = false
+                binding?.radioLightMode?.isChecked = true
             }
         }
 

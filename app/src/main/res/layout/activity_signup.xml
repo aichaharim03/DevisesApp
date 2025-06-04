@@ -90,7 +90,7 @@
                         android:id="@+id/signupEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/email"
+                        android:hint="@string/emaiIl"
                         android:inputType="textEmailAddress"
                         android:textColor="?attr/colorOnSurface"
                         android:autofillHints="emailAddress" />

@@ -1,14 +1,15 @@
 package com.attijariwafabank.devisesapp.adapter
 
-import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.attijariwafabank.devisesapp.R
 import com.attijariwafabank.devisesapp.data.Agency
+import com.attijariwafabank.devisesapp.fragments.AgencyBottomSheetFragment
 
 class AgencyAdapter(
     private var agencies: List<Agency>,
@@ -18,8 +19,8 @@ class AgencyAdapter(
     inner class AgencyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val name: TextView = itemView.findViewById(R.id.nomText)
         val distance: TextView = itemView.findViewById(R.id.agencydistance)
-        val closestLabel: TextView = itemView.findViewById(R.id.textViewClosest) // add this
-        val adresseText: TextView = itemView.findViewById(R.id.adresseText)
+        val closestLabel: TextView = itemView.findViewById(R.id.textViewClosest)
+        val addressText: TextView = itemView.findViewById(R.id.adresseText)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AgencyViewHolder {
@@ -31,27 +32,17 @@ class AgencyAdapter(
         val agency = agencies[position]
         holder.name.text = agency.nom
         holder.distance.text = agency.distance
-        holder.adresseText.text = agency.adresse
+        holder.addressText.text = agency.adresse
 
-
-        // Show "Closest" label only for the first item
-        if (position == 0) {
-            holder.closestLabel.visibility = View.VISIBLE
-        } else {
-            holder.closestLabel.visibility = View.GONE
-        }
+        holder.closestLabel.visibility = if (position == 0) View.VISIBLE else View.GONE
 
         holder.itemView.setOnClickListener {
-            val horaires = listOf(
-                agency.horaire1, agency.horaire2, agency.horaire3,
-                agency.horaire4, agency.horaire5, agency.horaire6
-            ).filter { it.trim().isNotEmpty() }.joinToString("\n")
+            val activity = context as? FragmentActivity
 
-            AlertDialog.Builder(context)
-                .setTitle(agency.nom)
-                .setMessage("📍 Adresse: ${agency.adresse}\n📞 Téléphone: ${agency.telephone1}\n🕐 Horaires:\n$horaires")
-                .setPositiveButton("Fermer", null)
-                .show()
+            activity?.let {
+                val bottomSheet = AgencyBottomSheetFragment(agency)
+                bottomSheet.show(it.supportFragmentManager, bottomSheet.tag)
+            }
         }
     }
 
@@ -62,6 +53,3 @@ class AgencyAdapter(
         notifyDataSetChanged()
     }
 }
-
-
-

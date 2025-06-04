@@ -4,33 +4,51 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5"
+    android:background="?android:attr/colorBackground"
     tools:context=".fragments.LanguagesFragment">
 
-
+    <!-- Language Icon -->
     <ImageView
         android:id="@+id/image_language"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:src="@drawable/baseline_language_24"
         android:background="@drawable/baseline_circle_24"
         android:scaleType="centerInside"
-        android:padding="24dp"
-        android:layout_marginTop="30dp"
+        android:padding="20dp"
+        android:layout_marginTop="48dp"
+        android:elevation="4dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/primary_light" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Change the language"
+        android:id="@+id/text_language_description"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="40dp"
+        app:layout_constraintTop_toBottomOf="@id/image_language"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
     <TextView
         android:id="@+id/text_language"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/select_the_language_of_your_currency_application"
-        android:textSize="16sp"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-medium"
         android:gravity="center"
-        android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="32dp"
-        app:layout_constraintTop_toBottomOf="@id/image_language"
+        android:lineSpacingExtra="2dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="40dp"
+        app:layout_constraintTop_toBottomOf="@id/text_language_description"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -38,11 +56,12 @@
         android:id="@+id/language_selection_card"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="32dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="40dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="6dp"
+        app:cardBackgroundColor="?attr/colorSurface"
         app:layout_constraintTop_toBottomOf="@id/text_language"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -51,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="8dp">
 
             <LinearLayout
                 android:id="@+id/language_french"
@@ -59,66 +78,58 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:paddingVertical="12dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="16dp"
                 android:clickable="true"
                 android:foreground="?attr/selectableItemBackground"
                 android:focusable="true">
 
-
-                <Button
+                <TextView
+                    android:id="@+id/french_text"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/french"
-                    android:id="@+id/french_button"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:fontFamily="sans-serif"
+                    android:gravity="start|center_vertical" />
 
-                <ImageView
-                    android:id="@+id/arrow_french"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/baseline_arrow_right_24"
-                    android:contentDescription="@string/arrow" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#E0E0E0" />
+                android:layout_height="0.5dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="#E8E8E8" />
 
-            <!-- English Row -->
             <LinearLayout
                 android:id="@+id/language_english"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:paddingVertical="12dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="16dp"
                 android:clickable="true"
                 android:foreground="?attr/selectableItemBackground"
                 android:focusable="true">
 
-
-
-                <Button
+                <TextView
+                    android:id="@+id/english_text"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:id="@+id/english_button"
                     android:text="@string/english"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:fontFamily="sans-serif"
+                    android:gravity="start|center_vertical" />
 
-                <ImageView
-                    android:id="@+id/arrow_english"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
 
-                    android:src="@drawable/baseline_arrow_right_24"
-                    android:contentDescription="@string/arrow" />
             </LinearLayout>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,7 +3,6 @@ package com.attijariwafabank.devisesapp.activities
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -24,10 +23,7 @@ class DashboardActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     private lateinit var binding: ActivityDashboardBinding
     private lateinit var auth: FirebaseAuth
-    private lateinit var toolbarTitle: TextView
-
     private val viewModel: CurrencyViewModel by viewModels()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,12 +37,10 @@ class DashboardActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = ""
 
-        toolbarTitle = binding.toolbar.findViewById(R.id.toolbar)
-        toolbarTitle.text = ""
-
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment_containerView) as NavHostFragment
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment_containerView) as NavHostFragment
         navController = navHostFragment.navController
 
         val appBarConfiguration = AppBarConfiguration(
@@ -59,7 +53,7 @@ class DashboardActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            toolbarTitle.text = destination.label ?: ""
+            supportActionBar?.title = destination.label ?: ""
         }
 
         val bottomNavView: BottomNavigationView = binding.navigationView
@@ -80,7 +74,6 @@ class DashboardActivity : AppCompatActivity() {
             true
         }
     }
-
 
     override fun attachBaseContext(newBase: Context) {
         val sharedPreferences = newBase.getSharedPreferences("Settings", Context.MODE_PRIVATE)

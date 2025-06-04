@@ -34,14 +34,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.card.MaterialCardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/accountSettingsCard"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="2dp"
-                android:background="?android:attr/colorBackground"
+                app:cardBackgroundColor="?attr/colorSurface"
                 app:layout_constraintTop_toBottomOf="@id/accountSectionTitle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -52,9 +52,11 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:clickable="true"
+                    android:focusable="true">
 
-                    <com.google.android.material.button.MaterialButton
+                    <TextView
                         android:id="@+id/profileButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -65,13 +67,8 @@
                         app:cardBackgroundColor="?attr/colorSurface"
                         style="@style/Widget.MaterialComponents.Button.TextButton" />
 
-                        />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp" />
                 </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/preferenceSectionTitle"
@@ -83,12 +80,13 @@
                 app:layout_constraintTop_toBottomOf="@id/accountSettingsCard"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <com.google.android.material.card.MaterialCardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/preferenceSettingsCard"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="?attr/colorSurface"
                 app:cardElevation="2dp"
                 app:layout_constraintTop_toBottomOf="@id/preferenceSectionTitle"
                 app:layout_constraintStart_toStartOf="parent"
@@ -99,9 +97,11 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:clickable="true"
+                    android:focusable="true">
 
-                    <com.google.android.material.button.MaterialButton
+                    <TextView
                         android:id="@+id/themeButton"
                         style="@style/Widget.MaterialComponents.Button.TextButton"
                         android:layout_width="match_parent"
@@ -112,9 +112,12 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="1dp" />
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="16dp"
+                        android:alpha="0.12"
+                        android:background="?attr/colorOnSurface" />
 
-                    <com.google.android.material.button.MaterialButton
+                    <TextView
                         android:id="@+id/languagesButton"
                         style="@style/Widget.MaterialComponents.Button.TextButton"
                         android:layout_width="match_parent"
@@ -127,7 +130,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp" />
                 </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/supportSectionTitle"
@@ -139,13 +142,14 @@
                 app:layout_constraintTop_toBottomOf="@id/preferenceSettingsCard"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <com.google.android.material.card.MaterialCardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/supportSettingsCard"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="2dp"
+                app:cardBackgroundColor="?attr/colorSurface"
                 app:layout_constraintTop_toBottomOf="@id/supportSectionTitle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -155,9 +159,11 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:clickable="true"
+                    android:focusable="true">
 
-                    <com.google.android.material.button.MaterialButton
+                    <TextView
                         android:id="@+id/helpButton"
                         style="@style/Widget.MaterialComponents.Button.TextButton"
                         android:layout_width="match_parent"
@@ -167,9 +173,9 @@
                         android:textAlignment="textStart" />
 
                 </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+            </androidx.cardview.widget.CardView>
 
-            <com.google.android.material.card.MaterialCardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/LogoutCard"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -177,6 +183,7 @@
                 android:layout_marginBottom="32dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="2dp"
+                app:cardBackgroundColor="?attr/colorSurface"
                 app:layout_constraintTop_toBottomOf="@id/supportSettingsCard"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -188,14 +195,11 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:clickable="true"
+                    android:focusable="true">
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
- />
-
-                    <com.google.android.material.button.MaterialButton
+                    <TextView
                         android:id="@+id/LogoutButton"
                         style="@style/Widget.MaterialComponents.Button.TextButton"
                         android:layout_width="match_parent"
@@ -204,7 +208,7 @@
                         android:text="@string/log_out"
                         android:textAlignment="textStart" />
                 </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+            </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

@@ -12,6 +12,8 @@
     app:cardElevation="2dp"
     android:outlineSpotShadowColor="#448AFF"
     android:outlineAmbientShadowColor="#448AFF"
+    app:cardBackgroundColor="?attr/colorSurface"
+
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,10 +33,17 @@
         android:layout_marginStart="16dp"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:text="Currency Name"
+        android:text="@string/currency_name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/baseline_arrow_forward_24"
+            android:contentDescription="@string/arrow_forward" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

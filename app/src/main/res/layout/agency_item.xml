@@ -10,7 +10,9 @@
     app:cardCornerRadius="8dp"
     app:cardElevation="2dp"
     android:outlineSpotShadowColor="#448AFF"
-    android:outlineAmbientShadowColor="#448AFF">
+    android:outlineAmbientShadowColor="#448AFF"
+    app:cardBackgroundColor="?attr/colorSurface"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

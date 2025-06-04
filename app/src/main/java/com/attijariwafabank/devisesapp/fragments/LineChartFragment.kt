@@ -62,7 +62,7 @@ class LineChartFragment : Fragment() {
         val endDate = dateFormat.format(endCalendar.time)
 
         viewModel.requestTimeFrame(
-            accessKey = "a351491abe4e7fab9e83c472eb04bdac",
+            accessKey = "b10a170e932b3c6edbb39f222c145377",
             source = sourceCurrency,
             targetCurrency = targetCurrency,
             startDate = startDate,
@@ -86,9 +86,6 @@ class LineChartFragment : Fragment() {
             Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_LONG).show()
         }
 
-        binding?.backButton?.setOnClickListener {
-            findNavController().navigate(R.id.action_currencyGraphFragment_to_mainPage)
-        }
     }
 
     @SuppressLint("PrivateResource")

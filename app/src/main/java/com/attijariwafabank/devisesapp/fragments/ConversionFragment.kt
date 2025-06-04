@@ -19,7 +19,7 @@ class ConversionFragment : Fragment() {
     private var _binding: FragmentConversionBinding? = null
     private val binding get() = _binding!!
 
-    private val accessKey = "a351491abe4e7fab9e83c472eb04bdac"
+    private val accessKey = "b10a170e932b3c6edbb39f222c145377"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

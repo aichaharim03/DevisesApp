@@ -30,11 +30,11 @@ class LanguagesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.englishButton.setOnClickListener {
+        binding.languageEnglish.setOnClickListener {
             changeLanguage("en")
         }
 
-        binding.frenchButton.setOnClickListener {
+        binding.languageFrench.setOnClickListener {
             changeLanguage("fr")
         }
 

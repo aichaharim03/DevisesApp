@@ -47,10 +47,7 @@ class MenuFragment : Fragment() {
 
         }
 
-        binding.navHelp.setOnClickListener {
-            findNavController().navigate(R.id.action_settings_to_languages)
 
-        }
 
         binding.svSettings.setOnClickListener {
             findNavController().navigate(R.id.action_menuFragment_to_settings)

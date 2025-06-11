@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 class SettingsFragment : Fragment() {
 
-    private  var _binding: FragmentSettingsBinding? = null
+    private  var binding: FragmentSettingsBinding? = null
     private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
@@ -24,24 +24,24 @@ class SettingsFragment : Fragment() {
 
     ): View {
 
-        _binding = FragmentSettingsBinding.inflate(inflater, container, false)
-        return _binding!!.root
+        binding = FragmentSettingsBinding.inflate(inflater, container, false)
+        return binding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         auth = FirebaseAuth.getInstance()
 
-        _binding?.languagesButton?.setOnClickListener {
+        binding?.languagesButton?.setOnClickListener {
             findNavController().navigate(R.id.action_settings_to_languages)
         }
-        _binding?.themeButton?.setOnClickListener {
+        binding?.themeButton?.setOnClickListener {
             findNavController().navigate(R.id.action_settings_to_themeFragment)
         }
-        _binding?.profileButton?.setOnClickListener {
+        binding?.profileButton?.setOnClickListener {
             findNavController().navigate(R.id.action_settings_to_profile)
         }
-        _binding?.LogoutButton?.setOnClickListener {
+        binding?.LogoutButton?.setOnClickListener {
             auth.signOut()
             Toast.makeText(requireContext(), getString(R.string.logged_out), Toast.LENGTH_SHORT).show()
             val intent = Intent(requireContext(), LoginActivity::class.java)
@@ -49,11 +49,14 @@ class SettingsFragment : Fragment() {
             startActivity(intent)
 
         }
+        binding?.helpButton?.setOnClickListener {
+            findNavController().navigate(R.id.action_settings_to_helpFragment)
+        }
 
 
     }
     override fun onDestroyView() {
-        _binding = null
+        binding = null
         super.onDestroyView()
 
     }

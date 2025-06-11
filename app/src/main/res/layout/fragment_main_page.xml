@@ -26,7 +26,7 @@
         android:outlineSpotShadowColor="#448AFF"
         android:outlineAmbientShadowColor="#448AFF">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -37,7 +37,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:text="@string/select_currency"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:id="@+id/currencyText"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
 
             <Spinner
                 android:id="@+id/spinner"
@@ -48,9 +51,10 @@
                 android:background="@drawable/spinner_background"
                 android:spinnerMode="dropdown"
                 android:dropDownVerticalOffset="48dp"
-                android:overlapAnchor="false"/>
+                android:overlapAnchor="false"
+                app:layout_constraintTop_toBottomOf="@+id/currencyText"/>
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -68,5 +72,17 @@
         android:paddingBottom="24dp"
 
 />
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+
+        style="?android:attr/progressBarStyleLarge"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

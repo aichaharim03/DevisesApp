@@ -13,41 +13,40 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class AgencyBottomSheetFragment(private val agency: Agency) : BottomSheetDialogFragment() {
 
-    private var _binding: FragmentAgencyBottomSheetBinding? = null
-    private val binding get() = _binding!!
+    private var binding : FragmentAgencyBottomSheetBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentAgencyBottomSheetBinding.inflate(inflater, container, false)
-        return binding.root
+        binding= FragmentAgencyBottomSheetBinding.inflate(inflater, container, false)
+        return binding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.tvAgencyName.text = agency.nom
-        binding.tvAgencyAddress.text = agency.adresse
-        binding.tvAgencyCity.text = agency.ville
-        binding.tvDistance.text = agency.distance
-        binding.tvPhone1.text = agency.telephone1
+        binding?.tvAgencyName?.text = agency.nom
+        binding?.tvAgencyAddress?.text = agency.adresse
+        binding?.tvAgencyCity?.text = agency.ville
+        binding?.tvDistance?.text = agency.distance
+        binding?.tvPhone1?.text = agency.telephone1
 
         if (agency.telephone2.isNotBlank() && agency.telephone2 != agency.telephone1) {
-            binding.tvPhone2.text = agency.telephone2
-            binding.tvPhone2.visibility = View.VISIBLE
+            binding?.tvPhone2?.text = agency.telephone2
+            binding?.tvPhone2?.visibility = View.VISIBLE
         } else {
-            binding.tvPhone2.visibility = View.GONE
+            binding?.tvPhone2?.visibility = View.GONE
         }
 
 
-        val horaires = listOf(
+        val workHours = listOf(
             agency.horaire1, agency.horaire2, agency.horaire3,
             agency.horaire4, agency.horaire5, agency.horaire6
         ).filter { it.isNotBlank() }
 
-        binding.tvHours.text = horaires.joinToString("\n")
+        binding?.tvHours?.text = workHours.joinToString("\n")
 
 
-        binding.btnRoute.setOnClickListener{
+        binding?.btnRoute?.setOnClickListener{
             try {
                 val uri = Uri.parse("google.navigation:q=${agency.latitude},${agency.longitude}")
                 val intent = Intent(Intent.ACTION_VIEW, uri).apply {
@@ -66,7 +65,7 @@ class AgencyBottomSheetFragment(private val agency: Agency) : BottomSheetDialogF
             }
         }
 
-        binding.btnCall.setOnClickListener {
+        binding?.btnCall?.setOnClickListener {
             val phoneNumber = when {
                 agency.telephone1.isNotBlank() -> agency.telephone1
                 agency.telephone2.isNotBlank() -> agency.telephone2
@@ -85,7 +84,7 @@ class AgencyBottomSheetFragment(private val agency: Agency) : BottomSheetDialogF
             }
         }
 
-        binding.btnShare.setOnClickListener {
+        binding?.btnShare?.setOnClickListener {
             val mapUrl = "https://www.google.com/maps/search/?api=1&query=${agency.latitude},${agency.longitude}"
 
             try {
@@ -104,6 +103,6 @@ class AgencyBottomSheetFragment(private val agency: Agency) : BottomSheetDialogF
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        binding = null
     }
 }

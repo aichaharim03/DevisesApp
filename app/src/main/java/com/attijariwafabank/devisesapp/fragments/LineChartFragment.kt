@@ -11,7 +11,6 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.attijariwafabank.devisesapp.R
 import com.attijariwafabank.devisesapp.databinding.FragmentLineChartBinding
@@ -62,7 +61,7 @@ class LineChartFragment : Fragment() {
         val endDate = dateFormat.format(endCalendar.time)
 
         viewModel.requestTimeFrame(
-            accessKey = "b10a170e932b3c6edbb39f222c145377",
+            accessKey = "3bdb79681826eff584ac6f3ccd1b4a82",
             source = sourceCurrency,
             targetCurrency = targetCurrency,
             startDate = startDate,
@@ -76,7 +75,7 @@ class LineChartFragment : Fragment() {
             } else {
                 showChart()
                 val sortedLabels = rateMap.keys.sorted()
-                setupBeautifulChart(rateMap, labels = sortedLabels)
+                setupChart(rateMap, labels = sortedLabels)
             }
         }
 
@@ -89,7 +88,7 @@ class LineChartFragment : Fragment() {
     }
 
     @SuppressLint("PrivateResource")
-    private fun setupBeautifulChart(rateMap: Map<String, Double>, labels: List<String>) {
+    private fun setupChart(rateMap: Map<String, Double>, labels: List<String>) {
         val entries = labels.mapIndexed { index, date ->
             Entry(index.toFloat(), (rateMap[date] ?: 0.0).toFloat())
         }

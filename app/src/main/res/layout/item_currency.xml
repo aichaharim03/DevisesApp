@@ -25,6 +25,24 @@
 
 
         >
+        <!--<ImageView
+            android:id="@+id/circle"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/baseline_circle_24"
+            app:tint="@color/primary_light"
+            android:backgroundTint="@color/primary_light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/trendIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/baseline_trending_up_24"
+            app:tint="@color/primary_light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>-->
 
     <TextView
         android:id="@+id/currencyNameTextView"

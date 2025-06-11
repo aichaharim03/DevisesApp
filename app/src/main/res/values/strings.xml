@@ -147,13 +147,13 @@
     <string name="agencies">Agencies</string>
     <string name="hoome">Home</string>
     <string name="meenu">Menu</string>
-    <string name="nom_de_l_agence">Nom de l\'agence</string>
-    <string name="ville">Ville</string>
-    <string name="t_l_phone_1">Téléphone 1</string>
-    <string name="t_l_phone_2">Téléphone 2</string>
+    <string name="nom_de_l_agence">Agency Name</string>
+    <string name="ville">City</string>
+    <string name="t_l_phone_1">Phone 1</string>
+    <string name="t_l_phone_2"> Phone 2</string>
     <string name="fax">Fax</string>
-    <string name="horaires">Horaires</string>
-    <string name="itin_raire">Itinéraire</string>
+    <string name="horaires">Working Hours</string>
+    <string name="itin_raire">Itinerary</string>
     <string name="emaiIl">Email</string>
     <string name="share_ic">share_ic</string>
     <string name="share">Share</string>
@@ -168,6 +168,24 @@
     <string name="dark_mode">dark_mode</string>
     <string name="automatic">Automatic</string>
     <string name="currency_name">Currency Name</string>
+    <string name="currency_dashboard">Currency dashboard</string>
+    <string name="find_nearby_locations">Find nearby locations</string>
+    <string name="currency_converter">Currency converter</string>
+    <string name="app_preferences">App preferences</string>
+    <string name="logouut">Logout</string>
+    <string name="sign_out_of_your_account">Sign out of your account</string>
+    <string name="for_any_assistance_or_information_request_please_contact_our_customer_relations_center_at">For any assistance or information request, please contact our Customer Relations Center at</string>
+    <string name="clock">Clock</string>
+    <string name="phonenumber">0522588855</string>
+    <string name="_9h00_17h30">9h00 - 17h30</string>
+    <string name="monday_friday">Monday - Friday</string>
+    <string name="back_to_login">Back to Login</string>
+    <string name="password_reset_email_sent_successfully">Password reset email sent successfully!</string>
+    <string name="send_reset_link">Send Reset Link</string>
+    <string name="reset_your_password">Reset Your Password</string>
+    <string name="enter_your_email_address_and_we_ll_send_you_a_link_to_reset_your_password">Enter your email address and we\'ll send you a link to reset your password.</string>
+    <string name="error_message_here">Error message here</string>
+    <string name="email_verification">Email Verification</string>
 
 
 </resources>

@@ -35,8 +35,12 @@ class MainPageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(requireActivity())[CurrencyViewModel::class.java]
 
+
+        viewModel = ViewModelProvider(requireActivity())[CurrencyViewModel::class.java]
+        viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
+            binding?.progressBar?.visibility = if (isLoading) View.VISIBLE else View.GONE
+        }
         adapter = CurrenciesAdapter()
         binding?.currenciesRecyclerView?.apply {
             layoutManager = LinearLayoutManager(requireContext())
@@ -65,7 +69,7 @@ class MainPageFragment : Fragment() {
         val allTargetCurrencies = CurrencyEnum.entries.joinToString(",") { it.code }
 
         viewModel.fetchCurrencies(
-            accessKey = "b10a170e932b3c6edbb39f222c145377",
+            accessKey = "3bdb79681826eff584ac6f3ccd1b4a82",
             source = selectedSource,
             currencies = allTargetCurrencies
         )
@@ -74,7 +78,7 @@ class MainPageFragment : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 selectedSource = sourceCurrencies[position].code
                 viewModel.fetchCurrencies(
-                    accessKey = "b10a170e932b3c6edbb39f222c145377",
+                    accessKey = "3bdb79681826eff584ac6f3ccd1b4a82",
                     source = selectedSource,
                     currencies = allTargetCurrencies
                 )

@@ -1,6 +1,8 @@
 package com.attijariwafabank.devisesapp.activities
 
+import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +10,7 @@ import com.attijariwafabank.devisesapp.R
 import com.attijariwafabank.devisesapp.databinding.ActivitySignupBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
+import java.util.Locale
 
 
 class SignUpActivity : AppCompatActivity() {
@@ -35,7 +38,7 @@ class SignUpActivity : AppCompatActivity() {
                     firebaseAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener {
                             if (it.isSuccessful) {
-                                // 👇 Update Firebase user's display name
+
                                 val user = firebaseAuth.currentUser
                                 val profileUpdates = UserProfileChangeRequest.Builder()
                                     .setDisplayName(name)
@@ -69,5 +72,19 @@ class SignUpActivity : AppCompatActivity() {
         binding.textViewBacktoLogin.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
         }
+
+    }
+    override fun attachBaseContext(newBase: Context) {
+        val sharedPreferences = newBase.getSharedPreferences("Settings", Context.MODE_PRIVATE)
+        val language = sharedPreferences.getString("My_Lang", "en") ?: "en"
+
+        val locale = Locale(language)
+        Locale.setDefault(locale)
+
+        val config = Configuration(newBase.resources.configuration)
+        config.setLocale(locale)
+
+        val context = newBase.createConfigurationContext(config)
+        super.attachBaseContext(context)
     }
 }

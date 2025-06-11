@@ -1,4 +1,4 @@
-package com.yourpackage.fragments
+package com.attijariwafabank.devisesapp.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,8 +14,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 class ProfileFragment : Fragment() {
 
-    private var _binding: FragmentProfileBinding? = null
-    private val binding get() = _binding!!
+    private var binding : FragmentProfileBinding? = null
 
     private lateinit var auth: FirebaseAuth
 
@@ -23,8 +22,8 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentProfileBinding.inflate(inflater, container, false)
-        return binding.root
+        binding = FragmentProfileBinding.inflate(inflater, container, false)
+        return binding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,26 +38,26 @@ class ProfileFragment : Fragment() {
         val currentUser = auth.currentUser
 
         if (currentUser != null) {
-            binding.tvUserName.text = currentUser.displayName ?: getString(R.string.not_available)
-            binding.tvUserEmail.text = currentUser.email ?: getString(R.string.not_available)
-            binding.tvUserPhone.text = currentUser.phoneNumber ?: getString(R.string.not_available)
+            this.binding?.tvUserName?.text = currentUser.displayName ?: getString(R.string.not_available)
+            this.binding?.tvUserEmail?.text = currentUser.email ?: getString(R.string.not_available)
+            this.binding?.tvUserPhone?.text = currentUser.phoneNumber ?: getString(R.string.not_available)
         } else {
             Toast.makeText(requireContext(), "User not logged in", Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun setupClickListeners() {
-        binding.changePasswordLayout.setOnClickListener {
+        this.binding?.changePasswordLayout?.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment_to_password)
         }
 
-        binding.editProfileLayout.setOnClickListener {
+        this.binding?.editProfileLayout?.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment_to_editProfileFragment)
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        this.binding = null
     }
 }

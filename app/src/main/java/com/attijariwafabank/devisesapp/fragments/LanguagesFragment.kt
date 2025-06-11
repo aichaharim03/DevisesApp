@@ -6,14 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.attijariwafabank.devisesapp.R
 import com.attijariwafabank.devisesapp.databinding.FragmentLanguagesBinding
 
 class LanguagesFragment : Fragment() {
 
-    private var _binding: FragmentLanguagesBinding? = null
-    private val binding get() = _binding!!
+
+    private var binding : FragmentLanguagesBinding? = null
 
     companion object {
         var selectedLanguage: String = "en"
@@ -23,18 +21,18 @@ class LanguagesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentLanguagesBinding.inflate(inflater, container, false)
-        return binding.root
+        binding = FragmentLanguagesBinding.inflate(inflater, container, false)
+        return binding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.languageEnglish.setOnClickListener {
+        binding?.languageEnglish?.setOnClickListener {
             changeLanguage("en")
         }
 
-        binding.languageFrench.setOnClickListener {
+        binding?.languageFrench?.setOnClickListener {
             changeLanguage("fr")
         }
 
@@ -52,7 +50,7 @@ class LanguagesFragment : Fragment() {
         requireActivity().recreate()
     }
     override fun onDestroyView() {
-        _binding = null
+        binding = null
         super.onDestroyView()
 
     }

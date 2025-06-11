@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -13,6 +14,7 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.attijariwafabank.devisesapp.R
 import com.attijariwafabank.devisesapp.databinding.ActivityDashboardBinding
+import com.attijariwafabank.devisesapp.utils.ThemeUtils
 import com.attijariwafabank.devisesapp.viewModels.CurrencyViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
@@ -26,6 +28,8 @@ class DashboardActivity : AppCompatActivity() {
     private val viewModel: CurrencyViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AppCompatDelegate.setDefaultNightMode(ThemeUtils.loadTheme(this))
+
         super.onCreate(savedInstanceState)
 
         binding = ActivityDashboardBinding.inflate(layoutInflater)

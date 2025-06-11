@@ -49,7 +49,7 @@
                 android:outlineAmbientShadowColor="#448AFF"
                 >
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -65,9 +65,11 @@
                         android:textAlignment="textStart"
                         android:outlineSpotShadowColor="#448AFF"
                         app:cardBackgroundColor="?attr/colorSurface"
-                        style="@style/Widget.MaterialComponents.Button.TextButton" />
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
 
-                </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
             <TextView
@@ -94,7 +96,7 @@
                 android:outlineSpotShadowColor="#448AFF"
                 android:outlineAmbientShadowColor="#448AFF">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -108,14 +110,18 @@
                         android:layout_height="wrap_content"
                         android:paddingVertical="16dp"
                         android:text="@string/theme"
-                        android:textAlignment="textStart" />
+                        android:textAlignment="textStart"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
+                        android:id="@+id/themeDivider"
                         android:layout_marginHorizontal="16dp"
                         android:alpha="0.12"
-                        android:background="?attr/colorOnSurface" />
+                        android:background="?attr/colorOnSurface"
+                        app:layout_constraintTop_toBottomOf="@+id/themeButton"/>
 
                     <TextView
                         android:id="@+id/languagesButton"
@@ -124,12 +130,12 @@
                         android:layout_height="wrap_content"
                         android:paddingVertical="16dp"
                         android:text="@string/languages"
-                        android:textAlignment="textStart" />
+                        app:layout_constraintTop_toBottomOf="@id/themeDivider"
+                        android:textAlignment="textStart"
+                        app:layout_constraintStart_toStartOf="parent"/>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp" />
-                </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
             <TextView
@@ -156,7 +162,7 @@
                 android:outlineSpotShadowColor="#448AFF"
                 android:outlineAmbientShadowColor="#448AFF">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -170,9 +176,11 @@
                         android:layout_height="wrap_content"
                         android:paddingVertical="16dp"
                         android:text="@string/help"
-                        android:textAlignment="textStart" />
+                        android:textAlignment="textStart"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
 
-                </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -192,7 +200,7 @@
                 android:outlineAmbientShadowColor="#448AFF">
 
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -206,8 +214,10 @@
                         android:layout_height="wrap_content"
                         android:paddingVertical="16dp"
                         android:text="@string/log_out"
-                        android:textAlignment="textStart" />
-                </LinearLayout>
+                        android:textAlignment="textStart"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

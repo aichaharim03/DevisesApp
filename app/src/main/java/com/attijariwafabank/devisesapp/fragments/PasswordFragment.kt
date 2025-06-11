@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.attijariwafabank.devisesapp.R
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
@@ -16,7 +15,7 @@ import com.attijariwafabank.devisesapp.databinding.FragmentPasswordBinding
 
 class PasswordFragment : Fragment() {
 
-    private var _binding: FragmentPasswordBinding? = null
+    private var binding: FragmentPasswordBinding? = null
     private lateinit var auth: FirebaseAuth
     private var currentUser: FirebaseUser? = null
 
@@ -25,8 +24,8 @@ class PasswordFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentPasswordBinding.inflate(inflater, container, false)
-        return _binding!!.root
+        binding = FragmentPasswordBinding.inflate(inflater, container, false)
+        return binding!!.root
     }
 
 
@@ -38,13 +37,13 @@ class PasswordFragment : Fragment() {
         currentUser = auth.currentUser
 
 
-        _binding?.emailTextView?.text = currentUser?.email ?:
+        binding?.emailTextView?.text = currentUser?.email ?:
             getString(R.string.no_email_available)
 
-        _binding?.changePasswordButton?.setOnClickListener {
-            val oldPassword = _binding!!.oldPasswordEditText.text.toString()
-            val newPassword = _binding!!.newPasswordEditText.text.toString()
-            val confirmPassword = _binding!!.confirmNewPasswordEditText.text.toString()
+        binding?.changePasswordButton?.setOnClickListener {
+            val oldPassword = binding!!.oldPasswordEditText.text.toString()
+            val newPassword = binding!!.newPasswordEditText.text.toString()
+            val confirmPassword = binding!!.confirmNewPasswordEditText.text.toString()
 
             if (oldPassword.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty()) {
                 Toast.makeText(requireContext(), getString(R.string.error_empty_field), Toast.LENGTH_SHORT).show()
@@ -85,7 +84,7 @@ class PasswordFragment : Fragment() {
             }
     }
     override fun onDestroyView() {
-        _binding = null
+        binding = null
         super.onDestroyView()
 
     }

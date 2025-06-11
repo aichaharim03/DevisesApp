@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".fragments.ThemeFragment">
 
-    <!-- Theme Icon Card -->
     <androidx.cardview.widget.CardView
         android:id="@+id/card_theme_icon"
         android:layout_width="120dp"
@@ -28,7 +27,6 @@
             app:tint="@color/primary_light" />
     </androidx.cardview.widget.CardView>
 
-    <!-- Main title -->
     <TextView
         android:id="@+id/text_main_title"
         android:layout_width="wrap_content"
@@ -41,7 +39,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Subtitle -->
     <TextView
         android:id="@+id/text_subtitle"
         android:layout_width="0dp"
@@ -56,8 +53,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Phone mockups -->
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_phone_mockups"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -68,11 +64,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Light Mode -->
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp">
+            android:layout_marginEnd="32dp"
+            android:id="@+id/layout_light_mode_mockup"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="120dp"
@@ -81,7 +79,7 @@
                 app:cardElevation="3dp"
                 android:layout_marginBottom="50dp">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
@@ -92,13 +90,22 @@
                         android:layout_height="4dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="8dp"
-                        android:background="@android:color/black" />
+                        android:background="@android:color/black"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
 
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:layout_margin="16dp">
+                        android:layout_margin="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+
 
                         <ImageView
                             android:layout_width="32dp"
@@ -108,7 +115,7 @@
                             android:contentDescription="@string/light_mode"
                             app:tint="@color/primary_light" />
                     </FrameLayout>
-                </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
             <RadioButton
@@ -124,7 +131,10 @@
 
         <FrameLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/layout_light_mode_mockup"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="32dp">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="120dp"
@@ -134,7 +144,7 @@
                 android:layout_marginBottom="50dp"
                 app:cardBackgroundColor="@color/secondary_dark">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
@@ -144,13 +154,19 @@
                         android:layout_height="4dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="8dp"
-                        android:background="@android:color/white" />
+                        android:background="@android:color/white"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
 
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:layout_margin="16dp">
+                        android:layout_margin="16dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
 
                         <ImageView
                             android:layout_width="32dp"
@@ -160,7 +176,7 @@
                             android:contentDescription="@string/dark_mode"
                             app:tint="@color/primary_light" />
                     </FrameLayout>
-                </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
             <RadioButton
@@ -172,7 +188,7 @@
                 android:layout_marginStart="12dp"
                 />
         </FrameLayout>
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/accountSettingsCard"
@@ -192,7 +208,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -206,13 +222,19 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/automatic"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switch_automatic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:thumbTint="@color/primary_light"/>
-        </LinearLayout>
+                app:thumbTint="@color/primary_light"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

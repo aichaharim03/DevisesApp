@@ -1,6 +1,5 @@
-<!-- res/values/colors.xml -->
+
 <resources>
-    <!-- Dark Theme Colors -->
     <color name="background_dark">#232E39</color>
     <color name="on_background_dark">#F6F7F9</color>
     <color name="surface_dark">#1E2328</color>
@@ -9,7 +8,6 @@
     <color name="secondary_dark">#2A2F36</color>
     <color name="on_secondary_dark">#F6F7F9</color>
 
-    <!-- Light Theme Colors -->
     <color name="background_light">#F8F9FA</color>
     <color name="on_background_light">#1C1E21</color>
     <color name="surface_light">#FFFFFF</color>
@@ -18,8 +16,8 @@
     <color name="secondary_light">#6C757D</color>
     <color name="on_secondary_light">#FFFFFF</color>
 
-    <!-- Legacy colors for compatibility -->
     <color name="card_background">#801E293B</color>
     <color name="shear_white">#80F6F7F9</color>
     <color name="teal_700">#18FFFF</color>
+    <color name="shadow">#448AFF</color>
 </resources>

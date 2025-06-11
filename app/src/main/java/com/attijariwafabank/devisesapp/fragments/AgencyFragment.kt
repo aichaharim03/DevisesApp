@@ -23,7 +23,6 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
-import kotlin.math.*
 
 class AgencyFragment : Fragment(), OnMapReadyCallback {
 
@@ -54,6 +53,10 @@ class AgencyFragment : Fragment(), OnMapReadyCallback {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(this)[MapsViewModel::class.java]
+        viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
+            binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+        }
+
         agencyAdapter = AgencyAdapter(emptyList(), requireContext())
 
         binding.agenciesRecyclerView.adapter = agencyAdapter
@@ -71,6 +74,8 @@ class AgencyFragment : Fragment(), OnMapReadyCallback {
 
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as? SupportMapFragment
         mapFragment?.getMapAsync(this)
+
+
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -124,15 +129,11 @@ class AgencyFragment : Fragment(), OnMapReadyCallback {
         mMap.clear()
 
         val updatedAgencies = agencies.map {
-            val lat = it.latitude.toDoubleOrNull()
-            val lng = it.longitude.toDoubleOrNull()
-            if (lat != null && lng != null) {
-                val agencyLatLng = LatLng(lat, lng)
-                val distanceKm = distanceBetween(userLatLng, agencyLatLng)
-                it.copy(distance = String.format("%.2f km", distanceKm))
-            } else it.copy(distance = "N/A")
+            val rawDistance = it.distance.replace("m", "").toDoubleOrNull()
+            val roundedDistance = if (rawDistance != null) String.format("%.2f m", rawDistance) else "N/A"
+            it.copy(distance = roundedDistance)
         }.sortedBy {
-            it.distance.replace(" km", "").toDoubleOrNull() ?: Double.MAX_VALUE
+            it.distance.replace("m", "").toDoubleOrNull() ?: Double.MAX_VALUE
         }
 
         agencyAdapter.updateAgencies(updatedAgencies)
@@ -164,15 +165,10 @@ class AgencyFragment : Fragment(), OnMapReadyCallback {
         }
     }
 
-    private fun distanceBetween(start: LatLng, end: LatLng): Double {
-        val earthRadius = 6371.0
-        val dLat = Math.toRadians(end.latitude - start.latitude)
-        val dLon = Math.toRadians(end.longitude - start.longitude)
-        val lat1 = Math.toRadians(start.latitude)
-        val lat2 = Math.toRadians(end.latitude)
-
-        val a = sin(dLat / 2).pow(2.0) + sin(dLon / 2).pow(2.0) * cos(lat1) * cos(lat2)
-        val c = 2 * atan2(sqrt(a), sqrt(1 - a))
-        return earthRadius * c
+    override fun onDestroyView() {
+        super.onDestroyView()
+        if (::fusedLocationClient.isInitialized) {
+            fusedLocationClient.removeLocationUpdates(locationCallback)
+        }
     }
 }

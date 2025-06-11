@@ -16,16 +16,15 @@ import com.google.firebase.auth.FirebaseAuth
 
 class MenuFragment : Fragment() {
 
-    private var _binding: FragmentMenuBinding? = null
-    private val binding get() = _binding!!
+    private var binding : FragmentMenuBinding? = null
     private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentMenuBinding.inflate(inflater, container, false)
-        return binding.root
+        binding = FragmentMenuBinding.inflate(inflater, container, false)
+        return binding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,28 +32,28 @@ class MenuFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
 
 
-        binding.navHome.setOnClickListener {
+        binding?.navHome?.setOnClickListener {
             findNavController().navigate(R.id.action_menuFragment_to_mainPage)
         }
 
-        binding.navConversion.setOnClickListener {
+        binding?.navConversion?.setOnClickListener {
             findNavController().navigate(R.id.action_menuFragment_to_conversionFragment)
 
         }
 
-        binding.navAgency.setOnClickListener {
+        binding?.navAgency?.setOnClickListener {
             findNavController().navigate(R.id.action_menuFragment_to_agencyFragment2)
 
         }
 
 
 
-        binding.svSettings.setOnClickListener {
+        binding?.svSettings?.setOnClickListener {
             findNavController().navigate(R.id.action_menuFragment_to_settings)
 
         }
 
-        binding.navLogout.setOnClickListener {
+        binding?.navLogout?.setOnClickListener {
 
             auth.signOut()
             Toast.makeText(requireContext(), "Logged out successfully", Toast.LENGTH_SHORT).show()
@@ -67,6 +66,6 @@ class MenuFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        binding = null
     }
 }

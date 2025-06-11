@@ -11,20 +11,22 @@ import kotlinx.coroutines.launch
 class MapsViewModel : ViewModel() {
 
     private val repository = MapsRepository()
+    val isLoading = MutableLiveData<Boolean>()
+    private val nearbyAgenciesVM = MutableLiveData<List<Agency>>()
+    val nearbyAgencies: LiveData<List<Agency>> = nearbyAgenciesVM
 
-    private val _nearbyAgencies = MutableLiveData<List<Agency>>()
-    val nearbyAgencies: LiveData<List<Agency>> = _nearbyAgencies
-
-    private val _error = MutableLiveData<String>()
-    val error: LiveData<String> = _error
+    private val errorVM = MutableLiveData<String>()
+    val error: LiveData<String> = errorVM
 
     fun fetchNearbyAgencies(latitude: String, longitude: String) {
+        isLoading.value = true
         viewModelScope.launch {
             try {
                 val agencies = repository.getNearbyAgencies(latitude, longitude)
-                _nearbyAgencies.postValue(agencies)
+                nearbyAgenciesVM.postValue(agencies)
+                isLoading.postValue(false)
             } catch (e: Exception) {
-                _error.postValue("Erreur : ${e.message}")
+                errorVM.postValue("Erreur : ${e.message}")
             }
         }
     }

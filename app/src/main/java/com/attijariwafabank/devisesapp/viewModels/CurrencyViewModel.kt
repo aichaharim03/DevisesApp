@@ -10,29 +10,33 @@ import kotlinx.coroutines.launch
 
 class CurrencyViewModel : ViewModel() {
     private val repository = CurrencyRepository()
-    val currenciesLiveData = MutableLiveData<List<String>>()
     val errorLiveData = MutableLiveData<String>()
-    private val _errorLiveData = MutableLiveData<String>()
+    private val errorLiveDataVM = MutableLiveData<String>()
+    val isLoading = MutableLiveData<Boolean>()
+    private val historicalRatesVM = MutableLiveData<Map<String, Double>>()
+    val historicalRates: LiveData<Map<String, Double>> get() = historicalRatesVM
 
-    private val _historicalRates = MutableLiveData<Map<String, Double>>()
-    val historicalRates: LiveData<Map<String, Double>> get() = _historicalRates
-
-    private val _conversionResult = MutableLiveData<Double>()
-    val conversionResult: LiveData<Double> get() = _conversionResult
-    private val _currencies = MutableLiveData<List<String>>()
-    val currencies: LiveData<List<String>> get() = _currencies
+    private val conversionResultVM = MutableLiveData<Double>()
+    val conversionResult: LiveData<Double> get() = conversionResultVM
+    private val currenciesVM = MutableLiveData<List<String>>()
+    val currencies: LiveData<List<String>> get() = currenciesVM
 
 
 
     fun convertCurrency(accessKey: String, from: String, to: String, amount: Double, date: String? = null) {
+        isLoading.value = true
         viewModelScope.launch {
             val response = repository.convertCurrency(accessKey, from, to, amount, date)
             response?.let {
-                _conversionResult.value = it.result
+                conversionResultVM.value = it.result
+                isLoading.postValue(false)
+
             }
         }
     }
     fun fetchCurrencies(accessKey: String , source: String , currencies: String? = null) {
+        isLoading.value = true
+
         viewModelScope.launch {
             try {
                 val response = repository.getCurrencies(accessKey , source , currencies)
@@ -41,12 +45,13 @@ class CurrencyViewModel : ViewModel() {
                     val currencyList = response.quotes.entrySet()
                         .map { entry -> "${entry.key.removePrefix(sourcePrefix)}: ${entry.value}" }
                         .toList()
-                    _currencies.postValue(currencyList)
+                    currenciesVM.postValue(currencyList)
+                    isLoading.postValue(false)
                 } else {
-                    _errorLiveData.postValue("Error: Unable to fetch currencies")
+                    errorLiveDataVM.postValue("Error: Unable to fetch currencies")
                 }
             } catch (e: Exception) {
-                _errorLiveData.postValue("Exception: ${e.localizedMessage}")
+                errorLiveDataVM.postValue("Exception: ${e.localizedMessage}")
             }
         }
     }
@@ -59,13 +64,16 @@ class CurrencyViewModel : ViewModel() {
         startDate: String,
         endDate: String
     ) {
+        isLoading.value = true
         viewModelScope.launch {
             val response = repository.getTimeFrame(accessKey, source, targetCurrency, startDate, endDate)
             if (response?.success == true && response.quotes != null) {
                 val key = source + targetCurrency.trim()
                 val rateMap = response.quotes.mapValues { it.value[key] ?: 0.0 }
-                _historicalRates.postValue(rateMap)
+                historicalRatesVM.postValue(rateMap)
                 Log.d("API_STATUS", "TimeFrame API call successful: $response")
+                isLoading.postValue(false)
+
             } else {
                 Log.d("API_STATUS", "TimeFrame API call unsuccessful: $response")
             }

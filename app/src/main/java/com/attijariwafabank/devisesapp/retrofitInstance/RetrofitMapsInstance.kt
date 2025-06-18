@@ -1,6 +1,5 @@
 package com.attijariwafabank.devisesapp.retrofitInstance
 
-import com.attijariwafabank.devisesapp.apiService.CurrencyApiService
 import com.attijariwafabank.devisesapp.apiService.MapsApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

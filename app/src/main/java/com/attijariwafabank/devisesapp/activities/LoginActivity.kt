@@ -8,9 +8,11 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.attijariwafabank.devisesapp.R
 import com.attijariwafabank.devisesapp.databinding.ActivityLoginBinding
 import com.attijariwafabank.devisesapp.fragments.ForgotPasswordFragment
+import com.attijariwafabank.devisesapp.utils.ThemeUtils
 import com.google.firebase.auth.FirebaseAuth
 import java.util.Locale
 
@@ -20,7 +22,10 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
+        AppCompatDelegate.setDefaultNightMode(ThemeUtils.loadTheme(this))
+
         binding = ActivityLoginBinding.inflate(layoutInflater)
         firebaseAuth = FirebaseAuth.getInstance()
         setContentView(binding.root)

@@ -1,241 +1,234 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="24dp"
     android:background="?android:attr/colorBackground"
-    tools:context=".fragments.ConversionFragment"
-    android:paddingBottom="24dp">
+    >
 
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardAmount"
-        android:layout_width="0dp"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_from_currency"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="8dp"
-        android:layout_marginTop="30dp"
-        app:strokeWidth="0dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        app:cardBackgroundColor="?attr/colorSurface"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:outlineAmbientShadowColor="@color/shadow"
-        android:outlineSpotShadowColor="@color/shadow">
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="12dp">
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="?attr/colorSurface"
+            app:cardElevation="8dp"
+            android:outlineAmbientShadowColor="@color/shadow"
+            android:outlineSpotShadowColor="@color/shadow">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Amount"
-                android:id="@+id/tvAmount"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="12dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
-
-            <com.google.android.material.textfield.TextInputLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter amount"
-                android:id="@+id/tilAmount"
-                app:boxBackgroundMode="outline"
-                app:boxCornerRadiusTopStart="12dp"
-                app:boxCornerRadiusTopEnd="12dp"
-                app:boxCornerRadiusBottomStart="12dp"
-                app:boxCornerRadiusBottomEnd="12dp"
-                app:layout_constraintTop_toBottomOf="@+id/tvAmount"
-                app:layout_constraintStart_toStartOf="parent"/>
+                android:padding="16dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etAmount"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/tv_amount_label"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/montant"
+                    android:textColor="@color/primary_light"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Spinner
+                    android:id="@+id/spinnerFromCurrency"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_amount_label"
+                    app:layout_constraintBottom_toBottomOf="@+id/etAmount" />
+
+                <EditText
+                    android:id="@+id/etAmount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/_0_00"
                     android:inputType="numberDecimal"
-                    android:textSize="18sp"
+                    android:textSize="24sp"
                     android:textStyle="bold"
-                    app:layout_constraintTop_toBottomOf="@+id/tvAmount"
-                    app:layout_constraintStart_toStartOf="parent"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/spinnerFromCurrency"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_amount_label"
+                    android:autofillHints="0.0" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardCurrencies"
-        android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/tv_currency_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/eur"
+                    android:textColor="#333333"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/etAmount"
+                    app:layout_constraintBottom_toBottomOf="@+id/etAmount" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_exchange_rate"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="8dp"
-        app:strokeWidth="0dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        app:cardBackgroundColor="?attr/colorSurface"
-        app:layout_constraintTop_toBottomOf="@id/cardAmount"
+        android:layout_marginTop="16dp"
+        android:text="@string/_1_eur_10_84_mad"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:outlineAmbientShadowColor="@color/shadow"
-        android:outlineSpotShadowColor="@color/shadow" >
+        app:layout_constraintTop_toBottomOf="@+id/container_from_currency" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
+    <TextView
+        android:id="@+id/tv_rate_disclaimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/les_taux_de_conversion_sont_titre_indicatif"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_exchange_rate" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/from"
-                android:id="@+id/tvFromCurrency"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
-
-            <Spinner
-                android:id="@+id/spinnerFromCurrency"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="8dp"
-
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/spinner_background"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:spinnerMode="dropdown"
-                android:dropDownVerticalOffset="48dp"
-                android:overlapAnchor="false"
-                app:layout_constraintTop_toBottomOf="@+id/tvFromCurrency"
-                app:layout_constraintStart_toStartOf="parent"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/to"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:id="@+id/tvTo"
-                app:layout_constraintTop_toBottomOf="@id/spinnerFromCurrency"
-                app:layout_constraintStart_toStartOf="parent"/>
-
-            <Spinner
-                android:id="@+id/spinnerToCurrency"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@drawable/spinner_background"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:layout_marginTop="8dp"
-                android:spinnerMode="dropdown"
-                android:dropDownVerticalOffset="48dp"
-                android:overlapAnchor="false"
-                app:layout_constraintTop_toBottomOf="@+id/tvTo"
-                app:layout_constraintStart_toStartOf="parent"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
-    <com.google.android.material.button.MaterialButton
+    <!-- Convert Button -->
+    <ImageView
         android:id="@+id/btnConvert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/baseline_circle_24"
+        android:backgroundTint="@color/primary_light"
+        android:contentDescription="@string/convert"
+        android:padding="20dp"
+        android:src="@drawable/baseline_swap_vert_24"
+        app:layout_constraintBottom_toTopOf="@+id/container_to_currency"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/container_from_currency"
+        app:tint="@color/primary_light" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_to_currency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="@string/convert_currency"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:icon="@drawable/baseline_currency_exchange_24"
-        app:iconGravity="textStart"
-        app:iconPadding="8dp"
-        android:textColor="?attr/colorPrimary"
-        style="@style/Widget.Material3.Button.OutlinedButton"
-        app:strokeColor="?attr/colorPrimary"
-        app:strokeWidth="2dp"
-        app:cornerRadius="28dp"
-        app:layout_constraintTop_toBottomOf="@id/cardCurrencies"
+        app:layout_constraintTop_toBottomOf="@+id/tv_rate_disclaimer">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/convertcard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="?attr/colorSurface"
+            app:cardElevation="8dp"
+            android:outlineAmbientShadowColor="@color/shadow"
+            android:outlineSpotShadowColor="@color/shadow">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+                <TextView
+                    android:id="@+id/tv_converted_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/montant"
+                    android:textColor="@color/primary_light"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/flag_mad"
+                    android:layout_width="32dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/flag_of_morocco_waving"
+                    android:contentDescription="@string/morocco_flag"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_converted_label" />
+
+                <TextView
+                    android:id="@+id/tvConvertedAmount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/_0_00"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_mad_code"
+                    app:layout_constraintStart_toEndOf="@+id/flag_mad"
+                    app:layout_constraintTop_toTopOf="@+id/flag_mad"
+                    app:layout_constraintBottom_toBottomOf="@+id/flag_mad" />
+
+                <TextView
+                    android:id="@+id/tv_mad_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mad"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvConvertedAmount"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvConvertedAmount" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardResult"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:visibility="gone"
-        android:layout_marginBottom="24dp"
-        android:layout_marginTop="24dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="12dp"
-        app:strokeWidth="2dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        app:cardBackgroundColor="?attr/colorSurface"
-        app:layout_constraintTop_toBottomOf="@id/btnConvert"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:outlineAmbientShadowColor="@color/shadow"
-        android:outlineSpotShadowColor="@color/shadow"  >
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp"
+        app:layout_constraintTop_toBottomOf="@+id/container_to_currency">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="24dp"
-            android:gravity="center">
-            <ProgressBar
-                android:id="@+id/progressBar"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/converted_amount"
-                android:textSize="14sp"
-                android:id="@+id/tvConvertedLabel"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
-
-            <TextView
-                android:id="@+id/tvConvertedAmount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/_0_00"
-                android:textSize="32sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="12dp"
-                android:layout_marginTop="16dp"
-                tools:text="85.32"
-                android:gravity="center"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvConvertedLabel"/>
-
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@string/conversion_completed_successfully"
+            android:textColor="#4CAF50"
+            android:textSize="14sp" />
 
     </androidx.cardview.widget.CardView>
 

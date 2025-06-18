@@ -6,8 +6,10 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.attijariwafabank.devisesapp.R
 import com.attijariwafabank.devisesapp.databinding.ActivitySignupBinding
+import com.attijariwafabank.devisesapp.utils.ThemeUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import java.util.Locale
@@ -20,6 +22,8 @@ class SignUpActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AppCompatDelegate.setDefaultNightMode(ThemeUtils.loadTheme(this))
+
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
         firebaseAuth = FirebaseAuth.getInstance()

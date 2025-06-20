@@ -26,6 +26,13 @@ class ThemeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if (ThemeUtils.loadTheme(requireContext()) == AppCompatDelegate.MODE_NIGHT_YES) {
+            binding?.radioDarkMode?.isChecked = true
+        } else if (ThemeUtils.loadTheme(requireContext()) == AppCompatDelegate.MODE_NIGHT_NO) {
+            binding?.radioLightMode?.isChecked = true
+        } else {
+            binding?.switchAutomatic?.isChecked = true
+        }
 
         binding?.radioDarkMode?.setOnClickListener {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)

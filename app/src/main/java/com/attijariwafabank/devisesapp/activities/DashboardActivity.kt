@@ -26,18 +26,14 @@ class DashboardActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDashboardBinding
     private lateinit var auth: FirebaseAuth
     private val viewModel: CurrencyViewModel by viewModels()
+    private var isNavigationSetup = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AppCompatDelegate.setDefaultNightMode(ThemeUtils.loadTheme(this))
-
         super.onCreate(savedInstanceState)
 
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
-    }
-
-    override fun onStart() {
-        super.onStart()
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -48,20 +44,58 @@ class DashboardActivity : AppCompatActivity() {
         navController = navHostFragment.navController
 
         val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.mainPage,
-                R.id.agencyFragment2,
-                R.id.bottom_menu
-            )
+            setOf(R.id.mainPage, R.id.agencyFragment2, R.id.Menu)
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            supportActionBar?.title = destination.label ?: ""
-        }
-
         val bottomNavView: BottomNavigationView = binding.navigationView
         NavigationUI.setupWithNavController(bottomNavView, navController)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            val localizedTitle = when (destination.id) {
+                R.id.mainPage -> getString(R.string.home)
+                R.id.agencyFragment2 -> getString(R.string.agencies)
+                R.id.Menu -> getString(R.string.settings)
+                R.id.currencyGraphFragment-> getString(R.string.line_chart)
+                R.id.conversionFragment -> getString(R.string.conversion)
+                R.id.settings -> getString(R.string.settings)
+                R.id.profileFragment -> getString(R.string.profile)
+                R.id.editProfileFragment -> getString(R.string.edit_profile)
+                R.id.password -> getString(R.string.password)
+                R.id.themeFragment -> getString(R.string.theme)
+                R.id.languages -> getString(R.string.languages)
+                R.id.helpFragment -> getString(R.string.help)
+
+
+                else -> ""
+            }
+            supportActionBar?.title = localizedTitle
+
+            if (isNavigationSetup) {
+                when (destination.id) {
+                    R.id.mainPage -> bottomNavView.selectedItemId = R.id.bottom_home
+                    R.id.agencyFragment2 -> bottomNavView.selectedItemId = R.id.bottom_agency
+                    R.id.Menu -> bottomNavView.selectedItemId = R.id.bottom_menu
+                }
+            }
+        }
+
+        bottomNavView.setOnItemSelectedListener { item ->
+            if (isNavigationSetup) {
+                when (item.itemId) {
+                    R.id.bottom_home -> if (navController.currentDestination?.id != R.id.mainPage) {
+                        navController.navigate(R.id.mainPage)
+                    }
+                    R.id.bottom_agency -> if (navController.currentDestination?.id != R.id.agencyFragment2) {
+                        navController.navigate(R.id.agencyFragment2)
+                    }
+                    R.id.bottom_menu -> if (navController.currentDestination?.id != R.id.Menu) {
+                        navController.navigate(R.id.Menu)
+                    }
+                }
+            }
+            true
+        }
 
         auth = FirebaseAuth.getInstance()
 
@@ -69,14 +103,25 @@ class DashboardActivity : AppCompatActivity() {
             Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
         }
 
-        bottomNavView.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.bottom_home -> navController.navigate(R.id.mainPage)
-                R.id.bottom_agency -> navController.navigate(R.id.agencyFragment2)
-                R.id.bottom_menu -> navController.navigate(R.id.Menu)
+        isNavigationSetup = true
+
+        if (savedInstanceState == null && navController.currentDestination?.id == null) {
+            bottomNavView.selectedItemId = R.id.bottom_home
+            navController.navigate(R.id.mainPage)
+        } else {
+            navController.currentDestination?.let {
+                when (it.id) {
+                    R.id.mainPage -> bottomNavView.selectedItemId = R.id.bottom_home
+                    R.id.agencyFragment2 -> bottomNavView.selectedItemId = R.id.bottom_agency
+                    R.id.Menu -> bottomNavView.selectedItemId = R.id.bottom_menu
+                }
             }
-            true
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        isNavigationSetup = false
     }
 
     override fun attachBaseContext(newBase: Context) {

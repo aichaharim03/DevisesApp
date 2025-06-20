@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.attijariwafabank.devisesapp.R
+import com.attijariwafabank.devisesapp.adapter.CurrencySpinnerAdapter
 import com.attijariwafabank.devisesapp.enums.CurrencyEnum
 import com.attijariwafabank.devisesapp.viewModels.CurrencyViewModel
 import com.attijariwafabank.devisesapp.databinding.FragmentConversionBinding
@@ -18,9 +18,8 @@ class ConversionFragment : Fragment() {
 
     private val viewModel: CurrencyViewModel by viewModels()
     private var binding: FragmentConversionBinding? = null
-    private val accessKey = "3bdb79681826eff584ac6f3ccd1b4a82"
-    private lateinit var spinnerAdapter: ArrayAdapter<String>
-
+    private val accessKey = "ca153fc53a18d844476abcc90b57143c"
+    private lateinit var currencyAdapter: CurrencySpinnerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,11 +36,8 @@ class ConversionFragment : Fragment() {
         setupObservers()
         setupListeners()
 
-
-
-
         val allTargetCurrencies = CurrencyEnum.entries.joinToString(",") { it.code }
-        val initialCurrency = CurrencyEnum.entries.find { it != CurrencyEnum.MAD }?.code ?: "EUR"
+        val initialCurrency = CurrencyEnum.USD.code
         viewModel.fetchCurrencies(
             accessKey = accessKey,
             source = initialCurrency,
@@ -51,21 +47,15 @@ class ConversionFragment : Fragment() {
 
     private fun setupSpinners() {
         val currencies = CurrencyEnum.entries.filter { it != CurrencyEnum.MAD }
-        val currencyCodes = currencies.map { it.code }
 
-        val adapter = ArrayAdapter(
-            requireContext(),
-            android.R.layout.simple_spinner_item,
-            currencyCodes
-        )
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding?.spinnerFromCurrency?.adapter = adapter
+        currencyAdapter = CurrencySpinnerAdapter(requireContext(), currencies)
+        binding?.spinnerFromCurrency?.adapter = currencyAdapter
 
-        // Sélectionne "EUR" par défaut ou le premier disponible
-        val defaultCurrencyCode = "EUR"
-        val defaultIndex = currencyCodes.indexOf(defaultCurrencyCode).takeIf { it >= 0 } ?: 0
+        val usdIndex = currencies.indexOfFirst { it == CurrencyEnum.USD }
+        val defaultIndex = if (usdIndex >= 0) usdIndex else 0
         binding?.spinnerFromCurrency?.setSelection(defaultIndex)
-        updateCurrencyCode(currencyCodes[defaultIndex])
+
+        updateCurrencyCode(currencies[defaultIndex].code)
 
         binding?.spinnerFromCurrency?.onItemSelectedListener =
             object : android.widget.AdapterView.OnItemSelectedListener {
@@ -75,13 +65,13 @@ class ConversionFragment : Fragment() {
                     position: Int,
                     id: Long
                 ) {
-                    val selectedCode = currencyCodes[position]
-                    updateCurrencyCode(selectedCode)
+                    val selectedCurrency = currencies[position]
+                    updateCurrencyCode(selectedCurrency.code)
 
                     val allTargetCurrencies = CurrencyEnum.entries.joinToString(",") { it.code }
                     viewModel.fetchCurrencies(
                         accessKey = accessKey,
-                        source = selectedCode,
+                        source = selectedCurrency.code,
                         currencies = allTargetCurrencies
                     )
 
@@ -107,9 +97,16 @@ class ConversionFragment : Fragment() {
         }
 
         viewModel.currencies.observe(viewLifecycleOwner) { currencyList ->
-            val selectedCurrency = binding?.spinnerFromCurrency?.selectedItem as? CurrencyEnum
+            val selectedPosition = binding?.spinnerFromCurrency?.selectedItemPosition ?: 0
+            val currencies = CurrencyEnum.entries.filter { it != CurrencyEnum.MAD }
+            val selectedCurrency = currencies.getOrNull(selectedPosition)
+
             selectedCurrency?.let { fromCurrency ->
-                val madEntry = currencyList.find { it.startsWith("MAD") || it.startsWith("${fromCurrency.code}MAD") || it.contains("MAD") }
+                val madEntry = currencyList.find {
+                    it.startsWith("MAD") ||
+                            it.startsWith("${fromCurrency.code}MAD") ||
+                            it.contains("MAD")
+                }
                 madEntry?.let {
                     val parts = it.split(":")
                     if (parts.size == 2) {
@@ -125,12 +122,9 @@ class ConversionFragment : Fragment() {
                 }
             }
         }
-
     }
 
     private fun setupListeners() {
-
-
         binding?.btnConvert?.setOnClickListener {
             performConversion()
         }
@@ -140,8 +134,6 @@ class ConversionFragment : Fragment() {
                 performConversion()
             }
         }
-
-
     }
 
     private fun performConversion() {
@@ -162,8 +154,11 @@ class ConversionFragment : Fragment() {
             return
         }
 
-        val selectedCode = binding?.spinnerFromCurrency?.selectedItem as? String
-        if (selectedCode == null) {
+        val selectedPosition = binding?.spinnerFromCurrency?.selectedItemPosition ?: 0
+        val currencies = CurrencyEnum.entries.filter { it != CurrencyEnum.MAD }
+        val selectedCurrency = currencies.getOrNull(selectedPosition)
+
+        if (selectedCurrency == null) {
             Toast.makeText(
                 requireContext(),
                 getString(R.string.please_select_currencies),
@@ -173,24 +168,18 @@ class ConversionFragment : Fragment() {
         }
 
         binding?.progressBar?.visibility = View.VISIBLE
-        viewModel.convertCurrency(accessKey, selectedCode, CurrencyEnum.MAD.code, amount)
+        viewModel.convertCurrency(accessKey, selectedCurrency.code, CurrencyEnum.MAD.code, amount)
     }
 
     private fun updateCurrencyCode(currencyCode: String) {
         binding?.tvCurrencyCode?.text = currencyCode
-
         binding?.tvExchangeRate?.text = getString(R.string._1_mad_, currencyCode)
-
     }
 
     private fun updateConvertedAmount(amount: Double) {
         val formattedAmount = String.format(Locale.getDefault(), "%.2f", amount)
         binding?.tvConvertedAmount?.text = formattedAmount.replace(".", ".")
     }
-
-
-
-
 
     override fun onDestroyView() {
         super.onDestroyView()

@@ -25,7 +25,7 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Change the language"
+        android:text="@string/change_the_language"
         android:id="@+id/text_language_description"
         android:textSize="12sp"
         android:gravity="center"

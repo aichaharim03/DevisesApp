@@ -5,11 +5,11 @@
     <string name="WelcomePage">Welcome to Devises App</string>
     <string name="backtoLogin">Already have an account? Log in!</string>
     <string name="backtoSignUp">Don\'t have an account ? Sign Up!</string>
-    <string name="password">Password</string>
+    <string name="password">Change Password</string>
     <string name="email">Email :</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="settings">Settings</string>
-    <string name="profile">Profil</string>
+    <string name="profile">Profile</string>
     <string name="change_password">Change Password</string>
     <string name="confirm_new_password">Confirm New Password</string>
     <string name="new_password">New Password</string>
@@ -52,6 +52,7 @@
     <string name="historical_exchange_rate_to">Historical Exchange Rate (%1$s to %2$s)</string>
     <string name="change_the_password">Change the password</string>
     <string name="account_settings">Account settings</string>
+    <string name="line_chart">Historical Rates</string>
     <string name="preferences">Preferences</string>
     <string name="theme">Theme</string>
     <string name="help">Help</string>
@@ -68,7 +69,7 @@
     <string name="nom_agence">Nom agence</string>
     <string name="adresse">Adresse</string>
     <string name="distance">Distance</string>
-    <string name="conversion">Conversion</string>
+    <string name="conversion">Converter</string>
     <string name="swap_currencies">Swap currencies</string>
     <string name="conversion_result">Converted amount : %1$.2f</string>
     <string name="closest">Closest</string>
@@ -141,7 +142,7 @@
     <string name="enter_otp">Enter OTP</string>
     <string name="send_otp">Send OTP</string>
     <string name="current_password_required_for_email_change">Current password (required for email change)</string>
-    <string name="home">home</string>
+    <string name="home">Home</string>
     <string name="icon">icon</string>
     <string name="menu">Menu</string>
     <string name="agencies">Agencies</string>
@@ -177,7 +178,7 @@
     <string name="for_any_assistance_or_information_request_please_contact_our_customer_relations_center_at">For any assistance or information request, please contact our Customer Relations Center at</string>
     <string name="clock">Clock</string>
     <string name="phonenumber">0522588855</string>
-    <string name="_9h00_17h30">9h00 - 17h30</string>
+    <string name="_9h00_17h30">9h00 – 17h30</string>
     <string name="monday_friday">Monday - Friday</string>
     <string name="back_to_login">Back to Login</string>
     <string name="password_reset_email_sent_successfully">Password reset email sent successfully!</string>
@@ -187,16 +188,21 @@
     <string name="error_message_here">Error message here</string>
     <string name="email_verification">Email Verification</string>
     <string name="_1_mad">1 %1$s = %2$s MAD</string>
-    <string name="taux_indisponible">Taux indisponible</string>
+    <string name="taux_indisponible">
+        Exchange rate not available for the selected currency pair.</string>
     <string name="_1_mad_">1 %1$s = -- MAD</string>
-    <string name="les_taux_de_conversion_sont_titre_indicatif">Les taux de conversion sont à titre indicatif</string>
-    <string name="montant">Montant</string>
+    <string name="les_taux_de_conversion_sont_titre_indicatif">Exchange rates are indicative</string>
+    <string name="montant">
+        Amount</string>
     <string name="_1200">1200</string>
     <string name="_1_eur_10_84_mad">1 EUR = 10.84 MAD</string>
     <string name="eur">EUR</string>
     <string name="morocco_flag">Morocco Flag</string>
     <string name="mad">MAD</string>
     <string name="conversion_completed_successfully">Conversion completed successfully</string>
+    <string name="currency_flag">currency_flag</string>
+    <string name="usd">USD</string>
+    <string name="change_the_language">Change the language</string>
 
 
 </resources>

@@ -6,11 +6,11 @@
     <string name="WelcomePage">Bienvenu a Devises App</string>
     <string name="backtoLogin">Vous avez deja un compte? Se Connecter!</string>
     <string name="backtoSignUp">Vous n\'avez pas de compte? S\'authentifier!</string>
-    <string name="password">Mot de passe</string>
+    <string name="password">Changer le mot de passe</string>
     <string name="email">Email</string>
     <string name="confirm_password">Confirmer le mot de passe</string>
     <string name="settings">Parametres</string>
-    <string name="profile">Profile</string>
+    <string name="profile">Profil</string>
     <string name="change_password">Changer le mot de passe</string>
     <string name="confirm_new_password">Confirmer le nouveau mot de Password</string>
     <string name="new_password">Nouveau mot de Password</string>
@@ -68,7 +68,7 @@
     <string name="nom_agence">Nom agence</string>
     <string name="adresse">Adresse</string>
     <string name="distance">Distance</string>
-    <string name="conversion">Conversion</string>
+    <string name="conversion">Convertisseur</string>
     <string name="swap_currencies">Changer les devise</string>
     <string name="conversion_result">Montant converti : %1$.2f</string>
     <string name="closest">Plus proche</string>
@@ -174,7 +174,34 @@
     <string name="app_preferences">Préférences de l\'application</string>
     <string name="logouut">Se déconnecter</string>
     <string name="sign_out_of_your_account">Se déconnecter de votre compte</string>
-
-
+    <string name="for_any_assistance_or_information_request_please_contact_our_customer_relations_center_at">Pour toute assistance ou demande d\'information, veuillez contacter notre centre de relations clients au</string>
+    <string name="clock">Horloge</string>
+    <string name="phonenumber">0522588855</string>
+    <string name="_9h00_17h30">9h00 – 17h30</string>
+    <string name="monday_friday">Lundi - Vendredi</string>
+    <string name="back_to_login">Retour à la connexion</string>
+    <string name="password_reset_email_sent_successfully">Réinitialisation du mot de passe : e-mail envoyé avec succès</string>
+    <string name="send_reset_link">Envoyer le lien de réinitialisation</string>
+    <string name="reset_your_password">Réinitialiser votre mot de passe</string>
+    <string name="enter_your_email_address_and_we_ll_send_you_a_link_to_reset_your_password">Entrez votre adresse e-mail et nous vous enverrons un lien pour réinitialiser votre mot de passe</string>
+    <string name="error_message_here">Erreur message ici</string>
+    <string name="email_verification">
+        Veuillez vérifier votre e-mail pour le lien de vérification. Si vous ne le trouvez pas, vérifiez votre dossier spam ou cliquez sur "Renvoyer l'e-mail de vérification".</string>
+    <string name="_1_mad">1 %1$s = %2$s MAD</string>
+    <string name="taux_indisponible">Taux indisponible</string>
+    <string name="_1_mad_">1 %1$s = -- MAD</string>
+    <string name="les_taux_de_conversion_sont_titre_indicatif">Les taux de conversion sont à titre indicatif</string>
+    <string name="montant">Montant</string>
+    <string name="_1200">1200</string>
+    <string name="_1_eur_10_84_mad">1 EUR = 10.84 MAD</string>
+    <string name="eur">EUR</string>
+    <string name="morocco_flag">Morocco Flag</string>
+    <string name="mad">MAD</string>
+    <string name="conversion_completed_successfully">
+        Conversion terminée avec succès : %1$.2f %2$s = %3$.2f MAD</string>
+    <string name="currency_flag">currency_flag</string>
+    <string name="usd">USD</string>
+    <string name="change_the_language">Modifier la langue</string>
+    <string name="line_chart">Historique des taux</string>
 
 </resources>

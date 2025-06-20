@@ -1,6 +1,7 @@
 package com.attijariwafabank.devisesapp.fragments
 
 import android.annotation.SuppressLint
+import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
@@ -61,7 +62,7 @@ class LineChartFragment : Fragment() {
         val endDate = dateFormat.format(endCalendar.time)
 
         viewModel.requestTimeFrame(
-            accessKey = "3bdb79681826eff584ac6f3ccd1b4a82",
+            accessKey = "ca153fc53a18d844476abcc90b57143c",
             source = sourceCurrency,
             targetCurrency = targetCurrency,
             startDate = startDate,
@@ -84,41 +85,78 @@ class LineChartFragment : Fragment() {
             binding?.noDataText?.text = errorMessage
             Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_LONG).show()
         }
-
     }
+
+    private fun getThemeColors(): ThemeColors {
+        val isDarkMode = (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES
+
+        return if (isDarkMode) {
+            ThemeColors(
+                backgroundColor = ContextCompat.getColor(requireContext(), R.color.background_dark),
+                textColor = ContextCompat.getColor(requireContext(), R.color.on_background_dark),
+                primaryColor = ContextCompat.getColor(requireContext(), R.color.primary_dark),
+                surfaceColor = ContextCompat.getColor(requireContext(), R.color.surface_dark),
+                gridColor = Color.parseColor("#404040"),
+                axisLineColor = Color.parseColor("#606060"),
+                secondaryTextColor = Color.parseColor("#B0B0B0")
+            )
+        } else {
+            ThemeColors(
+                backgroundColor = ContextCompat.getColor(requireContext(), R.color.background_light),
+                textColor = ContextCompat.getColor(requireContext(), R.color.on_background_light),
+                primaryColor = ContextCompat.getColor(requireContext(), R.color.primary_light),
+                surfaceColor = ContextCompat.getColor(requireContext(), R.color.surface_light),
+                gridColor = Color.LTGRAY,
+                axisLineColor = Color.GRAY,
+                secondaryTextColor = Color.DKGRAY
+            )
+        }
+    }
+
+    data class ThemeColors(
+        val backgroundColor: Int,
+        val textColor: Int,
+        val primaryColor: Int,
+        val surfaceColor: Int,
+        val gridColor: Int,
+        val axisLineColor: Int,
+        val secondaryTextColor: Int
+    )
 
     @SuppressLint("PrivateResource")
     private fun setupChart(rateMap: Map<String, Double>, labels: List<String>) {
+        val themeColors = getThemeColors()
+
         val entries = labels.mapIndexed { index, date ->
             Entry(index.toFloat(), (rateMap[date] ?: 0.0).toFloat())
         }
 
         val dataSet = LineDataSet(entries, getString(R.string.to_rate, sourceCurrency, targetCurrency)).apply {
-            color = ContextCompat.getColor(requireContext(), androidx.appcompat.R.color.material_blue_grey_800)
+            color = themeColors.primaryColor
             lineWidth = 3f
-            setCircleColor(ContextCompat.getColor(requireContext(), androidx.appcompat.R.color.material_blue_grey_800))
+            setCircleColor(themeColors.primaryColor)
             circleRadius = 5f
             circleHoleRadius = 3f
             setDrawFilled(true)
-            fillColor = ContextCompat.getColor(requireContext(), androidx.appcompat.R.color.material_blue_grey_800)
+            fillColor = themeColors.primaryColor
             fillAlpha = 30
             setDrawValues(true)
             valueTextSize = 10f
-            valueTextColor = Color.BLACK
+            valueTextColor = themeColors.textColor
             valueFormatter = object : ValueFormatter() {
                 override fun getFormattedValue(value: Float) = String.format("%.4f", value)
             }
             mode = LineDataSet.Mode.CUBIC_BEZIER
             cubicIntensity = 0.2f
             highlightLineWidth = 2f
-            highLightColor = Color.RED
+            highLightColor = themeColors.primaryColor
             setDrawHighlightIndicators(true)
             isHighlightEnabled = true
         }
 
         binding?.lineChart?.apply {
             data = LineData(dataSet)
-            setBackgroundColor(Color.WHITE)
+            setBackgroundColor(themeColors.backgroundColor)
             setDrawGridBackground(false)
             setDrawBorders(false)
             setTouchEnabled(true)
@@ -129,15 +167,15 @@ class LineChartFragment : Fragment() {
             xAxis.apply {
                 position = XAxis.XAxisPosition.BOTTOM
                 setDrawGridLines(true)
-                gridColor = Color.LTGRAY
+                gridColor = themeColors.gridColor
                 gridLineWidth = 0.5f
                 setDrawAxisLine(true)
-                axisLineColor = Color.GRAY
+                axisLineColor = themeColors.axisLineColor
                 axisLineWidth = 1f
                 granularity = 1f
                 labelRotationAngle = -45f
                 textSize = 10f
-                textColor = Color.DKGRAY
+                textColor = themeColors.textColor
                 typeface = Typeface.DEFAULT
                 valueFormatter = IndexAxisValueFormatter(labels.map { formatDateLabel(it) })
                 labelCount = 7
@@ -146,13 +184,13 @@ class LineChartFragment : Fragment() {
 
             axisLeft.apply {
                 setDrawGridLines(true)
-                gridColor = Color.LTGRAY
+                gridColor = themeColors.gridColor
                 gridLineWidth = 0.5f
                 setDrawAxisLine(true)
-                axisLineColor = Color.GRAY
+                axisLineColor = themeColors.axisLineColor
                 axisLineWidth = 1f
                 textSize = 10f
-                textColor = Color.DKGRAY
+                textColor = themeColors.textColor
                 typeface = Typeface.DEFAULT
                 spaceTop = 10f
                 spaceBottom = 10f
@@ -166,7 +204,7 @@ class LineChartFragment : Fragment() {
             legend.apply {
                 isEnabled = true
                 textSize = 12f
-                textColor = Color.DKGRAY
+                textColor = themeColors.textColor
                 typeface = Typeface.DEFAULT_BOLD
                 form = com.github.mikephil.charting.components.Legend.LegendForm.LINE
                 formSize = 12f
@@ -179,7 +217,7 @@ class LineChartFragment : Fragment() {
                     formatDateLabel(labels.last())
                 )
                 textSize = 11f
-                textColor = Color.GRAY
+                textColor = themeColors.secondaryTextColor
                 typeface = Typeface.DEFAULT
             }
 

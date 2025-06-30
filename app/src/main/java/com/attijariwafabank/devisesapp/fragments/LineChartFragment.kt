@@ -62,7 +62,7 @@ class LineChartFragment : Fragment() {
         val endDate = dateFormat.format(endCalendar.time)
 
         viewModel.requestTimeFrame(
-            accessKey = "ca153fc53a18d844476abcc90b57143c",
+            accessKey = "59fbbd15c97f28c0e122fa9c95db1df1",
             source = sourceCurrency,
             targetCurrency = targetCurrency,
             startDate = startDate,

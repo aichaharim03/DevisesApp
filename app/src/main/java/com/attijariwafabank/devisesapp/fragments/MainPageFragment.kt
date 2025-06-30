@@ -69,7 +69,7 @@ class MainPageFragment : Fragment() {
         val allTargetCurrencies = CurrencyEnum.entries.joinToString(",") { it.code }
 
         viewModel.fetchCurrencies(
-            accessKey = "ca153fc53a18d844476abcc90b57143c",
+            accessKey = "59fbbd15c97f28c0e122fa9c95db1df1",
             source = selectedSource,
             currencies = allTargetCurrencies
         )
@@ -78,7 +78,7 @@ class MainPageFragment : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 selectedSource = sourceCurrencies[position].code
                 viewModel.fetchCurrencies(
-                    accessKey = "ca153fc53a18d844476abcc90b57143c",
+                    accessKey = "59fbbd15c97f28c0e122fa9c95db1df1",
                     source = selectedSource,
                     currencies = allTargetCurrencies
                 )

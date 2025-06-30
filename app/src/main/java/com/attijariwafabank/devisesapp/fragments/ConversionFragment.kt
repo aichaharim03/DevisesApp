@@ -18,7 +18,7 @@ class ConversionFragment : Fragment() {
 
     private val viewModel: CurrencyViewModel by viewModels()
     private var binding: FragmentConversionBinding? = null
-    private val accessKey = "ca153fc53a18d844476abcc90b57143c"
+    private val accessKey = "59fbbd15c97f28c0e122fa9c95db1df1"
     private lateinit var currencyAdapter: CurrencySpinnerAdapter
 
     override fun onCreateView(
